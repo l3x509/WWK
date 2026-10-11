@@ -11,8 +11,8 @@
   </script>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>WatchWithKids — Find Family Movies &amp; Shows to Watch With Your Kids</title>
-  <meta name="description" content="Find the perfect family movie or show to watch with your kids ages 3–12. Filter by age, mood, and platform. Free family film finder — no sign-up needed."/>
+  <title>WatchWithKids — Free Family Movie Finder for Kids Ages 3–12</title>
+  <meta name="description" content="WatchWithKids is a free family movie and show finder. Watch with kids ages 3–12: filter by age, mood and streaming platform, with parent-friendly picks. No sign-up."/>
 
   <!-- ── FAVICON ── -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='85'>🍿</text></svg>"/>
@@ -52,9 +52,22 @@
     "@graph": [
       {
         "@type": "WebSite",
+        "@id": "https://watchwithkids.com/#website",
         "name": "WatchWithKids",
-        "url": "https://watchwithkids.com",
+        "alternateName": ["Watch With Kids", "WatchWithKids.com"],
+        "url": "https://watchwithkids.com/",
+        "inLanguage": "en-US",
+        "publisher": { "@id": "https://watchwithkids.com/#organization" },
         "description": "Find the perfect family movie or show to watch with your kids tonight. Filter by age 3–12, mood, and platform."
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://watchwithkids.com/#organization",
+        "name": "WatchWithKids",
+        "alternateName": "Watch With Kids",
+        "url": "https://watchwithkids.com/",
+        "logo": "https://watchwithkids.com/og-image.png",
+        "description": "WatchWithKids is a free family movie and TV show finder for parents of kids ages 3 to 12."
       },
       {
         "@type": "FAQPage",
@@ -205,6 +218,8 @@
       line-height: 1.65; max-width: 460px; margin: 0 auto;
     }
 
+    .hero-cta{display:inline-block;margin-top:22px;background:linear-gradient(135deg,#f59e0b,#f0860a);color:#0a0a14;font-weight:700;font-size:16px;text-decoration:none;padding:14px 30px;border-radius:100px;box-shadow:0 8px 28px rgba(245,158,11,.25)}
+    .hero-cta:hover{transform:translateY(-1px)}
     .hero h1, .hero-h1 {
       font-family: var(--font-display);
       font-size: clamp(34px, 6.5vw, 62px);
@@ -614,6 +629,13 @@
     .guides-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 16px; }
     .guides-head h2 { font-family: var(--font-display); font-size: 24px; color: #fff; }
     .guides-head a { font-family: var(--font-mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); text-decoration: none; white-space: nowrap; }
+    /* wwk-allguides */
+    .all-guides{max-width:940px;margin:28px auto 0;padding:0 0 4px}
+    .all-guides h3{font-family:var(--font-display);font-size:18px;color:#fff;margin-bottom:12px}
+    .all-guides-group{font-size:14px;line-height:1.9;color:#c8c8de;margin-bottom:6px}
+    .all-guides-group span{display:inline-block;min-width:96px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#f59e0b;margin-right:8px}
+    .all-guides-group a{color:#fafafa;text-decoration:none;border-bottom:1px solid rgba(245,158,11,.35)}
+    .all-guides-group a:hover{color:#f59e0b}
     .guides-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
     .guide-card { display: block; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 16px 18px; text-decoration: none; transition: border-color .15s, transform .15s; }
     .guide-card:hover { border-color: var(--gold-border); transform: translateY(-2px); }
@@ -944,7 +966,8 @@
   <div class="hero-glow"></div>
   <div style="position:relative;z-index:1;">
     <h1 class="hero-h1">Find family movies &amp; shows<br/><em>to watch with your kids</em></h1>
-    <p class="hero-sub">Pick a mood, set the ages, get picks everyone actually enjoys — including you.</p>
+    <p class="hero-sub">WatchWithKids is a free movie finder for families. Set the ages, pick a mood, and get picks everyone enjoys in about 10 seconds. No sign-up.</p>
+    <a href="#panel-toggle" class="hero-cta" id="hero-cta">Find something to watch</a>
   </div>
 </section>
 
@@ -1175,6 +1198,9 @@
     <a class="guide-card" href="/blog/screen-time-guidelines-by-age-2026" data-guide="screen-time-guidelines-by-age-2026"><div class="guide-tag">Screen time</div><div class="guide-title">Screen Time Guidelines by Age (2026)</div></a>
     <a class="guide-card" href="/blog/family-movies-parents-enjoy-too" data-guide="family-movies-parents-enjoy-too"><div class="guide-tag">For parents</div><div class="guide-title">Family Movies Parents Actually Enjoy Too</div></a>
   </div>
+<!--wwk-allguides-start-->
+<div class="all-guides"><h3>Every guide</h3><div class="all-guides-group"><span>By age</span><a href="/blog/best-movies-for-3-year-olds">Best Movies for 3-Year-Olds</a> · <a href="/blog/age-appropriate-movies-4-year-olds">How to Choose Movies for a 4-Year-Old</a> · <a href="/blog/best-shows-for-5-year-olds">Best Shows for 5-Year-Olds</a> · <a href="/blog/best-movies-for-6-year-olds">Best Movies for 6-Year-Olds</a> · <a href="/blog/best-movies-for-7-year-olds">Best Movies for 7-Year-Olds</a> · <a href="/blog/best-movies-for-8-year-olds">Best Movies for 8-Year-Olds</a> · <a href="/blog/best-movies-for-9-year-olds">Best Movies for 9-Year-Olds</a> · <a href="/blog/best-movies-for-10-year-olds">Best Movies for 10-Year-Olds</a></div><div class="all-guides-group"><span>By service</span><a href="/blog/best-family-movies-netflix">Best Family Movies on Netflix</a> · <a href="/blog/disney-plus-family-movies-by-age">Disney+ Family Movies by Age</a> · <a href="/blog/best-family-movies-amazon-prime">Best Family Movies on Amazon Prime</a></div><div class="all-guides-group"><span>Seasonal</span><a href="/blog/best-halloween-movies-for-kids">Best Halloween Movies for Kids, by Scare Level</a></div><div class="all-guides-group"><span>New releases</span><a href="/blog/new-family-movies-this-month">New Family Movies &amp; Shows This Month</a></div><div class="all-guides-group"><span>Parent guide</span><a href="/blog/toy-story-5-appropriate-for-kids">Is Toy Story 5 Appropriate for Kids?</a> · <a href="/blog/spider-man-brand-new-day-appropriate-for-kids">Is Spider-Man: Brand New Day Appropriate for Kids?</a> · <a href="/blog/moana-2026-appropriate-for-kids">Is Moana (2026) Appropriate for Kids?</a></div><div class="all-guides-group"><span>Bedtime</span><a href="/blog/calm-bedtime-movies-kids">Calm Bedtime Movies for Toddlers &amp; Kids</a></div><div class="all-guides-group"><span>Ideas</span><a href="/blog/rainy-day-movies-for-kids">Rainy Day Movies for Kids</a></div><div class="all-guides-group"><span>Mixed ages</span><a href="/blog/movies-for-siblings-different-ages">What to Watch When Your Kids Are Different Ages</a></div><div class="all-guides-group"><span>For parents</span><a href="/blog/family-movies-parents-enjoy-too">Family Movies Parents Actually Enjoy Too</a></div><div class="all-guides-group"><span>Basics</span><a href="/blog/movie-ratings-guide-parents">What G, PG and PG-13 Actually Mean</a></div><div class="all-guides-group"><span>Screen time</span><a href="/blog/screen-time-guidelines-by-age-2026">Screen Time Guidelines by Age (2026)</a></div></div>
+<!--wwk-allguides-end-->
 </section>
 
 <!-- ── SEO CONTENT ────────────────────────────────────────────────────────────── -->
@@ -2370,6 +2396,15 @@ if (location.search.length > 1) doSearch(true);
 
 <script>
 document.querySelectorAll('.guide-card').forEach(a => a.addEventListener('click', () => { try { track('guide_clicked', { guide: a.dataset.guide, from: 'home' }); } catch(e){} }));
+
+// Hero CTA: open the filter panel (if closed) and scroll to it
+document.getElementById('hero-cta')?.addEventListener('click', e => {
+  e.preventDefault();
+  const body = document.getElementById('panel-body');
+  if (body && !body.classList.contains('open')) document.getElementById('panel-toggle')?.click();
+  document.getElementById('panel-toggle')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  try { track('hero_cta_clicked', {}); } catch (_) {}
+});
 </script>
 </body>
 </html>

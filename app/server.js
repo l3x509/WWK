@@ -77,6 +77,16 @@ function rateLimit(req, res, next) {
   next();
 }
 
+// ── Canonical URLs: no trailing slash, no /index.html ───────────────────────
+app.use((req, res, next) => {
+  const qs = req.originalUrl.includes("?") ? req.originalUrl.slice(req.originalUrl.indexOf("?")) : "";
+  if (req.path === "/index.html") return res.redirect(301, "/" + qs);
+  if (req.path.length > 1 && req.path.endsWith("/") && !req.path.startsWith("/api/")) {
+    return res.redirect(301, req.path.replace(/\/+$/, "") + qs);
+  }
+  next();
+});
+
 // ── Retired URLs → permanent redirects (keeps any inbound links/ranking) ────
 const REDIRECTS = {
   "/blog/best-family-movies-this-weekend-may-2026": "/blog/new-family-movies-this-month",
@@ -97,7 +107,7 @@ app.get("/blog/:slug", (req, res) => {
   const slug = req.params.slug.replace(/[^a-z0-9-]/gi, "").slice(0, 80);
   const file = path.join(__dirname, "public", "blog", `${slug}.html`);
   res.sendFile(file, err => {
-    if (err) res.status(404).sendFile(path.join(__dirname, "public", "index.html"));
+    if (err) res.status(404).sendFile(path.join(__dirname, "public", "404.html"));
   });
 });
 
@@ -149,10 +159,9 @@ app.get("/api/tmdb/*", rateLimit, async (req, res) => {
 });
 
 // ── Catch-all → SPA ──────────────────────────────────────────────────────────
-app.get("*", (req, res) => {
-  // Missing files (e.g. /favicon.ico, /foo.txt) should 404, not return the homepage.
-  if (path.extname(req.path)) return res.status(404).type("text/plain").send("Not found");
-  res.sendFile(path.join(__dirname, "public", "index.html"));
+app.get("*", (_req, res) => {
+  // Unknown URLs get a real 404 (not the homepage with a 200), so Google doesn't index soft-404s.
+  res.status(404).sendFile(path.join(__dirname, "public", "404.html"));
 });
 
 app.listen(PORT, () => console.log(`🍿 WatchWithKids running on http://localhost:${PORT}`));
