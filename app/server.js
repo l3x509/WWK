@@ -61,7 +61,28 @@ const ALLOWED_PARAMS = new Set([
 
   // Avoid-filter params (crude humor keyword exclusion)
   "without_keywords",
+
+  // One detail call can carry the extras a card needs (runtime, age rating,
+  // themes, where-to-watch). Values are whitelisted below.
+  "append_to_response",
 ]);
+const APPEND_OK = new Set(["keywords", "release_dates", "content_ratings", "watch/providers", "videos"]);
+
+// ── Tiny in-memory cache for title-detail lookups (6h, max 3000 entries) ────
+// Cuts TMDb calls and speeds up repeat views; discover results are NOT cached.
+const detailCache = new Map();
+const DETAIL_TTL = 6 * 60 * 60 * 1000;
+const DETAIL_PATH = /^(movie|tv)\/\d+$/;
+function cacheGet(key) {
+  const hit = detailCache.get(key);
+  if (!hit) return null;
+  if (Date.now() > hit.exp) { detailCache.delete(key); return null; }
+  return hit.data;
+}
+function cacheSet(key, data) {
+  if (detailCache.size >= 3000) detailCache.delete(detailCache.keys().next().value);
+  detailCache.set(key, { data, exp: Date.now() + DETAIL_TTL });
+}
 
 // ── Simple in-memory rate limit: 100 req/min per IP ──────────────────────────
 const rateMap = new Map();
@@ -137,7 +158,18 @@ app.get("/api/tmdb/*", rateLimit, async (req, res) => {
 
     const query = new URLSearchParams();
     for (const [k, v] of Object.entries(req.query)) {
-      if (ALLOWED_PARAMS.has(k)) query.set(k, String(v).slice(0, 200));
+      if (!ALLOWED_PARAMS.has(k)) continue;
+      if (k === "append_to_response") {
+        const ok = String(v).split(",").map(x => x.trim()).filter(x => APPEND_OK.has(x));
+        if (ok.length) query.set(k, ok.join(","));
+        continue;
+      }
+      query.set(k, String(v).slice(0, 200));
+    }
+    const cacheKey = DETAIL_PATH.test(tmdbPath) ? `${tmdbPath}?${[...query].sort().map(([a, b]) => a + "=" + b).join("&")}` : null;
+    if (cacheKey) {
+      const hit = cacheGet(cacheKey);
+      if (hit) { res.setHeader("Cache-Control", "public, max-age=3600"); return res.json(hit); }
     }
     const headers = { Accept: "application/json" };
     if (IS_V4_TOKEN) headers.Authorization = `Bearer ${KEY}`;
@@ -151,6 +183,7 @@ app.get("/api/tmdb/*", rateLimit, async (req, res) => {
       console.error("TMDb rejected the credential (401). Check TMDB_API_KEY in the host's environment variables.");
     }
     const data = await upstream.json();
+    if (cacheKey && upstream.status === 200) { cacheSet(cacheKey, data); res.setHeader("Cache-Control", "public, max-age=3600"); }
     res.status(upstream.status).json(data);
   } catch (err) {
     console.error("TMDb proxy error:", err.message);

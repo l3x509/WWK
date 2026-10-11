@@ -20,3 +20,18 @@ Node/Express app: static pages in `app/public/`, plus a locked-down TMDb proxy a
 
 ## Not in the repo
 `app/public/og-image.png` — copy the existing file from the live site (Hostinger File Manager → `app/public/og-image.png`).
+
+## Scare / Sad meters, runtimes, shortlists
+
+- **Meters.** Every card shows Scary and Sad (Low / Medium / High). Our own editorial ratings live in
+  `app/public/data/meters.json` (one entry per film, matched by normalized title + optional year) and are shown solid.
+  Anything we have not rated is *estimated* from age rating, genre and TMDb themes and shown dashed with "(est.)".
+  To rate more films: add entries to `meters.json` (set `"manual": true` so the builder never overwrites them), or add a
+  meter table / Halloween-style levels to a guide and run `python3 tools/build_meters.py` from `app/`.
+  Estimator rules are in `public/wwk-core.js` (`estimate`), covered by `npm test`.
+- **Runtime + where to stream.** One TMDb call per card (`append_to_response`) returns runtime, age rating, themes and
+  providers; the server caches those detail lookups for 6 hours. The homepage has a "Film length" filter (films only).
+- **Shortlist sharing.** Saved titles -> "Share with co-parent" opens `/list?i=m550,t1399&n=Friday+night&v=Sam.uud~Alex.udu`.
+  Everything (titles, name, votes) lives in the URL, so there is no database and no account. `m` = movie, `t` = show;
+  votes: `u` yes, `d` no, `-` none. `/list` is `noindex` and not in the sitemap.
+- GA4 events to mark as key events once they appear: `list_shared`, `list_opened`.

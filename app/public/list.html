@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-N9CE5JXXW3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-N9CE5JXXW3');
+  </script>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Movie night shortlist — WatchWithKids</title>
+  <meta name="description" content="A shared movie night shortlist on WatchWithKids. Vote yes or no on each pick and see what you both agree on."/>
+  <meta name="robots" content="noindex, nofollow"/>
+  <link rel="canonical" href="https://watchwithkids.com/list"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="Movie night shortlist — vote on what to watch"/>
+  <meta property="og:description" content="Someone shared a family movie shortlist with you. Vote yes or no on each pick and see what you agree on."/>
+  <meta property="og:image" content="https://watchwithkids.com/og-image.png"/>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='85'>🍿</text></svg>"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="/wwk-core.css"/>
+  <style>
+    :root{--gold:#f59e0b;--gold-border:rgba(245,158,11,.35);--bg:#0a0a14;--surface:#10101e;--surface2:#13131f;--border:#1a1a2e;--text:#fafafa;
+      --font-display:'Playfair Display',serif;--font-mono:'DM Mono',monospace;--font-body:'DM Sans',sans-serif}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{background:var(--bg);color:var(--text);font-family:var(--font-body);line-height:1.5;min-height:100vh}
+    a{color:inherit}
+    nav{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;border-bottom:1px solid var(--border)}
+    .logo{font-family:var(--font-display);font-weight:900;font-size:20px;text-decoration:none}.logo em{color:var(--gold);font-style:normal}
+    .wrap{max-width:940px;margin:0 auto;padding:28px 16px 80px}
+    h1{font-family:var(--font-display);font-size:clamp(26px,5vw,38px);line-height:1.15;margin-bottom:6px}
+    .sub{color:#b9b9d0;font-size:15px;margin-bottom:20px}
+    .bar{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:14px;display:flex;gap:10px;flex-wrap:wrap;align-items:flex-end;margin-bottom:12px}
+    .field{display:flex;flex-direction:column;gap:4px;flex:1 1 150px}
+    .field label{font-family:var(--font-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#9696b0}
+    .field input{background:var(--bg);border:1px solid #2a2a3a;color:var(--text);border-radius:8px;padding:9px 10px;font:inherit;font-size:15px}
+    .field input:focus{outline:2px solid var(--gold);outline-offset:1px}
+    .btn{font-family:var(--font-body);font-weight:600;font-size:14px;background:var(--gold);color:#1a1200;border:0;border-radius:10px;padding:10px 14px;cursor:pointer}
+    .btn.ghost{background:transparent;color:var(--text);border:1px solid #2a2a3a}
+    .btn:hover{filter:brightness(1.08)}.btn:focus-visible{outline:2px solid #fff;outline-offset:2px}
+    .tip{font-family:var(--font-mono);font-size:11px;color:#9696b0;margin:2px 0 18px}
+    .summary{font-family:var(--font-mono);font-size:12px;color:#b9b9d0;margin:0 0 14px;min-height:18px}
+    .summary b{color:#6aaa6a}
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+    .item{background:var(--surface2);border:1px solid var(--border);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+    .item.match{border-color:#6aaa6a;box-shadow:0 0 0 1px #6aaa6a55}
+    .item.veto{opacity:.5}
+    .item.pick{animation:pop .6s ease;border-color:var(--gold);box-shadow:0 0 0 2px var(--gold)}
+    @keyframes pop{0%{transform:scale(.96)}60%{transform:scale(1.03)}100%{transform:scale(1)}}
+    .poster{position:relative;aspect-ratio:2/3;background:#0c0c18}
+    .poster img{width:100%;height:100%;object-fit:cover;display:block}
+    .ph{display:grid;place-items:center;height:100%;font-size:42px}
+    .ribbon{position:absolute;top:8px;left:8px;background:#6aaa6a;color:#08140a;font-family:var(--font-mono);font-size:10px;font-weight:500;letter-spacing:.06em;padding:3px 8px;border-radius:6px}
+    .body{padding:12px;display:flex;flex-direction:column;gap:6px;flex:1}
+    .title{font-family:var(--font-display);font-size:17px;line-height:1.2}
+    .meta{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
+    .cert{font-family:var(--font-mono);font-size:10px;border:1px solid #2a2a3a;border-radius:6px;padding:2px 7px;color:#b9b9d0}
+    .cert.g{color:#6aaa6a;border-color:#6aaa6a66}.cert.pg{color:var(--gold);border-color:var(--gold-border)}.cert.pg13{color:#e0a060;border-color:#e0a06066}
+    .where{display:flex;gap:5px;flex-wrap:wrap}
+    .where a{font-family:var(--font-mono);font-size:10px;text-decoration:none;border:1px solid #2a2a3a;border-radius:6px;padding:3px 7px;color:#d8d8ea;display:inline-flex;gap:5px;align-items:center}
+    .where a img{width:14px;height:14px;border-radius:3px}
+    .where a:hover{border-color:var(--gold-border);color:var(--gold)}
+    .votes{display:flex;gap:6px;margin-top:auto;padding-top:6px}
+    .vote{flex:1;background:transparent;border:1px solid #2a2a3a;color:var(--text);border-radius:10px;padding:9px 0;font-size:18px;cursor:pointer}
+    .vote[aria-pressed="true"].yes{background:#6aaa6a33;border-color:#6aaa6a}
+    .vote[aria-pressed="true"].no{background:#e0624a33;border-color:#e0624a}
+    .vote:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+    .rm{background:none;border:0;color:#7e7e98;font-family:var(--font-mono);font-size:10px;cursor:pointer;padding:2px 0;text-align:left}
+    .others{font-family:var(--font-mono);font-size:11px;color:#b9b9d0;display:flex;gap:8px;flex-wrap:wrap}
+    .empty{text-align:center;padding:60px 16px;color:#b9b9d0}
+    .empty a{color:var(--gold)}
+    .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:#1d1d30;border:1px solid var(--gold-border);color:var(--text);padding:10px 16px;border-radius:10px;font-size:14px;opacity:0;pointer-events:none;transition:opacity .2s;z-index:50}
+    .toast.show{opacity:1}
+    .hidden{display:none!important}
+    @media (max-width:560px){
+      .grid{grid-template-columns:1fr;gap:10px}
+      .item{flex-direction:row}
+      .poster{width:96px;flex:0 0 96px;aspect-ratio:auto;min-height:150px}
+      .ribbon{top:auto;bottom:6px;left:6px;right:6px;text-align:center;font-size:9px;padding:2px 4px}
+      .body{padding:10px}
+      .title{font-size:16px}
+    }
+    .note{margin-top:34px;font-size:13px;color:#8c8ca6;border-top:1px solid var(--border);padding-top:14px}
+  </style>
+</head>
+<body>
+<nav><a class="logo" href="/">WatchWith<em>Kids</em></a><a href="/" style="font-size:14px;color:#b9b9d0">← Find more movies</a></nav>
+<main class="wrap">
+  <h1 id="h1">Movie night shortlist</h1>
+  <p class="sub" id="sub">Vote 👍 or 👎 on each pick. Share the link and see what you both say yes to.</p>
+
+  <div id="app" class="hidden">
+    <div class="bar">
+      <div class="field"><label for="myName">Your name</label><input id="myName" maxlength="16" autocomplete="given-name" placeholder="e.g. Sam"/></div>
+      <div class="field"><label for="listName">List name (optional)</label><input id="listName" maxlength="40" placeholder="Friday movie night"/></div>
+      <button class="btn" id="shareBtn">🔗 Share with co-parent</button>
+      <button class="btn ghost" id="pickBtn">🎲 Tonight's pick</button>
+      <button class="btn ghost" id="saveAllBtn">🔖 Save all</button>
+    </div>
+    <p class="tip">No account needed. Your votes live inside the link. After you vote, share the link again and they will see your picks.</p>
+    <p class="summary" id="summary" aria-live="polite"></p>
+    <div class="grid" id="grid"></div>
+    <p class="note">Scary and Sad meters marked “est.” are estimates from age rating, genre and themes. Streaming availability is US and can change. Not affiliated with any streaming service.</p>
+  </div>
+
+  <div class="empty hidden" id="empty">
+    <p style="font-size:34px">🍿</p>
+    <p style="margin:8px 0 14px">This list is empty or the link is not valid.</p>
+    <p><a href="/">Find something to watch</a>, tap the bookmark on titles you like, then choose “Share with co-parent”.</p>
+  </div>
+</main>
+<div class="toast" id="toast" role="status"></div>
+
+<script src="/wwk-core.js"></script>
+<script>
+(function () {
+  "use strict";
+  var W = window.WWK, esc = W.esc;
+  var IMG = "https://image.tmdb.org/t/p/w342";
+  var AMAZON_TAG = "watchwithkids-20"; // keep in sync with index.html
+  function track(n, p) { try { gtag("event", n, p || {}); } catch (e) {} }
+  function store(k, v) { try { if (v === undefined) return localStorage.getItem(k); localStorage.setItem(k, v); } catch (e) {} return null; }
+
+  var parsed = W.parseList(location.search);
+  var items = parsed.items;
+  if (!items.length) { document.getElementById("empty").classList.remove("hidden"); return; }
+  document.getElementById("app").classList.remove("hidden");
+
+  var voters = parsed.voters;                   // name -> codes
+  var myName = W.cleanName(store("wwk_name") || "");
+  var details = {};                              // token -> parsed details
+  var meters = { titles: {} };
+  var pickToken = null;
+
+  var $ = function (id) { return document.getElementById(id); };
+  var nameIn = $("myName"), listIn = $("listName");
+  nameIn.value = myName; listIn.value = parsed.name;
+  if (parsed.name) { $("h1").textContent = parsed.name; document.title = parsed.name + " — WatchWithKids"; }
+  var others = Object.keys(voters).filter(function (n) { return n !== myName; });
+  if (others.length) $("sub").textContent = others.join(" and ") + (others.length > 1 ? " have" : " has") + " voted. Add your votes, then share it back.";
+
+  function codes() {
+    var c = voters[myName] || "";
+    while (c.length < items.length) c += "-";
+    return c;
+  }
+  function setVote(idx, ch) {
+    if (!myName) { nameIn.focus(); toast("Add your name first so they know who voted"); return; }
+    var c = codes().split("");
+    c[idx] = c[idx] === ch ? "-" : ch;
+    var s = c.join("");
+    if (/^-*$/.test(s)) delete voters[myName]; else voters[myName] = s;
+    track("list_vote", { vote: c[idx] === "-" ? "clear" : c[idx] === "u" ? "yes" : "no" });
+    syncUrl(); render();
+  }
+  function currentUrl() { return W.buildListUrl(location.origin, items, listIn.value, voters); }
+  function syncUrl() { try { history.replaceState(null, "", currentUrl().replace(location.origin, "")); } catch (e) {} }
+
+  nameIn.addEventListener("change", function () {
+    var nn = W.cleanName(nameIn.value); nameIn.value = nn;
+    if (myName && voters[myName] && nn && nn !== myName) { voters[nn] = voters[myName]; delete voters[myName]; }
+    myName = nn; store("wwk_name", nn); syncUrl(); render();
+  });
+  listIn.addEventListener("change", function () { var n = W.cleanName(listIn.value, 40); listIn.value = n; $("h1").textContent = n || "Movie night shortlist"; syncUrl(); });
+
+  var toastT;
+  function toast(msg) { var t = $("toast"); t.textContent = msg; t.classList.add("show"); clearTimeout(toastT); toastT = setTimeout(function () { t.classList.remove("show"); }, 2600); }
+
+  $("shareBtn").addEventListener("click", function () {
+    if (!myName) { nameIn.focus(); toast("Add your name first so they know it's from you"); return; }
+    var url = currentUrl();
+    var text = (listIn.value ? listIn.value + ": " : "") + "Here's our movie night shortlist. Vote 👍 or 👎:";
+    if (navigator.share) {
+      navigator.share({ title: "Movie night shortlist", text: text, url: url }).then(function () { track("list_shared", { method: "share_sheet", items: items.length, voters: Object.keys(voters).length }); }).catch(function () {});
+    } else if (navigator.clipboard) {
+      navigator.clipboard.writeText(url).then(function () { toast("Link copied. Paste it in a text or email."); track("list_shared", { method: "copy", items: items.length, voters: Object.keys(voters).length }); }, function () { window.prompt("Copy this link:", url); });
+    } else { window.prompt("Copy this link:", url); }
+  });
+
+  $("saveAllBtn").addEventListener("click", function () {
+    var saved = [];
+    try { saved = JSON.parse(localStorage.getItem("wwk_saved") || "[]"); } catch (e) {}
+    var have = {}; saved.forEach(function (x) { have[x.id] = 1; });
+    var added = 0;
+    items.forEach(function (it) {
+      var d = details[it.token], id = it.type + "-" + it.id;
+      if (d && !have[id]) { saved.push({ id: id, title: d.title, poster: d.poster, type: it.type, vote: d.vote }); added++; }
+    });
+    store("wwk_saved", JSON.stringify(saved));
+    track("list_saved_all", { added: added });
+    toast(added ? added + " saved to your list" : "Already on your list");
+  });
+
+  $("pickBtn").addEventListener("click", function () {
+    var t = W.tally(items, voters);
+    var pool = t.filter(function (x) { return x.match; });
+    var how = "everyone said yes";
+    if (!pool.length) { pool = t.filter(function (x) { return x.no === 0; }); how = "nobody said no"; }
+    if (!pool.length) { toast("Everything got a 👎. Time to add more picks!"); return; }
+    var chosen = pool[Math.floor(Math.random() * pool.length)];
+    pickToken = chosen.token; render();
+    var el = document.querySelector('[data-token="' + chosen.token + '"]');
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
+    var d = details[chosen.token];
+    toast("Tonight: " + (d ? d.title : "this one") + " (" + how + ")");
+    track("list_tonights_pick", { pool: pool.length });
+  });
+
+  function certClass(c) { c = (c || "").toUpperCase(); return c === "G" || c === "TV-Y" || c === "TV-G" ? "g" : c === "PG" || c === "TV-PG" || c === "TV-Y7" ? "pg" : c === "PG-13" || c === "TV-14" ? "pg13" : ""; }
+
+  function whereHtml(d) {
+    if (!d) return "";
+    var ps = d.providers || [];
+    if (!ps.length && d.fallbackProvider) ps = [d.fallbackProvider];
+    if (!ps.length) return '<span class="cert" title="Not on a US streaming service right now">Not streaming</span>';
+    return ps.map(function (p) {
+      var url = p.isAmazon ? "https://www.amazon.com/s?k=" + encodeURIComponent(d.title) + "&tag=" + AMAZON_TAG : (p.link || d.watchLink || "#");
+      return '<a href="' + esc(url) + '" target="_blank" rel="noopener nofollow sponsored" data-provider="' + esc(p.name) + '">' +
+        (p.logo ? '<img src="' + esc(p.logo) + '" alt="" loading="lazy"/>' : "") + esc(p.name) + "</a>";
+    }).join("");
+  }
+
+  function render() {
+    var t = W.tally(items, voters);
+    var names = Object.keys(voters);
+    var matches = t.filter(function (x) { return x.match; }).length;
+    $("summary").innerHTML = names.length
+      ? (matches ? "<b>" + matches + " pick" + (matches > 1 ? "s" : "") + " everyone said yes to</b> · " : "") + names.length + " voter" + (names.length > 1 ? "s" : "") + ": " + names.map(esc).join(", ")
+      : "No votes yet.";
+    var mine = codes();
+    $("grid").innerHTML = items.map(function (it, idx) {
+      var d = details[it.token], tl = t[idx], c = mine[idx];
+      var cls = "item" + (tl.match ? " match" : "") + (tl.no > 0 ? " veto" : "") + (pickToken === it.token ? " pick" : "");
+      var title = d ? d.title : "Loading…";
+      var poster = d && d.poster ? '<img src="' + esc(IMG + d.poster) + '" alt="' + esc(title) + '" loading="lazy"/>' : '<div class="ph">' + (it.type === "movie" ? "🎬" : "📺") + "</div>";
+      var meterHtml = "", meta = "";
+      if (d) {
+        meterHtml = W.meterHtml(W.meterFor(meters, { title: d.title, year: d.year, cert: d.cert, genres: d.genres, keywords: d.keywords }));
+        meta = (d.cert ? '<span class="cert ' + certClass(d.cert) + '">' + esc(d.cert) + "</span>" : "") +
+          (d.runtime ? '<span class="runtime-chip">' + esc(W.fmtRuntime(d.runtime)) + "</span>" : "") +
+          (d.year ? '<span class="cert">' + esc(d.year) + "</span>" : "");
+      }
+      var others = names.filter(function (n) { return n !== myName; }).map(function (n) {
+        var ch = (voters[n] || "")[idx];
+        return "<span>" + esc(n) + " " + (ch === "u" ? "👍" : ch === "d" ? "👎" : "·") + "</span>";
+      }).join("");
+      return '<div class="' + cls + '" data-token="' + esc(it.token) + '">' +
+        '<div class="poster">' + poster + (tl.match ? '<span class="ribbon">EVERYONE SAID YES</span>' : "") + "</div>" +
+        '<div class="body"><div class="title">' + esc(title) + "</div>" +
+        '<div class="meta">' + meta + "</div>" + meterHtml +
+        '<div class="where">' + whereHtml(d) + "</div>" +
+        (others ? '<div class="others">' + others + "</div>" : "") +
+        '<div class="votes"><button class="vote yes" aria-label="Yes, watch ' + esc(title) + '" aria-pressed="' + (c === "u") + '" data-i="' + idx + '" data-v="u">👍</button>' +
+        '<button class="vote no" aria-label="No, skip ' + esc(title) + '" aria-pressed="' + (c === "d") + '" data-i="' + idx + '" data-v="d">👎</button></div>' +
+        '<button class="rm" data-rm="' + idx + '">remove from list</button></div></div>';
+    }).join("");
+  }
+
+  $("grid").addEventListener("click", function (e) {
+    var v = e.target.closest(".vote"), r = e.target.closest("[data-rm]");
+    if (v) setVote(Number(v.dataset.i), v.dataset.v);
+    else if (r) {
+      var i = Number(r.dataset.rm);
+      items.splice(i, 1);
+      Object.keys(voters).forEach(function (n) { var a = voters[n].split(""); a.splice(i, 1); var s = a.join(""); if (/^-*$/.test(s)) delete voters[n]; else voters[n] = s; });
+      if (!items.length) { location.href = "/list"; return; }
+      syncUrl(); render();
+    }
+  });
+
+  render();
+  track("list_opened", { items: items.length, voters: Object.keys(voters).length, shared_link: Object.keys(voters).length ? 1 : 0 });
+  W.loadMeters().then(function (m) { meters = m; render(); });
+  Promise.all(items.map(function (it) { return W.fetchDetails(it.type, it.id).then(function (d) { if (d) details[it.token] = d; }); })).then(render);
+})();
+</script>
+</body>
+</html>

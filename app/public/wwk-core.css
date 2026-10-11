@@ -1,0 +1,16 @@
+/* Scare / sad meter + runtime chip (shared by the homepage cards and the shortlist page) */
+.wwk-meter{display:flex;gap:10px;flex-wrap:wrap;margin:8px 0 2px}
+.wwk-meter .m-row{display:inline-flex;align-items:center;gap:5px;font-family:var(--font-mono,monospace);font-size:10px;letter-spacing:.06em;color:#b9b9d0;cursor:help}
+.wwk-meter .m-label{text-transform:uppercase;color:#9696b0}
+.wwk-meter .m-pips{display:inline-flex;gap:2px}
+.wwk-meter .m-pips i{width:9px;height:9px;border-radius:2px;border:1px solid #3a3a52;background:transparent;display:block}
+.wwk-meter .lv0 .m-pips i.on{background:#6aaa6a;border-color:#6aaa6a}
+.wwk-meter .lv1 .m-pips i.on{background:#f59e0b;border-color:#f59e0b}
+.wwk-meter .lv2 .m-pips i.on{background:#e0624a;border-color:#e0624a}
+.wwk-meter .est .m-pips i.on{background:transparent;border-style:dashed}
+.wwk-meter .lv0.est .m-pips i.on{border-color:#6aaa6a}
+.wwk-meter .lv1.est .m-pips i.on{border-color:#f59e0b}
+.wwk-meter .lv2.est .m-pips i.on{border-color:#e0624a}
+.wwk-meter .m-lv small{font-size:9px;color:#7e7e98}
+.runtime-chip{font-family:var(--font-mono,monospace);font-size:10px;color:#b9b9d0;border:1px solid #2a2a3a;border-radius:6px;padding:2px 7px;letter-spacing:.04em}
+.card-footer .footer-right{display:flex;gap:6px;align-items:center}

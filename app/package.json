@@ -1,11 +1,20 @@
 {
   "name": "watchwithkids",
   "version": "1.0.0",
-  "description": "WatchWithKids.com — family movie and show finder",
+  "description": "WatchWithKids.com \u2014 family movie and show finder",
   "main": "server.js",
-  "scripts": { "start": "node server.js" },
-  "engines": { "node": ">=18" },
+  "scripts": {
+    "start": "node server.js",
+    "test": "node test/core.test.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
   "license": "UNLICENSED",
   "private": true,
-  "dependencies": { "dotenv": "^16.4.5", "express": "^4.21.2", "node-fetch": "^2.7.0" }
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.21.2",
+    "node-fetch": "^2.7.0"
+  }
 }

@@ -947,6 +947,7 @@
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3796032145457347"
      crossorigin="anonymous"></script>
 
+<link rel="stylesheet" href="/wwk-core.css">
 </head>
 <body>
 
@@ -1023,6 +1024,16 @@
             <button class="pill sm" data-type="movie">Films</button>
             <button class="pill sm" data-type="show">Shows</button>
           </div>
+        </div>
+        <div>
+          <span class="slabel">⏱ Film length</span>
+          <div class="pills" id="len-pills">
+            <button class="pill sm active" data-len="0">Any</button>
+            <button class="pill sm" data-len="90">Under 90 min</button>
+            <button class="pill sm" data-len="105">Under 105</button>
+            <button class="pill sm" data-len="120">Under 2 hrs</button>
+          </div>
+          <div id="len-hint" class="hidden" style="font-family:var(--font-mono);font-size:10px;color:#9696b0;margin-top:6px;">Length filter shows films only.</div>
         </div>
       </div>
     </div>
@@ -1155,6 +1166,7 @@
     <div class="results-header" style="margin-bottom:20px;">
       <h2>🔖 Saved picks</h2>
       <span class="results-meta" id="saved-meta"></span>
+      <button class="share-btn" id="share-saved" style="border-color:var(--gold-border);color:var(--gold);">🔗 Share with co-parent</button>
       <button class="share-btn" id="clear-saved">✕ Clear all</button>
     </div>
     <div class="card-grid" id="saved-grid"></div>
@@ -1271,6 +1283,7 @@
   <button class="cta-btn sticky-cta-btn" id="sticky-search-btn">🍿 Find what to watch</button>
 </div>
 
+<script src="/wwk-core.js"></script>
 <script>
 // ─── CONFIG ──────────────────────────────────────────────────────────────────
 const API   = "/api/tmdb";
@@ -1320,6 +1333,7 @@ let state = {
   moods: [],
   platform: "All",
   type: "all",
+  maxLen: 0,
   coview: false,
   page: 1,
   shown: 0,
@@ -1476,6 +1490,7 @@ async function discoverPage(endpoint, extra, page) {
     p["watch_region"] = "US";
   }
   if (state.coview) p["vote_average.gte"] = "7.5";
+  if (endpoint === "movie" && state.maxLen) p["with_runtime.lte"] = String(state.maxLen);
 
   // Genre exclusions: avoid filters + calm mood
   const excludeGenres = getAvoidGenres();
@@ -1623,6 +1638,24 @@ document.getElementById("saved-nav-btn").addEventListener("click", () => {
   document.getElementById("saved-section").scrollIntoView({ behavior: "smooth" });
 });
 
+document.querySelectorAll("#len-pills [data-len]").forEach(btn => {
+  btn.addEventListener("click", () => {
+    state.maxLen = Number(btn.dataset.len) || 0;
+    syncUiToState();
+    track("length_filter_set", { max_minutes: state.maxLen });
+  });
+});
+
+document.getElementById("share-saved").addEventListener("click", () => {
+  const items = savedItems.map(x => {
+    const m = /^(movie|show)-(\d{1,8})$/.exec(x.id);
+    return m ? { token: (m[1] === "movie" ? "m" : "t") + m[2] } : null;
+  }).filter(Boolean).slice(0, WWK.MAX_ITEMS);
+  if (!items.length) return;
+  track("list_share_opened", { items: items.length });
+  location.href = WWK.buildListUrl(location.origin, items, "", {});
+});
+
 document.getElementById("clear-saved").addEventListener("click", () => {
   savedItems = []; persistSaved(); updateSavedBadge(); renderSavedSection();
 });
@@ -1636,6 +1669,22 @@ const enrichCache = new Map(); // "movie-123" -> { provider, cert }
 async function fetchEnrichment(type, tmdbId) {
   const key = `${type}-${tmdbId}`;
   if (enrichCache.has(key)) return enrichCache.get(key);
+  // One combined TMDb call: age rating, runtime, themes, where-to-watch.
+  // Falls back to the older separate calls if the combined call returns nothing usable.
+  let out = null;
+  try {
+    const d = await WWK.fetchDetails(type, tmdbId);
+    if (d && (d.cert || d.runtime || d.providers.length || d.fallbackProvider)) {
+      out = { cert: d.cert, runtime: d.runtime, providers: d.providers, provider: d.providers[0] || d.fallbackProvider || null, details: d };
+    }
+  } catch {}
+  if (!out) out = await fetchEnrichmentLegacy(type, tmdbId);
+  enrichCache.set(key, out);
+  return out;
+}
+
+async function fetchEnrichmentLegacy(type, tmdbId) {
+  const key = `${type}-${tmdbId}`;
   const ep  = type === "movie" ? "movie" : "tv";
   const out = { provider: null, cert: null };
 
@@ -1703,6 +1752,24 @@ async function enrichCardEl(card) {
     }
   }
 
+  const rt = card.querySelector(`[data-runtime="${id}"]`);
+  if (rt) {
+    const t = WWK.fmtRuntime(data.runtime);
+    if (t) { rt.textContent = t; rt.hidden = false; } else rt.remove();
+  }
+  const mt = card.querySelector(`[data-meter="${id}"]`);
+  if (mt) {
+    try {
+      const meters = await WWK.loadMeters();
+      const d = data.details;
+      const cardGenres = (card.dataset.genres || "").split(",").filter(Boolean).map(Number);
+      mt.innerHTML = WWK.meterHtml(WWK.meterFor(meters, {
+        title: (d && d.title) || card.dataset.title, year: (d && d.year) || Number(card.dataset.year) || null,
+        cert: data.cert, genres: (d && d.genres.length) ? d.genres : cardGenres, keywords: d ? d.keywords : [],
+      }));
+    } catch { mt.remove(); }
+  }
+
   const chipsWrap = card.querySelector(`[data-platforms="${id}"]`);
   if (chipsWrap) {
     if (data.providers && data.providers.length) {
@@ -1768,7 +1835,7 @@ async function doSearch(reset) {
       all.push(...(d.results||[]).map(r=>({...r,_t:"movie"})));
       maxPages = Math.max(maxPages, d.total_pages||1);
     }
-    if (state.type !== "movie") {
+    if (state.type !== "movie" && !state.maxLen) {
       const d = await discoverPage("tv", tvExtra, pageNum);
       all.push(...(d.results||[]).map(r=>({...r,_t:"show"})));
       maxPages = Math.max(maxPages, d.total_pages||1);
@@ -1875,6 +1942,7 @@ function makeCard(item, idx, animate) {
 
   return `
   <div class="card" data-item-id="${id}" data-type="${esc(item._t)}" data-tmdb="${esc(String(item.id))}" data-enrich="1"
+       data-title="${esc(isMovie ? item.title : item.name)}" data-year="${year}" data-genres="${esc((item.genre_ids||[]).join(","))}"
        tabindex="0" role="button" aria-label="${title} — view details"
        style="cursor:pointer;${animate?`animation-delay:${Math.min(idx,16)*45}ms;`:"animation:none;opacity:1;"}">
     <div class="poster">
@@ -1895,10 +1963,11 @@ function makeCard(item, idx, animate) {
       <h3 class="card-title">${title}</h3>
       ${genres?`<div class="card-genres">${genres}</div>`:""}
       <p class="card-overview">${overview}</p>
+      <div class="wwk-meter-slot" data-meter="${id}"></div>
       <div class="platform-chips" data-platforms="${id}"><span class="platform-chips-loading">···</span></div>
       <div class="card-footer">
         <span class="parent-label">Age rating</span>
-        <span class="cert-chip loading" data-cert="${id}">···</span>
+        <span class="footer-right"><span class="runtime-chip" data-runtime="${id}" hidden></span><span class="cert-chip loading" data-cert="${id}">···</span></span>
       </div>
     </div>
   </div>`;
@@ -2076,6 +2145,7 @@ function renderSpotlight() {
   grid.style.display = "block";
   grid.innerHTML = `
     <div class="spotlight card" data-item-id="${id}" data-type="${esc(pick._t)}" data-tmdb="${esc(String(pick.id))}" data-enrich="1"
+         data-title="${esc(isMovie ? pick.title : pick.name)}" data-year="${esc(((isMovie ? pick.release_date : pick.first_air_date)||"").slice(0,4))}" data-genres="${esc((pick.genre_ids||[]).join(","))}"
          tabindex="0" role="button" aria-label="${title} — view details">
       <div class="poster">
         ${poster}
@@ -2083,8 +2153,9 @@ function renderSpotlight() {
       </div>
       <div class="spotlight-body">
         <h3 class="spotlight-title">${title}</h3>
-        <span class="cert-chip loading" data-cert="${id}">···</span>
+        <span class="cert-chip loading" data-cert="${id}">···</span> <span class="runtime-chip" data-runtime="${id}" hidden></span>
         <p class="spotlight-overview">${overview}</p>
+        <div class="wwk-meter-slot" data-meter="${id}"></div>
         <div class="platform-chips" data-platforms="${id}"><span class="platform-chips-loading">···</span></div>
         <button class="roll-again-btn" id="roll-again">🎲 Roll again</button>
       </div>
@@ -2276,6 +2347,7 @@ function stateToUrl() {
   if (state.platform !== "All") p.set("platform", state.platform);
   if (state.coview)             p.set("coview",   "1");
   if (state.type !== "all")     p.set("type",     state.type);
+  if (state.maxLen)             p.set("len",      String(state.maxLen));
   const avoid = [];
   if (document.getElementById("avoidScary").checked)    avoid.push("scary");
   if (document.getElementById("avoidViolence").checked) avoid.push("violence");
@@ -2292,6 +2364,7 @@ function urlToState() {
   if (p.get("platform")) state.platform = p.get("platform") === "Max" ? "HBO Max" : p.get("platform"); // "Max" = legacy shared links
   if (p.get("coview"))   state.coview   = true;
   if (p.get("type"))     state.type     = p.get("type");
+  if (p.get("len"))      state.maxLen   = [90, 105, 120].includes(Number(p.get("len"))) ? Number(p.get("len")) : 0;
   if (p.get("avoid")) {
     const a = p.get("avoid").split(",");
     document.getElementById("avoidScary").checked    = a.includes("scary");
@@ -2309,6 +2382,11 @@ function syncUiToState() {
     b.classList.toggle("active", b.dataset.type === state.type));
   document.querySelectorAll("[data-platform]").forEach(b =>
     b.classList.toggle("active", b.dataset.platform === state.platform));
+  document.querySelectorAll("[data-len]").forEach(b => {
+    const on = Number(b.dataset.len) === state.maxLen;
+    b.classList.toggle("active", on); setPressed(b, on);
+  });
+  document.getElementById("len-hint").classList.toggle("hidden", !state.maxLen);
   document.getElementById("coview-toggle").checked = state.coview;
   document.querySelectorAll(".pill[data-mood], .pill[data-type], .pill[data-platform]").forEach(b =>
     setPressed(b, b.classList.contains("active")));
