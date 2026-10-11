@@ -28,5 +28,5 @@
 .wwk-sugg li[aria-selected="true"],.wwk-sugg li:hover{background:#1d1d30}
 .wwk-sugg .sugg-empty{display:block;color:#b9b9d0;font-size:13px;cursor:default}
 .nav-check{color:#f59e0b;text-decoration:none;font-size:14px;font-weight:600}
-.nav-search{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:50%;color:#d8d8ea;border:1px solid #2a2a3a;text-decoration:none}
-.nav-search:hover,.nav-search:focus-visible{color:#f59e0b;border-color:rgba(245,158,11,.35)}
+.nav-search{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%;color:#f59e0b;border:1px solid rgba(245,158,11,.35);text-decoration:none}
+.nav-search:hover,.nav-search:focus-visible{color:#f59e0b;border-color:#f59e0b}
