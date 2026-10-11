@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-N9CE5JXXW3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-N9CE5JXXW3');
+  </script>
+
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Family Movie &amp; TV Guides — WatchWithKids Blog</title>
+  <meta name="description" content="Family movie guides, age-by-age recommendations, and curated TV show picks. Help finding what to watch with your kids tonight."/>
+  <link rel="canonical" href="https://watchwithkids.com/blog"/>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='85'>🍿</text></svg>"/>
+  <link rel="manifest" href="/manifest.json"/>
+  <meta name="theme-color" content="#f59e0b"/>
+
+  <meta property="og:type"        content="website"/>
+  <meta property="og:url"         content="https://watchwithkids.com/blog"/>
+  <meta property="og:title"       content="Family Movie &amp; TV Guides — WatchWithKids Blog"/>
+  <meta property="og:description" content="Age-by-age recommendations, platform guides, and curated picks for family movie night."/>
+  <meta property="og:image"       content="https://watchwithkids.com/og-image.png"/>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "WatchWithKids Blog",
+    "url": "https://watchwithkids.com/blog",
+    "description": "Family movie guides, age-by-age recommendations, and curated TV show picks.",
+    "publisher": { "@type": "Organization", "name": "WatchWithKids", "url": "https://watchwithkids.com" }
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3796032145457347" crossorigin="anonymous"></script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --gold: #f59e0b;
+      --gold-border: rgba(245,158,11,.35);
+      --bg: #0a0a14; --surface: #10101e; --surface2: #13131f;
+      --border: #1a1a2e; --border2: #1e1e30;
+      --text: #f0f0fa;
+      --muted: #9a9ab4;       /* was #666 — lifted for contrast */
+      --font-display: 'Playfair Display', serif;
+      --font-mono: 'DM Mono', monospace;
+      --font-body: 'DM Sans', sans-serif;
+    }
+    body { background: var(--bg); color: var(--text); font-family: var(--font-body); line-height: 1.7; }
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-thumb { background: #1e1e30; border-radius: 3px; }
+    @keyframes fadeUp { from { opacity:0; transform:translateY(16px); } to { opacity:1; transform:translateY(0); } }
+
+    /* NAV */
+    nav {
+      background: rgba(10,10,20,0.95); backdrop-filter: blur(12px);
+      border-bottom: 1px solid #111122; height: 56px;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 28px; position: sticky; top: 0; z-index: 100;
+    }
+    .nav-left { display: flex; align-items: center; gap: 24px; }
+    .nav-logo { font-family: var(--font-display); font-size: 20px; font-weight: 900; color: var(--text); text-decoration: none; }
+    .nav-logo em { font-style: italic; color: var(--gold); }
+    .nav-current { font-family: var(--font-mono); font-size: 11px; color: var(--gold); letter-spacing: .12em; text-transform: uppercase; }
+    .nav-back { font-family: var(--font-mono); font-size: 13px; color: #9a9ab4; text-decoration: none; letter-spacing: .1em; transition: color .15s; } /* was #444 */
+    .nav-back:hover { color: var(--gold); }
+
+    /* HERO */
+    .blog-hero {
+      background: linear-gradient(160deg, #0a0a14 0%, #0f0f20 40%, #141428 100%);
+      padding: 56px 24px 72px; text-align: center; position: relative; overflow: hidden;
+    }
+    .blog-hero::before {
+      content: ''; position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%, -60%); width: 600px; height: 380px;
+      background: radial-gradient(ellipse, rgba(245,158,11,0.07) 0%, transparent 68%);
+      pointer-events: none;
+    }
+    .blog-eyebrow {
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: .22em;
+      color: var(--gold); opacity: .6; text-transform: uppercase; margin-bottom: 16px;
+    }
+    .blog-hero h1 {
+      font-family: var(--font-display); font-size: clamp(32px, 5.5vw, 54px);
+      font-weight: 900; line-height: 1.08; letter-spacing: -.02em; margin-bottom: 16px;
+    }
+    .blog-hero h1 em { font-style: italic; color: var(--gold); }
+    .blog-hero p { font-size: 16px; color: #b6b6ca; font-weight: 300; max-width: 440px; margin: 0 auto; } /* was #555 */
+
+    /* WRAP */
+    .blog-wrap { max-width: 900px; margin: 0 auto; padding: 0 16px 80px; position: relative; z-index: 2; }
+
+    /* FEATURED POST */
+    .featured-post {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 20px; overflow: hidden; margin-bottom: 32px;
+      display: grid; grid-template-columns: 1fr 1.2fr;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.4);
+      text-decoration: none; color: inherit;
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+      animation: fadeUp .5s ease both;
+    }
+    .featured-post:hover { transform: translateY(-3px); box-shadow: 0 16px 48px rgba(0,0,0,0.5); border-color: #2a2a40; }
+    .featured-img {
+      background: linear-gradient(135deg, #0f0f22, #141430);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 80px; min-height: 220px;
+      position: relative; overflow: hidden;
+    }
+    .featured-img::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(245,158,11,.06), transparent);
+    }
+    .featured-badge {
+      position: absolute; top: 16px; left: 16px;
+      background: var(--gold); color: #0a0a14;
+      font-family: var(--font-mono); font-size: 9px; font-weight: 700;
+      letter-spacing: .12em; text-transform: uppercase;
+      padding: 4px 10px; border-radius: 4px; z-index: 1;
+    }
+    .featured-body { padding: 32px 32px 32px 28px; display: flex; flex-direction: column; justify-content: center; gap: 12px; }
+    .post-tags { display: flex; gap: 6px; flex-wrap: wrap; }
+    .post-tag {
+      font-family: var(--font-mono); font-size: 9px; padding: 2px 8px;
+      border-radius: 3px; letter-spacing: .08em; text-transform: uppercase;
+      background: #1a1a2e; color: #84849c; /* was #555 */
+    }
+    .featured-title { font-family: var(--font-display); font-size: 26px; font-weight: 700; line-height: 1.2; color: var(--text); }
+    .featured-excerpt { font-size: 14px; color: var(--muted); line-height: 1.65; }
+    .post-meta { font-family: var(--font-mono); font-size: 10px; color: #84849c; letter-spacing: .1em; } /* was #333 */
+    .read-more {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: .12em;
+      text-transform: uppercase; color: var(--gold); margin-top: 4px;
+    }
+    .read-more::after { content: '→'; transition: transform .2s; }
+    .featured-post:hover .read-more::after { transform: translateX(4px); }
+
+    /* POST GRID */
+    .post-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
+
+    .post-card {
+      background: var(--surface2); border: 1px solid var(--border);
+      border-radius: 14px; overflow: hidden; text-decoration: none; color: inherit;
+      display: flex; flex-direction: column;
+      transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+      animation: fadeUp .5s ease both;
+    }
+    .post-card:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(0,0,0,.45); border-color: #2a2a40; }
+    .post-card-img {
+      background: linear-gradient(135deg, #0f0f22, #141430);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 52px; height: 140px;
+    }
+    .post-card-body { padding: 18px 20px 20px; flex: 1; display: flex; flex-direction: column; gap: 8px; }
+    .post-card-title { font-family: var(--font-display); font-size: 18px; font-weight: 700; line-height: 1.25; color: var(--text); }
+    .post-card-excerpt { font-size: 13px; color: var(--muted); line-height: 1.6; flex: 1; }
+    .post-card-footer {
+      display: flex; align-items: center; justify-content: space-between;
+      padding-top: 12px; border-top: 1px solid var(--border2); margin-top: 4px;
+    }
+
+    /* CTA STRIP */
+    .cta-strip {
+      background: linear-gradient(135deg, #0f0f1e, #151528);
+      border: 1px solid var(--gold-border); border-radius: 16px;
+      padding: 32px 28px; display: flex; align-items: center; justify-content: space-between;
+      gap: 20px; flex-wrap: wrap; margin-top: 40px;
+    }
+    .cta-strip h3 { font-family: var(--font-display); font-size: 20px; font-weight: 700; }
+    .cta-strip p { font-size: 14px; color: var(--muted); margin-top: 4px; }
+    .cta-strip a {
+      background: var(--gold); color: #0a0a14; border-radius: 100px;
+      padding: 12px 28px; font-size: 14px; font-weight: 700;
+      text-decoration: none; font-family: var(--font-body);
+      white-space: nowrap; transition: all .2s; flex-shrink: 0;
+    }
+    .cta-strip a:hover { background: #f7a81f; transform: translateY(-1px); }
+
+    /* SECTION HEADING */
+    .section-heading {
+      font-family: var(--font-mono); font-size: 10px; letter-spacing: .2em;
+      color: #84849c; text-transform: uppercase; margin: 40px 0 16px; /* was #333 */
+    }
+
+    /* FOOTER */
+    footer { border-top: 1px solid #101020; padding: 28px 24px; text-align: center; background: var(--bg); }
+    .footer-links { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-bottom: 14px; }
+    .footer-links a {
+      font-family: var(--font-mono); font-size: 11px; letter-spacing: .1em;
+      text-transform: uppercase; color: #9a9ab4; text-decoration: none; transition: color .15s;
+    }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-sub { font-family: var(--font-mono); font-size: 10px; color: #84849c; letter-spacing: .12em; }
+
+    @media (max-width: 640px) {
+      .featured-post { grid-template-columns: 1fr; }
+      .featured-img { min-height: 140px; font-size: 60px; }
+      .featured-body { padding: 20px; }
+      .featured-title { font-size: 20px; }
+      nav { padding: 0 16px; }
+    }
+
+    /* ── SECTION JUMP NAV ────────────────────────────────────────────────── */
+    .section-nav {
+      display: flex; gap: 8px; flex-wrap: wrap; justify-content: center;
+      max-width: 900px; margin: 0 auto 8px; padding: 0 16px 28px;
+      position: relative; z-index: 2;
+    }
+    .section-nav a {
+      font-family: var(--font-mono); font-size: 11px; letter-spacing: .08em;
+      color: #b6b6ca; text-decoration: none; white-space: nowrap;
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 100px; padding: 7px 16px; transition: all .15s;
+    }
+    .section-nav a:hover { border-color: var(--gold-border); color: var(--gold); }
+
+    /* ── SECTION BLOCK HEADER ────────────────────────────────────────────── */
+    .section-block { margin-top: 52px; scroll-margin-top: 72px; }
+    .section-block:first-of-type { margin-top: 0; }
+    .section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 18px; flex-wrap: wrap; }
+    .section-title {
+      font-family: var(--font-display); font-size: 22px; font-weight: 700; color: #fff;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .section-desc { font-size: 13px; color: var(--muted); }
+
+    /* ── AGE STRIP (compact numbered chips) ──────────────────────────────── */
+    .age-strip {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
+      gap: 10px;
+    }
+    .age-chip {
+      background: var(--surface2); border: 1px solid var(--border);
+      border-radius: 14px; padding: 16px 10px 14px; text-align: center;
+      text-decoration: none; color: inherit;
+      transition: transform .15s ease, border-color .15s ease, background .15s ease;
+    }
+    .age-chip:hover { transform: translateY(-3px); border-color: var(--gold-border); background: var(--gold-dim, rgba(245,158,11,.08)); }
+    .age-chip-num {
+      display: block; font-family: var(--font-display); font-size: 30px; font-weight: 900;
+      color: var(--gold); line-height: 1;
+    }
+    .age-chip-age {
+      display: block; font-family: var(--font-mono); font-size: 9px; letter-spacing: .1em;
+      color: #84849c; text-transform: uppercase; margin-top: 6px;
+    }
+    .age-chip-label {
+      display: block; font-size: 13px; font-weight: 600; color: #e0e0f0; margin-top: 3px;
+    }
+
+    /* ── TRENDING BADGE VARIANT ──────────────────────────────────────────── */
+    .post-tag.trending { background: rgba(245,158,11,.15); color: var(--gold); }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-left">
+    <a class="nav-logo" href="/">WatchWith<em>Kids</em></a>
+    <span class="nav-current">Blog</span>
+  </div>
+  <a class="nav-back" href="/">← Back to finder</a>
+</nav>
+
+<div class="blog-hero">
+  <p class="blog-eyebrow">Family watching guides</p>
+  <h1>Find the right film<br/><em>for any occasion</em></h1>
+  <p>Age-by-age recommendations, platform guides, and honest picks for family movie night.</p>
+</div>
+
+<!-- ── SECTION JUMP NAV ──────────────────────────────────────────────────────── -->
+<nav class="section-nav" aria-label="Blog sections">
+  <a href="#trending">🔥 Trending</a>
+  <a href="#by-age">🎂 By Age</a>
+  <a href="#by-platform">📺 By Platform</a>
+  <a href="#by-mood">🎭 By Mood</a>
+  <a href="#parenting-guides">👨‍👩‍👧 Parenting Guides</a>
+</nav>
+
+<div class="blog-wrap">
+
+  <!-- ══════════════════════════════════════════════════════════════════════
+       TRENDING — time-sensitive "in theaters now" content. The single most
+       monthly "new this month" roundup gets the hero treatment; the big-release
+       parent guides sit alongside it as regular cards, newest first.
+       ══════════════════════════════════════════════════════════════════════ -->
+  <div class="section-block" id="trending">
+    <div class="section-head">
+      <span class="section-title">🔥 Trending Now</span>
+      <span class="section-desc">This month's new releases, plus parent guides to the year's big movies</span>
+    </div>
+
+    <a class="featured-post" href="/blog/new-family-movies-this-month">
+      <div class="featured-img">
+        <span class="featured-badge">Updated Oct 2026</span>
+        🎃
+      </div>
+      <div class="featured-body">
+        <div class="post-tags">
+          <span class="post-tag trending">This Month</span>
+          <span class="post-tag">All Ages</span>
+        </div>
+        <h2 class="featured-title">New Family Movies &amp; Shows This Month: October 2026</h2>
+        <p class="featured-excerpt">Halloween-friendly picks sorted from gentle to genuinely spooky, what's new on every streaming service, and the family movies arriving in November.</p>
+        <p class="post-meta">UPDATED OCTOBER 2026 · 6 MIN READ</p>
+        <span class="read-more">Read the roundup</span>
+      </div>
+    </a>
+
+    <div class="post-grid" style="margin-top:16px;">
+
+      <a class="post-card" href="/blog/toy-story-5-appropriate-for-kids" style="animation-delay:60ms;">
+        <div class="post-card-img">🧸</div>
+        <div class="post-card-body">
+          <div class="post-tags">
+            <span class="post-tag trending">Parent Guide</span>
+            <span class="post-tag">PG</span>
+          </div>
+          <h3 class="post-card-title">Is Toy Story 5 Appropriate for Kids?</h3>
+          <p class="post-card-excerpt">The toys' real rival this time is a tablet. What's actually in it, verified against multiple parent-review sources.</p>
+          <div class="post-card-footer">
+            <span class="post-meta">JULY 2026 · 6 MIN</span>
+            <span class="read-more">Read</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="post-card" href="/blog/moana-2026-appropriate-for-kids" style="animation-delay:120ms;">
+        <div class="post-card-img">🌊</div>
+        <div class="post-card-body">
+          <div class="post-tags">
+            <span class="post-tag trending">Parent Guide</span>
+            <span class="post-tag">PG</span>
+          </div>
+          <h3 class="post-card-title">Is Moana (2026) Appropriate for Kids?</h3>
+          <p class="post-card-excerpt">The live-action remake, explained. What's actually in it, verified against six independent parent-review sources.</p>
+          <div class="post-card-footer">
+            <span class="post-meta">JULY 2026 · 7 MIN</span>
+            <span class="read-more">Read</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="post-card" href="/blog/spider-man-brand-new-day-appropriate-for-kids" style="animation-delay:180ms;">
+        <div class="post-card-img">🕷️</div>
+        <div class="post-card-body">
+          <div class="post-tags">
+            <span class="post-tag trending">Parent Guide</span>
+            <span class="post-tag">PG-13</span>
+          </div>
+          <h3 class="post-card-title">Is Spider-Man: Brand New Day Appropriate for Kids?</h3>
+          <p class="post-card-excerpt">The official PG-13 rating is confirmed — here's what's actually in it, and what to know before bringing younger kids.</p>
+          <div class="post-card-footer">
+            <span class="post-meta">JULY 2026 · 6 MIN</span>
+            <span class="read-more">Read</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════════════════
+       BY AGE — the largest category (8 guides). Compact numbered chips
+       instead of full cards: a parent scanning for "my kid's age" finds it
+       in one glance instead of reading eight card excerpts.
+       ══════════════════════════════════════════════════════════════════════ -->
+  <div class="section-block" id="by-age">
+    <div class="section-head">
+      <span class="section-title">🎂 Find Guides by Your Kid's Age</span>
+      <span class="section-desc">Ages 3 through 10 — tap an age to jump straight to that guide</span>
+    </div>
+    <div class="age-strip">
+      <a class="age-chip" href="/blog/best-movies-for-3-year-olds">
+        <span class="age-chip-num">3</span>
+        <span class="age-chip-age">Years</span>
+        <span class="age-chip-label">Movies</span>
+      </a>
+      <a class="age-chip" href="/blog/age-appropriate-movies-4-year-olds">
+        <span class="age-chip-num">4</span>
+        <span class="age-chip-age">Years</span>
+        <span class="age-chip-label">Guide</span>
+      </a>
+      <a class="age-chip" href="/blog/best-shows-for-5-year-olds">
+        <span class="age-chip-num">5</span>
+        <span class="age-chip-age">Years</span>
+        <span class="age-chip-label">Shows</span>
+      </a>
+      <a class="age-chip" href="/blog/best-movies-for-6-year-olds">
+        <span class="age-chip-num">6</span>
+        <span class="age-chip-age">Years</span>
+        <span class="age-chip-label">Movies</span>
+      </a>
+      <a class="age-chip" href="/blog/best-movies-for-7-year-olds">
+        <span class="age-chip-num">7</span>
+        <span class="age-chip-age">Years</span>
+        <span class="age-chip-label">Movies</span>
+      </a>
+      <a class="age-chip" href="/blog/best-movies-for-8-year-olds">
+        <span class="age-chip-num">8</span>
+        <span class="age-chip-age">Years</span>
+        <span class="age-chip-label">Movies</span>
+      </a>
+      <a class="age-chip" href="/blog/best-movies-for-9-year-olds">
+        <span class="age-chip-num">9</span>
+        <span class="age-chip-age">Years</span>
+        <span class="age-chip-label">Movies</span>
+      </a>
+      <a class="age-chip" href="/blog/best-movies-for-10-year-olds">
+        <span class="age-chip-num">10</span>
+        <span class="age-chip-age">Years</span>
+        <span class="age-chip-label">Movies</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════════════════
+       BY PLATFORM
+       ══════════════════════════════════════════════════════════════════════ -->
+  <div class="section-block" id="by-platform">
+    <div class="section-head">
+      <span class="section-title">📺 By Platform</span>
+      <span class="section-desc">What's actually worth watching on the service you already pay for</span>
+    </div>
+    <div class="post-grid">
+
+      <a class="post-card" href="/blog/best-family-movies-netflix" style="animation-delay:60ms;">
+        <div class="post-card-img">🍿</div>
+        <div class="post-card-body">
+          <div class="post-tags">
+            <span class="post-tag">Netflix</span>
+            <span class="post-tag">All Ages</span>
+          </div>
+          <h3 class="post-card-title">Best Family Movies on Netflix Right Now</h3>
+          <p class="post-card-excerpt">Netflix has thousands of titles. We've filtered it down to the 15 best family films actually worth your Friday night.</p>
+          <div class="post-card-footer">
+            <span class="post-meta">MAY 2026 · 6 MIN</span>
+            <span class="read-more">Read</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="post-card" href="/blog/disney-plus-family-movies-by-age" style="animation-delay:120ms;">
+        <div class="post-card-img">🏰</div>
+        <div class="post-card-body">
+          <div class="post-tags">
+            <span class="post-tag">Disney+</span>
+            <span class="post-tag">Streaming</span>
+          </div>
+          <h3 class="post-card-title">Disney+ Family Movies by Age: How to Navigate the Catalog</h3>
+          <p class="post-card-excerpt">Classic Disney vs. Pixar vs. Marvel are very different propositions. Here's how to find the right content at each stage.</p>
+          <div class="post-card-footer">
+            <span class="post-meta">JUNE 2026 · 9 MIN</span>
+            <span class="read-more">Read</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="post-card" href="/blog/best-family-movies-amazon-prime" style="animation-delay:180ms;">
+        <div class="post-card-img">📦</div>
+        <div class="post-card-body">
+          <div class="post-tags">
+            <span class="post-tag">Prime Video</span>
+            <span class="post-tag">All Ages</span>
+          </div>
+          <h3 class="post-card-title">Best Family Movies on Amazon Prime Video</h3>
+          <p class="post-card-excerpt">Prime's kids section leans hard into TV over movies. 13 films actually worth your evening, sorted by age and mood.</p>
+          <div class="post-card-footer">
+            <span class="post-meta">JULY 2026 · 7 MIN</span>
+            <span class="read-more">Read</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════════════════
+       BY MOOD & OCCASION
+       ══════════════════════════════════════════════════════════════════════ -->
+  <div class="section-block" id="by-mood">
+    <div class="section-head">
+      <span class="section-title">🎭 By Mood &amp; Occasion</span>
+      <span class="section-desc">Picks matched to the specific evening you're having</span>
+    </div>
+    <div class="post-grid">
+
+      <a class="post-card" href="/blog/calm-bedtime-movies-kids" style="animation-delay:60ms;">
+        <div class="post-card-img">🌙</div>
+        <div class="post-card-body">
+          <div class="post-tags">
+            <span class="post-tag">Bedtime</span>
+            <span class="post-tag">All Ages</span>
+          </div>
+          <h3 class="post-card-title">Calm Bedtime Movies for Toddlers &amp; Kids: 15 Picks</h3>
+          <p class="post-card-excerpt">What makes a film calming, with picks for toddlers through age 12 — from Totoro and Ponyo to Klaus — plus a bedtime FAQ.</p>
+          <div class="post-card-footer">
+            <span class="post-meta">UPDATED OCT 2026 · 11 MIN</span>
+            <span class="read-more">Read</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="post-card" href="/blog/rainy-day-movies-for-kids" style="animation-delay:120ms;">
+        <div class="post-card-img">🌧️</div>
+        <div class="post-card-body">
+          <div class="post-tags">
+            <span class="post-tag">Rainy Day</span>
+            <span class="post-tag">All Ages</span>
+          </div>
+          <h3 class="post-card-title">Rainy Day Movies for Kids: The Complete Guide</h3>
+          <p class="post-card-excerpt">Rainy day movies need to match restless energy, not calm it. Picks grouped by energy level, plus tips for a movie marathon that works.</p>
+          <div class="post-card-footer">
+            <span class="post-meta">JULY 2026 · 8 MIN</span>
+            <span class="read-more">Read</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════════════════════════
+       PARENTING & REFERENCE GUIDES
+       ══════════════════════════════════════════════════════════════════════ -->
+  <div class="section-block" id="parenting-guides">
+    <div class="section-head">
+      <span class="section-title">👨‍👩‍👧 Parenting &amp; Reference Guides</span>
+      <span class="section-desc">The questions behind the picks</span>
+    </div>
+    <div class="post-grid">
+
+      <a class="post-card" href="/blog/movie-ratings-guide-parents" style="animation-delay:60ms;">
+        <div class="post-card-img">📋</div>
+        <div class="post-card-body">
+          <div class="post-tags">
+            <span class="post-tag">Ratings</span>
+            <span class="post-tag">All Ages</span>
+          </div>
+          <h3 class="post-card-title">What G, PG, and PG-13 Actually Mean: A Parent's Guide</h3>
+          <p class="post-card-excerpt">The MPAA and TV rating systems explained clearly — what each rating permits, and how to read a content label correctly.</p>
+          <div class="post-card-footer">
+            <span class="post-meta">JUNE 2026 · 8 MIN</span>
+            <span class="read-more">Read</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="post-card" href="/blog/screen-time-guidelines-by-age-2026" style="animation-delay:120ms;">
+        <div class="post-card-img">⏱️</div>
+        <div class="post-card-body">
+          <div class="post-tags">
+            <span class="post-tag">Screen Time</span>
+            <span class="post-tag">Updated 2026</span>
+          </div>
+          <h3 class="post-card-title">Screen Time Guidelines by Age: What Changed in 2026</h3>
+          <p class="post-card-excerpt">The AAP dropped its flat two-hour rule in January 2026. Here's the new chart, and what it means for movie night specifically.</p>
+          <div class="post-card-footer">
+            <span class="post-meta">JULY 2026 · 8 MIN</span>
+            <span class="read-more">Read</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="post-card" href="/blog/family-movies-parents-enjoy-too" style="animation-delay:180ms;">
+        <div class="post-card-img">⭐</div>
+        <div class="post-card-body">
+          <div class="post-tags">
+            <span class="post-tag">For Parents</span>
+            <span class="post-tag">All Ages</span>
+          </div>
+          <h3 class="post-card-title">Family Movies Parents Actually Enjoy Too</h3>
+          <p class="post-card-excerpt">Why some kids' films work for adults and others don't — and the studios that consistently deliver.</p>
+          <div class="post-card-footer">
+            <span class="post-meta">JUNE 2026 · 9 MIN</span>
+            <span class="read-more">Read</span>
+          </div>
+        </div>
+      </a>
+
+      <a class="post-card" href="/blog/movies-for-siblings-different-ages" style="animation-delay:240ms;">
+        <div class="post-card-img">👨‍👩‍👧‍👦</div>
+        <div class="post-card-body">
+          <div class="post-tags">
+            <span class="post-tag">Siblings</span>
+            <span class="post-tag">Mixed Ages</span>
+          </div>
+          <h3 class="post-card-title">What to Watch When Your Kids Are Different Ages</h3>
+          <p class="post-card-excerpt">Why "pick something for the youngest" backfires, and the films that genuinely work across a wide sibling age gap.</p>
+          <div class="post-card-footer">
+            <span class="post-meta">JULY 2026 · 8 MIN</span>
+            <span class="read-more">Read</span>
+          </div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-strip">
+    <div>
+      <h3>Find picks for your kids right now</h3>
+      <p>Filter by age, mood and platform in seconds. Free, no sign-up.</p>
+    </div>
+    <a href="/">🍿 Open the finder</a>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-links">
+    <a href="/">Home</a>
+    <a href="/blog">Blog</a>
+    <a href="/about">About</a>
+    <a href="/contact">Contact</a>
+    <a href="/privacy">Privacy</a>
+  </div>
+  <p class="footer-sub">🍿 WATCHWITHKIDS · POWERED BY TMDB · FREE TO USE</p>
+</footer>
+
+</body>
+</html>

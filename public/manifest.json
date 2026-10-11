@@ -1,0 +1,10 @@
+{
+  "name": "WatchWithKids",
+  "short_name": "WatchWithKids",
+  "description": "Find family movies and shows to watch with your kids.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a14",
+  "theme_color": "#f59e0b",
+  "icons": [{ "src": "/og-image.png", "sizes": "1200x630", "type": "image/png" }]
+}

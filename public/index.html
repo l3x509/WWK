@@ -1,0 +1,2375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-N9CE5JXXW3"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-N9CE5JXXW3');
+  </script>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>WatchWithKids — Find Family Movies &amp; Shows to Watch With Your Kids</title>
+  <meta name="description" content="Find the perfect family movie or show to watch with your kids ages 3–12. Filter by age, mood, and platform. Free family film finder — no sign-up needed."/>
+
+  <!-- ── FAVICON ── -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='85'>🍿</text></svg>"/>
+
+  <!-- ── CANONICAL ── -->
+  <link rel="canonical" href="https://watchwithkids.com/"/>
+
+  <!-- ── OPEN GRAPH ── -->
+  <meta property="og:type"        content="website"/>
+  <meta property="og:url"         content="https://watchwithkids.com/"/>
+  <meta property="og:title"       content="WatchWithKids — Find Family Movies &amp; Shows to Watch With Your Kids"/>
+  <meta property="og:description" content="Find the perfect family movie or show to watch with your kids ages 3–12. Filter by age, mood, and platform. Free, no sign-up needed."/>
+  <meta property="og:image"       content="https://watchwithkids.com/og-image.png"/>
+
+  <!-- ── TWITTER / X CARD ── -->
+  <meta name="twitter:card"        content="summary_large_image"/>
+  <meta name="twitter:title"       content="WatchWithKids — Find Movies &amp; Shows to Watch With Your Kids"/>
+  <meta name="twitter:description" content="Free family film finder. Filter by age, mood and platform. No scrolling, no sign-up."/>
+  <meta name="twitter:image"       content="https://watchwithkids.com/og-image.png"/>
+
+  <!-- ── PWA ── -->
+  <link rel="manifest" href="/manifest.json"/>
+  <meta name="theme-color" content="#f59e0b"/>
+  <meta name="mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-capable" content="yes"/>
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"/>
+  <meta name="apple-mobile-web-app-title" content="WatchWithKids"/>
+
+  <!-- ── PLAUSIBLE ANALYTICS (privacy-friendly, no cookies) ── -->
+  <!-- Sign up free at plausible.io, add watchwithkids.com, then uncomment: -->
+  <!-- <script defer data-domain="watchwithkids.com" src="https://plausible.io/js/script.js"></script> -->
+
+  <!-- ── JSON-LD STRUCTURED DATA (FAQ rich results in Google) ── -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "name": "WatchWithKids",
+        "url": "https://watchwithkids.com",
+        "description": "Find the perfect family movie or show to watch with your kids tonight. Filter by age 3–12, mood, and platform."
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What age range does WatchWithKids cover?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Ages 3 through 12. You can add up to 4 kids at different ages and the tool finds titles that work for all of them at once — great for families with a wide age gap."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Which streaming platforms are supported?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Netflix, Disney+, Amazon Prime Video, Apple TV+, HBO Max, Hulu, Peacock, and Paramount+. Select All to see every available title regardless of platform."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is Parent Enjoyment Mode?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Toggle it on to filter results to highly-rated titles that parents genuinely enjoy too — not just kids content you'll have to sit through. Think Pixar, Studio Ghibli, and the best animated films ever made."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Is WatchWithKids free?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Completely free. No account, no sign-up. Just set your filters and find something to watch."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I find a short show for bedtime?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Select Calm under mood and Shows under type. You'll get calm episodes perfect for winding down before bed."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,400;1,700&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    /* ── RESET & BASE ────────────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: #0a0a14;
+      color: #f0f0fa;
+      font-family: 'DM Sans', sans-serif;
+      min-height: 100vh;
+    }
+
+    /* ── SCROLLBAR ───────────────────────────────────────────────────────── */
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: #0a0a14; }
+    ::-webkit-scrollbar-thumb { background: #1e1e30; border-radius: 3px; }
+
+    /* ── CSS VARIABLES ───────────────────────────────────────────────────── */
+    :root {
+      --gold: #f59e0b;
+      --gold-dim: rgba(245,158,11,0.15);
+      --gold-border: rgba(245,158,11,0.35);
+      --bg: #0a0a14;
+      --surface: #10101e;
+      --surface2: #13131f;
+      --border: #1a1a2e;
+      --border2: #1e1e30;
+      --text: #fafafa;
+      --muted: #fafafa;
+      --faint: #2a2a3a;
+      --font-display: 'Playfair Display', serif;
+      --font-mono: 'DM Mono', monospace;
+      --font-body: 'DM Sans', sans-serif;
+    }
+
+    /* ── ANIMATIONS ──────────────────────────────────────────────────────── */
+    @keyframes fadeUp   { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+    @keyframes fadeIn   { from { opacity:0; } to { opacity:1; } }
+    @keyframes spin     { to { transform:rotate(360deg); } }
+    @keyframes shimmer  { 0%,100% { opacity:.4; } 50% { opacity:.9; } }
+
+    /* ── UTILITY ─────────────────────────────────────────────────────────── */
+    .mono { font-family: var(--font-mono); }
+    .gold { color: var(--gold); }
+    .hidden { display: none !important; }
+
+    /* ── NAV ─────────────────────────────────────────────────────────────── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(10,10,20,0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid #111122;
+      height: 58px;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 28px;
+    }
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 22px; font-weight: 900;
+      letter-spacing: -0.02em;
+      color: var(--text);
+    }
+    .nav-logo em { font-style: italic; color: var(--gold); }
+    .nav-blog-link {
+      font-family: var(--font-mono); font-size: 15px;
+      letter-spacing: .12em; text-transform: uppercase;
+      color: #9a9ab4; text-decoration: none;
+      transition: color .15s; padding: 14px 0;
+      border-bottom: 1px solid transparent;
+    }
+    .nav-blog-link:hover { color: var(--gold); border-color: rgba(245,158,11,.4); }
+    @media (max-width: 420px) { .nav-blog-link { display: none; } }
+
+    /* ── HERO ────────────────────────────────────────────────────────────── */
+    .hero {
+      background: linear-gradient(160deg, #0a0a14 0%, #0f0f20 40%, #141428 100%);
+      padding: 64px 24px 80px;
+      text-align: center;
+      position: relative; overflow: hidden;
+    }
+    .hero-glow {
+      position: absolute; top:50%; left:50%;
+      transform: translate(-50%,-60%);
+      width: 700px; height: 440px;
+      background: radial-gradient(ellipse, rgba(245,158,11,0.07) 0%, transparent 68%);
+      pointer-events: none;
+    }
+    .hero-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 10px; letter-spacing: 0.22em;
+      color: var(--gold); opacity: .6;
+      text-transform: uppercase; margin-bottom: 20px;
+    }
+    .hero-sub {
+      font-size: 17px; color: #b6b6ca; font-weight: 300;
+      line-height: 1.65; max-width: 460px; margin: 0 auto;
+    }
+
+    .hero h1, .hero-h1 {
+      font-family: var(--font-display);
+      font-size: clamp(34px, 6.5vw, 62px);
+      font-weight: 900; line-height: 1.05;
+      letter-spacing: -0.02em; margin-bottom: 18px;
+    }
+    .hero h1 em, .hero-h1 em { font-style: italic; color: var(--gold); }
+
+    /* ── COLLAPSIBLE FILTER PANEL ────────────────────────────────────────── */
+    .panel-toggle-bar {
+      display: flex; align-items: center; justify-content: space-between;
+      cursor: pointer; padding: 26px 34px;
+      border-bottom: 1px solid transparent;
+      transition: border-color .2s;
+      user-select: none; min-height: 88px; gap: 16px;
+    }
+    .panel-toggle-bar:hover { border-color: var(--border); }
+    .panel-toggle-bar.open  { border-color: var(--border); }
+    .panel-toggle-left { display: flex; align-items: center; gap: 14px; flex: 1; min-width: 0; }
+    .panel-toggle-title {
+      font-family: var(--font-display); font-size: 20px; font-weight: 700; color: var(--text);  /* +2px */
+    }
+    .panel-toggle-summary {
+      font-family: var(--font-body); font-size: 14px; color: #b6b6ca;
+      line-height: 1.45; margin-top: 4px;
+    }
+    .panel-toggle-icon {
+      font-size: 15px; color: var(--gold);
+      width: 34px; height: 34px; border-radius: 50%;
+      background: var(--gold-dim); border: 1px solid var(--gold-border);
+      display: flex; align-items: center; justify-content: center;
+      transition: transform .25s ease, background .15s ease;
+      flex-shrink: 0;
+    }
+    .panel-toggle-icon.open { transform: rotate(180deg); }
+    .panel-toggle-bar:hover .panel-toggle-icon { background: rgba(245,158,11,.22); }
+    .panel-body {
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height .35s ease, padding .25s ease;
+      padding: 0 34px;
+    }
+    .panel-body.open {
+      max-height: 1800px; /* 4 kids + 9 platforms on mobile exceeds 1000px */
+      padding: 26px 34px 34px;
+    }
+    @media (max-width: 600px) {
+      .panel-toggle-bar { padding: 22px 18px; min-height: 84px; }
+      .panel-body.open  { padding: 20px 18px 24px; }
+    }
+
+    /* ── FILTER PANEL WRAP ───────────────────────────────────────────────── */
+    .panel-wrap {
+      max-width: 1100px; margin: -36px auto 0;   /* wider on desktop */
+      padding: 0 16px; position: relative; z-index: 10;
+    }
+    .panel {
+      background: var(--surface);
+      border: 1.5px solid var(--gold-border);
+      border-radius: 20px;
+      box-shadow: 0 10px 60px rgba(0,0,0,0.55), 0 0 36px rgba(245,158,11,.09);
+    }
+
+    /* Section label */
+    .slabel {
+      font-family: var(--font-mono);
+      font-size: 14px; letter-spacing: 0.18em;   /* was 10px */
+      color: #a0a0b8; text-transform: uppercase;
+      margin-bottom: 13px; display: block;
+      font-weight: 700;
+    }
+
+    /* Divider */
+    .divider { height: 1px; background: #151525; margin: 26px 0; }
+
+    /* Two-col grid */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+    @media (max-width: 600px) { .two-col { grid-template-columns: 1fr; gap: 20px; } }
+
+    /* ── PILL BUTTONS ────────────────────────────────────────────────────── */
+    .pills { display: flex; flex-wrap: wrap; gap: 8px; }
+    .pill {
+      cursor: pointer;
+      border: 1.5px solid var(--border2);
+      border-radius: 100px;
+      padding: 8px 18px;                          /* slightly taller for bigger text */
+      font-family: var(--font-body); font-size: 15px; font-weight: 500; /* was 13px */
+      background: transparent; color: var(--muted);
+      transition: all .15s ease;
+      white-space: nowrap;
+    }
+    .pill:hover { border-color: var(--gold-border); color: var(--gold); }
+    .pill.active { background: var(--gold); border-color: var(--gold); color: #0a0a14; font-weight: 600; }
+    .pill.sm { padding: 6px 14px; font-size: 14px; } /* was 12px */
+
+    /* Platform pills: force an even 3-column grid on mobile so odd counts
+       never leave a single pill orphaned on its own row */
+    @media (max-width: 600px) {
+      .platform-pills { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+      .platform-pills .pill {
+        text-align: center; padding-left: 6px; padding-right: 6px;
+        overflow: hidden; text-overflow: ellipsis;
+      }
+    }
+
+    /* ── AGE SLIDERS ─────────────────────────────────────────────────────── */
+    .age-row { display: flex; align-items: center; gap: 14px; }
+    .age-badge {
+      width: 26px; height: 26px; border-radius: 50%;
+      background: var(--gold-dim); color: var(--gold);
+      font-size: 11px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .age-slider-wrap { flex: 1; }
+    .age-label { display: flex; justify-content: space-between; margin-bottom: 7px; }
+    .age-label span:first-child { font-size: 14px; color: var(--muted); } /* was 12px */
+    .age-val { font-family: var(--font-display); font-weight: 700; font-size: 18px; color: var(--gold); } /* was 16px */
+    input[type=range] {
+      -webkit-appearance: none; appearance: none;
+      width: 100%; height: 3px; border-radius: 2px;
+      background: var(--border2); outline: none; cursor: pointer;
+    }
+    input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none; width: 18px; height: 18px;
+      border-radius: 50%; background: var(--gold); cursor: pointer;
+      border: 2px solid var(--bg); box-shadow: 0 0 0 1px rgba(245,158,11,.3);
+    }
+    .age-ends { display: flex; justify-content: space-between; margin-top: 4px; }
+    .age-ends span { font-family: var(--font-mono); font-size: 9px; color: var(--faint); }
+    .remove-btn {
+      background: none; border: none; color: var(--faint);
+      cursor: pointer; font-size: 16px; padding: 4px;
+      transition: color .15s;
+    }
+    .remove-btn:hover { color: #888; }
+    .add-kid-btn {
+      background: var(--gold-dim); border: 1.5px solid var(--gold-border);
+      border-radius: 100px; padding: 6px 18px;
+      font-size: 13px; color: var(--gold); font-weight: 600;
+      cursor: pointer; font-family: var(--font-body);
+      transition: all .15s;
+    }
+    .add-kid-btn:hover { background: rgba(245,158,11,.22); border-color: var(--gold); }
+    .add-kid-hint {
+      font-size: 12px; color: #9a9ab4; margin-top: 8px;
+      font-style: italic; display: flex; align-items: center; gap: 6px;
+    }
+    .age-hint { font-size: 11px; color: #9a9ab4; margin-top: 8px; font-style: italic; }
+
+    /* ── CO-VIEW TOGGLE ──────────────────────────────────────────────────── */
+    .coview-row {
+      display: flex; align-items: center; justify-content: space-between;
+      background: rgba(245,158,11,.05);
+      border: 1px solid var(--gold-border);
+      border-radius: 12px; padding: 14px 20px;
+    }
+    .coview-row .label { font-size: 14px; font-weight: 600; color: var(--text); }
+    .coview-row .sub   { font-size: 12px; color: var(--muted); margin-top: 2px; }
+    .toggle { position: relative; display: inline-block; width: 44px; height: 24px; cursor: pointer; }
+    .toggle input { opacity: 0; width: 0; height: 0; }
+    .track {
+      position: absolute; inset: 0;
+      background: #1e1e30; border-radius: 24px; transition: .3s;
+    }
+    .thumb {
+      position: absolute; left: 3px; top: 3px;
+      width: 18px; height: 18px; border-radius: 50%;
+      background: #fff; transition: .3s;
+      box-shadow: 0 1px 4px rgba(0,0,0,.4);
+    }
+    .toggle input:checked ~ .track { background: var(--gold); }
+    .toggle input:checked ~ .thumb { left: 23px; }
+
+    /* ── STICKY CTA ──────────────────────────────────────────────────────── */
+    .sticky-cta {
+      position: fixed; left: 0; right: 0; bottom: 0; z-index: 150;
+      padding: 14px 16px calc(14px + env(safe-area-inset-bottom));
+      display: flex; justify-content: center;
+      background: linear-gradient(to top, rgba(10,10,20,.97) 60%, rgba(10,10,20,0));
+      backdrop-filter: blur(6px);
+      transform: translateY(100%); opacity: 0;
+      transition: transform .25s ease, opacity .25s ease;
+      pointer-events: none;
+    }
+    .sticky-cta.visible { transform: translateY(0); opacity: 1; pointer-events: auto; }
+    .sticky-cta-btn { width: 100%; max-width: 420px; padding: 15px 32px; }
+    .cta-wrap { text-align: center; margin-top: 26px; }
+    .cta-btn {
+      background: linear-gradient(135deg, #f59e0b, #f0860a);
+      color: #0a0a14; border: none; border-radius: 100px;
+      padding: 16px 52px; font-size: 16px; font-weight: 700;
+      cursor: pointer; font-family: var(--font-body);
+      box-shadow: 0 4px 28px rgba(245,158,11,.35);
+      transition: all .2s; letter-spacing: .02em;
+    }
+    .cta-btn:hover { background: linear-gradient(135deg,#f7a81f,#f2910f); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(245,158,11,.4); }
+    .cta-btn:active { transform: translateY(0); }
+    .cta-btn:disabled { background: #252535; color: #444; box-shadow: none; cursor: not-allowed; transform: none; }
+
+    /* ── RESULTS SECTION ─────────────────────────────────────────────────── */
+    .results-wrap {
+      max-width: 1100px; margin: 0 auto;
+      padding: 22px 16px 80px;
+    }
+    .results-header {
+      display: flex; align-items: baseline; gap: 14px;
+      margin-bottom: 28px; flex-wrap: wrap;
+    }
+    .results-header h2 {
+      font-family: var(--font-display);
+      font-size: 26px; font-weight: 700;
+    }
+    .results-meta {
+      font-family: var(--font-mono);
+      font-size: 15px; color: #9696b0; letter-spacing: .12em;
+    }
+
+    /* ── CARD GRID ───────────────────────────────────────────────────────── */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(185px, 1fr));
+      gap: 14px;
+    }
+
+    /* ── MOVIE CARD ──────────────────────────────────────────────────────── */
+    .card {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 14px; overflow: hidden;
+      display: flex; flex-direction: column;
+      animation: fadeUp .5s ease both;
+      transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
+      cursor: default;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 18px 44px rgba(0,0,0,.55);
+      border-color: #2a2a40;
+    }
+
+    /* Poster */
+    .poster {
+      position: relative;
+      background: #0d0d18;
+      aspect-ratio: 2/3; max-height: 245px;
+      overflow: hidden; flex-shrink: 0;
+    }
+    .poster img {
+      width: 100%; height: 100%; object-fit: cover;
+      display: block; transition: transform .3s ease;
+    }
+    .card:hover .poster img { transform: scale(1.03); }
+    .poster-placeholder {
+      width: 100%; height: 100%;
+      background: linear-gradient(135deg, #1a1a2e, #16213e);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 52px;
+    }
+
+    /* Poster badges */
+    .poster-badges {
+      position: absolute; top: 10px; left: 10px;
+      display: flex; gap: 5px;
+    }
+    .badge {
+      background: rgba(10,10,20,.85);
+      backdrop-filter: blur(4px);
+      font-family: var(--font-mono);
+      font-size: 9px; padding: 3px 8px; border-radius: 4px;
+      letter-spacing: .09em; text-transform: uppercase;
+    }
+    .badge-type  { color: var(--gold); border: 1px solid rgba(245,158,11,.3); }
+    .badge-year  { color: #9a9ab4; }
+
+    /* Save button */
+    .save-btn {
+      position: absolute; top: 8px; right: 8px;
+      background: rgba(0,0,0,.55); border: none;
+      border-radius: 50%; width: 30px; height: 30px;
+      font-size: 14px; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: transform .2s, background .2s;
+    }
+    .save-btn:hover { background: rgba(0,0,0,.8); transform: scale(1.1); }
+    .save-btn.saved { color: var(--gold); }
+
+    /* Poster gradient + stars */
+    .poster-bottom {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      background: linear-gradient(transparent, rgba(0,0,0,.88));
+      padding: 28px 12px 10px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .stars { display: flex; gap: 2px; }
+    .star { font-size: 10px; }
+    .star.on { color: var(--gold); }
+    .star.off { color: #2a2a3a; }
+    .vote-num { font-family: var(--font-mono); font-size: 9px; color: rgba(255,255,255,.4); }
+
+    /* Card body */
+    .card-body {
+      padding: 14px 15px 16px;
+      flex: 1; display: flex; flex-direction: column; gap: 9px;
+    }
+    .card-title {
+      font-family: var(--font-display);
+      font-size: 15px; font-weight: 700;
+      color: var(--text); line-height: 1.3;
+    }
+    .card-genres { display: flex; gap: 4px; flex-wrap: wrap; }
+    .genre-tag {
+      background: #1e1e30; color: #555;
+      font-family: var(--font-mono); font-size: 9px;
+      padding: 2px 7px; border-radius: 3px;
+      letter-spacing: .07em; text-transform: uppercase;
+    }
+    .card-overview {
+      font-size: 12px; color: var(--muted); line-height: 1.58;
+      display: -webkit-box; -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical; overflow: hidden;
+      flex: 1;
+    }
+    .card-footer {
+      border-top: 1px solid var(--border2);
+      padding-top: 9px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .parent-label { font-family: var(--font-mono); font-size: 9px; color: #9696b0; letter-spacing: .1em; text-transform: uppercase; }
+    .parent-score { font-family: var(--font-mono); font-size: 10px; font-weight: 500; }
+
+    /* ── QUICK PICKS ─────────────────────────────────────────────────────── */
+    .quickpick-btn {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 100px; padding: 12px 22px;
+      font-size: 15px; color: #b6b6ca; cursor: pointer;
+      font-family: var(--font-body); transition: all .15s ease;
+      text-align: left; width: 100%;
+    }
+    .quickpick-btn:hover { border-color: var(--gold-border); color: var(--gold); }
+
+    /* ── EMPTY / LOADING STATES ──────────────────────────────────────────── */
+    .state-center {
+      text-align: center; padding: 35px 24px 70px 24px;
+      animation: fadeIn .35s ease;
+    }
+    .state-icon { font-size: 52px; opacity: .35; margin-bottom: 18px; }
+    .state-title {
+      font-family: var(--font-display);
+      font-size: 22px; color: #c6c6d8; margin-bottom: 10px;
+    }
+    .state-sub { font-size: 13px; color: #a8a8c0; line-height: 1.6; max-width: 340px; margin: 0 auto 32px; }
+    .spinner {
+      width: 40px; height: 40px; margin: 0 auto 20px;
+      border: 3px solid var(--border2);
+      border-top-color: var(--gold);
+      border-radius: 50%;
+      animation: spin .8s linear infinite;
+    }
+    .spinner-label { font-family: var(--font-mono); font-size: 11px; letter-spacing: .14em; color: #a8a8c0; }
+
+    /* ── READ MORE BUTTON ────────────────────────────────────────────────── */
+    .read-more-wrap { text-align: center; margin-top: 40px; }
+    .read-more-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--surface);
+      border: 1.5px solid var(--gold-border); color: var(--gold);
+      border-radius: 100px; padding: 16px 48px;
+      font-size: 15px; font-weight: 600; cursor: pointer;
+      font-family: var(--font-body); transition: all .2s;
+      box-shadow: 0 4px 20px rgba(245,158,11,.15);
+    }
+    .read-more-btn:hover {
+      background: var(--gold-dim);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(245,158,11,.25);
+    }
+    .read-more-btn:disabled { opacity:.4; cursor:not-allowed; transform:none; }
+    .read-more-icon { font-size: 18px; transition: transform .3s; }
+    .read-more-btn:hover .read-more-icon { transform: translateY(3px); }
+
+    /* ── SAVED SECTION ───────────────────────────────────────────────────── */
+    .saved-section {
+      border-top: 1px solid #0f0f1e;
+      padding: 44px 0 20px;
+      margin-top: 20px;
+    }
+
+    /* ── SCROLL END ──────────────────────────────────────────────────────── */
+    .scroll-end {
+      text-align: center; padding: 36px 24px;
+      font-family: var(--font-mono); font-size: 10px;
+      letter-spacing: .14em; color: #7e7e98; text-transform: uppercase;
+    }
+
+    /* ── ERROR ───────────────────────────────────────────────────────────── */
+    .error-box {
+      background: rgba(220,50,50,.08);
+      border: 1px solid rgba(220,50,50,.2);
+      border-radius: 12px; padding: 14px 20px;
+      color: #e06060; font-size: 13px; margin-bottom: 28px;
+    }
+
+
+    /* ── POPULAR GUIDES ──────────────────────────────────────────────────── */
+    .guides-section { max-width: 940px; margin: 0 auto; padding: 8px 16px 48px; }
+    .guides-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 16px; }
+    .guides-head h2 { font-family: var(--font-display); font-size: 24px; color: #fff; }
+    .guides-head a { font-family: var(--font-mono); font-size: 11px; letter-spacing: .1em; text-transform: uppercase; color: var(--gold); text-decoration: none; white-space: nowrap; }
+    .guides-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .guide-card { display: block; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 16px 18px; text-decoration: none; transition: border-color .15s, transform .15s; }
+    .guide-card:hover { border-color: var(--gold-border); transform: translateY(-2px); }
+    .guide-tag { font-family: var(--font-mono); font-size: 10px; letter-spacing: .16em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
+    .guide-title { font-family: var(--font-display); font-size: 16px; font-weight: 700; color: #fff; line-height: 1.3; }
+    @media (max-width: 720px) { .guides-grid { grid-template-columns: 1fr 1fr; } .guide-card { padding: 14px 14px; } .guide-title { font-size: 15px; } }
+    @media (max-width: 340px) { .guides-grid { grid-template-columns: 1fr; } .guides-head h2 { font-size: 21px; } }
+
+    /* ── FOOTER ──────────────────────────────────────────────────────────── */
+    footer {
+      border-top: 1px solid #101020;
+      padding: 28px 24px; text-align: center;
+      background: var(--bg);
+    }
+    .footer-name { font-family: var(--font-display); font-size: 15px; color: #9a9ab4; }
+    .footer-name strong { color: var(--gold); }
+    .footer-sub {
+      font-family: var(--font-mono); font-size: 9px;
+      color: #84849c; margin-top: 8px; letter-spacing: .14em;
+    }
+    .footer-links {
+      display: flex; align-items: center; justify-content: center; flex-wrap: wrap;
+      gap: 8px 20px; margin-top: 14px;
+    }
+    .footer-links a {
+      font-family: var(--font-mono); font-size: 10px;
+      letter-spacing: .12em; text-transform: uppercase;
+      color: #fafafa; text-decoration: none;
+      transition: color .15s;
+    }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-links span { color: #44445a; font-size: 10px; }
+
+    /* ── TMDb ATTRIBUTION (required) ─────────────────────────────────────── */
+    .tmdb-attr {
+      display: flex; align-items: center; justify-content: center;
+      gap: 8px; margin-top: 12px;
+    }
+    .tmdb-attr span { font-family: var(--font-mono); font-size: 9px; color: #84849c; letter-spacing: .1em; }
+
+    /* ── EMAIL CAPTURE ───────────────────────────────────────────────────── */
+    .email-section {
+      max-width: 620px; margin: 0 auto;
+      padding: 56px 24px;
+      text-align: center;
+    }
+    .email-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 40px 36px;
+      position: relative; overflow: hidden;
+    }
+    .email-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    }
+    .email-icon { font-size: 36px; margin-bottom: 16px; }
+    .email-card h2 {
+      font-family: var(--font-display);
+      font-size: 26px; font-weight: 700;
+      color: var(--text); margin-bottom: 10px; line-height: 1.2;
+    }
+    .email-card h2 em { font-style: italic; color: var(--gold); }
+    .email-card p {
+      font-size: 14px; color: var(--muted);
+      line-height: 1.65; margin-bottom: 24px; max-width: 400px;
+      margin-left: auto; margin-right: auto;
+    }
+    .email-form { display: flex; gap: 8px; max-width: 420px; margin: 0 auto; }
+    .email-input {
+      flex: 1; background: #0d0d18;
+      border: 1.5px solid var(--border2); border-radius: 100px;
+      padding: 12px 20px; font-size: 14px;
+      font-family: var(--font-body); color: var(--text);
+      outline: none; transition: border-color .2s;
+    }
+    .email-input::placeholder { color: #76768e; }
+    .email-input:focus { border-color: var(--gold-border); }
+    .email-submit {
+      background: var(--gold); color: #0a0a14;
+      border: none; border-radius: 100px;
+      padding: 12px 22px; font-size: 14px; font-weight: 700;
+      cursor: pointer; font-family: var(--font-body);
+      white-space: nowrap; transition: all .2s;
+      flex-shrink: 0;
+    }
+    .email-submit:hover { background: #f7a81f; transform: translateY(-1px); }
+    .email-submit:disabled { opacity: .5; cursor: not-allowed; transform: none; }
+    .email-note {
+      font-family: var(--font-mono); font-size: 9px;
+      color: #84849c; letter-spacing: .1em;
+      text-transform: uppercase; margin-top: 14px;
+    }
+    .email-success {
+      display: none; padding: 14px 20px;
+      background: rgba(106,170,106,.08);
+      border: 1px solid rgba(106,170,106,.25);
+      border-radius: 12px; color: #6aaa6a;
+      font-size: 14px; margin-top: 16px;
+    }
+    @media (max-width: 480px) {
+      .email-form { flex-direction: column; }
+      .email-card { padding: 28px 20px; }
+    }
+    .share-btn {
+      display: flex; align-items: center; gap: 6px;
+      background: transparent; border: 1px solid var(--border2);
+      border-radius: 100px; padding: 6px 14px;
+      font-family: var(--font-mono); font-size: 15px;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: #9a9ab4; cursor: pointer; transition: all .2s;
+      white-space: nowrap;
+    }
+    .share-btn:hover { border-color: var(--gold-border); color: var(--gold); }
+    .share-btn.copied { border-color: #6aaa6a; color: #6aaa6a; }
+
+    /* ── AFFILIATE WATCH LINK ─────────────────────────────────────────────── */
+    .watch-link {
+      display: block; text-align: center;
+      background: var(--gold-dim); border: 1px solid var(--gold-border);
+      border-radius: 6px; padding: 7px 10px; margin-top: 6px;
+      font-family: var(--font-body); font-size: 12px; font-weight: 600;
+      color: var(--gold); text-decoration: none;
+      transition: all .15s ease;
+    }
+    .watch-link:hover { background: rgba(245,158,11,.22); }
+
+    /* ── SEO CONTENT SECTION ─────────────────────────────────────────────── */
+    .seo-section {
+      max-width: 860px; margin: 0 auto;
+      padding: 56px 24px 24px;
+      border-top: 1px solid #0f0f1e;
+    }
+    .seo-section h2 {
+      font-family: var(--font-display);
+      font-size: 24px; font-weight: 700;
+      color: #c6c6d8; margin-bottom: 14px; line-height: 1.3;
+    }
+    .seo-section p {
+      font-size: 14px; color: #f0f0fa; line-height: 1.8;
+      margin-bottom: 12px; max-width: 700px;
+    }
+    .seo-section h3 {
+      font-family: var(--font-display);
+      font-size: 16px; font-weight: 700;
+      color: #bcbcd0; margin: 32px 0 12px;
+    }
+    .seo-faq { display: flex; flex-direction: column; gap: 14px; }
+    .faq-item { border-left: 2px solid #1a1a2e; padding-left: 16px; }
+    .faq-q { font-size: 14px; font-weight: 600; color: #f0f0fa; margin-bottom: 4px; }
+    .faq-a { font-size: 14px; color: #a8a8c0; line-height: 1.65; }
+
+    /* ── AVOID FILTER ────────────────────────────────────────────────────── */
+    .avoid-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px;
+      margin-top: 6px;
+    }
+    .avoid-option {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.88rem;
+      font-weight: 400;
+      color: var(--text);
+      cursor: pointer;
+      padding: 7px 10px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--surface2);
+      transition: border-color 0.15s, background 0.15s;
+      user-select: none;
+    }
+    .avoid-option:hover {
+      border-color: var(--gold);
+      background: var(--faint);
+    }
+    .avoid-option input[type="checkbox"] {
+      accent-color: var(--gold);
+      width: 15px;
+      height: 15px;
+      flex-shrink: 0;
+      cursor: pointer;
+    }
+    .avoid-option:has(input:checked) {
+      border-color: var(--gold);
+      background: rgba(245, 158, 11, 0.08);
+    }
+
+    /* ── MOBILE ───────────────────────────────────────────────────────────── */
+    @media (max-width: 480px) {
+      .panel { padding: 20px 18px 24px; }
+      .hero { padding: 44px 16px 60px; }
+      .hero h1 { font-size: 34px; }
+      .results-wrap { padding: 16px 12px 60px; }
+      .card-grid { grid-template-columns: repeat(auto-fill, minmax(155px, 1fr)); gap: 10px; }
+      nav { padding: 0 16px; }
+      .nav-logo { font-size: 17px; }
+      .results-header { flex-direction: column; gap: 6px; }
+      .two-col { grid-template-columns: 1fr; gap: 20px; }
+      .panel-wrap { margin-top: -20px; }
+      .seo-section { padding: 40px 16px 16px; }
+    }
+
+    /* ── CERT CHIP (real age rating) ─────────────────────────────────────── */
+    .cert-chip {
+      font-family: var(--font-mono); font-size: 9px; font-weight: 500;
+      letter-spacing: .08em; padding: 2px 7px; border-radius: 4px;
+      border: 1px solid var(--border2); color: #888; text-transform: uppercase;
+    }
+    .cert-chip.g    { color: #6aaa6a; border-color: rgba(106,170,106,.4); }
+    .cert-chip.pg   { color: var(--gold); border-color: var(--gold-border); }
+    .cert-chip.pg13 { color: #e0a060; border-color: rgba(224,160,96,.4); }
+    .cert-chip.loading { color: #333; border-color: var(--border); }
+
+    /* ── SURPRISE / SPOTLIGHT ────────────────────────────────────────────── */
+    .surprise-btn {
+      background: transparent; color: var(--gold);
+      border: 1.5px solid var(--gold-border); border-radius: 100px;
+      padding: 16px 34px; font-size: 16px; font-weight: 700;
+      cursor: pointer; font-family: var(--font-body);
+      transition: all .2s; margin-left: 10px;
+    }
+    .surprise-btn:hover { background: var(--gold-dim); transform: translateY(-2px); }
+    @media (max-width: 480px) { .surprise-btn { margin-left: 0; margin-top: 10px; } }
+    .spotlight {
+      max-width: 620px; margin: 0 auto;
+      background: var(--surface2); border: 1px solid var(--border);
+      border-radius: 18px; overflow: hidden;
+      display: grid; grid-template-columns: 200px 1fr;
+      animation: fadeUp .45s ease both;
+    }
+    .spotlight .poster { aspect-ratio: 2/3; max-height: none; }
+    .spotlight-body { padding: 24px 26px; display: flex; flex-direction: column; gap: 14px; align-items: flex-start; }
+    .spotlight-title { font-family: var(--font-display); font-size: 26px; font-weight: 900; line-height: 1.15; }
+    .spotlight-overview { font-size: 14px; color: var(--muted); line-height: 1.6; }
+    .roll-again-btn {
+      margin-top: auto;
+      background: var(--gold); color: #0a0a14; border: none;
+      border-radius: 100px; padding: 11px 26px; font-size: 14px; font-weight: 700;
+      cursor: pointer; font-family: var(--font-body); transition: all .2s;
+    }
+    .roll-again-btn:hover { background: #f7a81f; transform: translateY(-1px); }
+    @media (max-width: 540px) {
+      .spotlight { grid-template-columns: 1fr; }
+      .spotlight .poster { max-height: 320px; aspect-ratio: auto; }
+    }
+
+    /* ── TRAILER MODAL ───────────────────────────────────────────────────── */
+    .modal-backdrop {
+      position: fixed; inset: 0; z-index: 1000;
+      background: rgba(5,5,12,.85); backdrop-filter: blur(6px);
+      display: flex; align-items: center; justify-content: center;
+      padding: 20px; animation: fadeIn .2s ease;
+    }
+    .modal {
+      background: var(--surface); border: 1px solid var(--border2);
+      border-radius: 18px; max-width: 760px; width: 100%;
+      max-height: 90vh; overflow-y: auto; position: relative;
+      animation: fadeUp .3s ease both;
+    }
+    .modal-close {
+      position: absolute; top: 14px; right: 14px; z-index: 2;
+      background: rgba(0,0,0,.6); border: none; color: #fff;
+      width: 34px; height: 34px; border-radius: 50%;
+      font-size: 16px; cursor: pointer; display: flex;
+      align-items: center; justify-content: center; transition: background .2s;
+    }
+    .modal-close:hover { background: rgba(0,0,0,.85); }
+    .modal-trailer {
+      position: relative; width: 100%; aspect-ratio: 16/9;
+      background: #000; border-radius: 18px 18px 0 0; overflow: hidden;
+    }
+    .modal-trailer iframe { width: 100%; height: 100%; border: 0; display: block; }
+    .modal-no-trailer {
+      width: 100%; aspect-ratio: 16/9;
+      background: linear-gradient(135deg,#1a1a2e,#16213e);
+      display: flex; align-items: center; justify-content: center; font-size: 56px;
+      border-radius: 18px 18px 0 0;
+    }
+    .modal-body { padding: 24px 28px 28px; }
+    .modal-title { font-family: var(--font-display); font-size: 28px; font-weight: 900; margin-bottom: 8px; line-height: 1.15; }
+    .modal-meta { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 16px; }
+    .modal-overview { font-size: 15px; color: var(--muted); line-height: 1.7; margin-bottom: 20px; }
+    /* ── PLATFORM CHIPS (streaming service logos on cards) ──────────────── */
+    .platform-chips { display: flex; gap: 5px; flex-wrap: wrap; margin-top: 6px; }
+    .platform-chip {
+      display: inline-flex; align-items: center; gap: 5px;
+      border: 1px solid var(--border2); border-radius: 6px;
+      overflow: hidden; text-decoration: none;
+      transition: border-color .15s, transform .15s;
+      flex-shrink: 0;
+    }
+    .platform-chip:hover { border-color: var(--gold-border); transform: translateY(-1px); }
+    .platform-chip img { width: 24px; height: 24px; object-fit: cover; display: block; }
+    .platform-chip-text {
+      font-family: var(--font-mono); font-size: 9px; color: #9696b0;
+      padding: 3px 8px; letter-spacing: .06em; white-space: nowrap;
+    }
+    .platform-chips-loading {
+      font-family: var(--font-mono); font-size: 9px; color: #333;
+      letter-spacing: .08em; animation: shimmer 1.5s ease infinite;
+    }
+  </style>
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3796032145457347"
+     crossorigin="anonymous"></script>
+
+</head>
+<body>
+
+<!-- ── NAV ──────────────────────────────────────────────────────────────────── -->
+<nav>
+  <div class="nav-logo">WatchWith<em>Kids</em></div>
+  <div style="display:flex;align-items:center;gap:14px;">
+    <button id="saved-nav-btn" class="share-btn hidden" style="border-color:var(--gold-border);color:var(--gold);">
+      🔖 Saved <span id="saved-count-badge"></span>
+    </button>
+    <a href="/blog" class="nav-blog-link">Movie Blog</a>
+  </div>
+</nav>
+
+<!-- ── HERO ─────────────────────────────────────────────────────────────────── -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <div style="position:relative;z-index:1;">
+    <h1 class="hero-h1">Find family movies &amp; shows<br/><em>to watch with your kids</em></h1>
+    <p class="hero-sub">Pick a mood, set the ages, get picks everyone actually enjoys — including you.</p>
+  </div>
+</section>
+
+<!-- ── FILTER PANEL ──────────────────────────────────────────────────────────── -->
+<div class="panel-wrap">
+  <div class="panel" style="padding:0;">
+
+    <!-- Toggle bar -->
+    <div class="panel-toggle-bar" id="panel-toggle">
+      <div class="panel-toggle-left">
+        <span style="font-size:20px;">🎛️</span>
+        <div>
+          <div class="panel-toggle-title">Find something to watch</div>
+          <div class="panel-toggle-summary" id="filter-summary">Touch here to set your filters or pick one below.</div>
+        </div>
+      </div>
+      <span class="panel-toggle-icon" id="panel-toggle-icon">▼</span>
+    </div>
+
+    <!-- Collapsible body -->
+    <div class="panel-body" id="panel-body">
+
+    <!-- Ages -->
+    <div style="margin-bottom:26px;">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;">
+        <span class="slabel" style="margin-bottom:0;">👧 Set the Kids' Ages</span>
+        <button class="add-kid-btn" id="add-kid-btn">+ Add another kid</button>
+      </div>
+      <div id="age-sliders" style="display:flex;flex-direction:column;gap:16px;"></div>
+      <p class="add-kid-hint hidden" id="add-kid-hint">👨‍👩‍👧‍👦 Have more than one kid? Add them for picks that work for everyone</p>
+      <p class="age-hint hidden" id="age-hint">🎯 Filters for content that works for all ages at once</p>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Mood + Type/Length -->
+    <div class="two-col" style="margin-bottom:26px;">
+      <div>
+        <span class="slabel">🎭 Pick a Mood</span>
+        <div class="pills" id="mood-pills">
+          <button class="pill" data-mood="calm">😌 Calm</button>
+          <button class="pill" data-mood="silly">😄 Silly</button>
+          <button class="pill" data-mood="adventurous">⚡ Adventure</button>
+          <button class="pill" data-mood="educational">🧠 Educational</button>
+          <button class="pill" data-mood="musical">🎵 Musical</button>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:20px;">
+        <div>
+          <span class="slabel">📺 Select a Type</span>
+          <div class="pills">
+            <button class="pill sm active" data-type="all">All</button>
+            <button class="pill sm" data-type="movie">Films</button>
+            <button class="pill sm" data-type="show">Shows</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Platform -->
+    <div style="margin-bottom:26px;">
+      <span class="slabel">🎬 Pick a Platform</span>
+      <div class="pills platform-pills">
+        <button class="pill sm active" data-platform="All">All</button>
+        <button class="pill sm" data-platform="Netflix">Netflix</button>
+        <button class="pill sm" data-platform="Disney+">Disney+</button>
+        <button class="pill sm" data-platform="Amazon">Amazon</button>
+        <button class="pill sm" data-platform="Apple TV+">Apple TV+</button>
+        <button class="pill sm" data-platform="HBO Max">HBO Max</button>
+        <button class="pill sm" data-platform="Hulu">Hulu</button>
+        <button class="pill sm" data-platform="Peacock">Peacock</button>
+        <button class="pill sm" data-platform="Paramount+">Paramount+</button>
+      </div>
+    </div>
+
+        <div>
+          <span class="slabel">🚫 Content to Avoid</span>
+          <div class="avoid-grid">
+            <label class="avoid-option">
+              <input type="checkbox" id="avoidScary">
+              <span>😱 Scary scenes</span>
+            </label>
+            <label class="avoid-option">
+              <input type="checkbox" id="avoidViolence">
+              <span>💥 Violence</span>
+            </label>
+            <label class="avoid-option">
+              <input type="checkbox" id="avoidCrude">
+              <span>🤢 Crude humor</span>
+            </label>
+            <label class="avoid-option">
+              <input type="checkbox" id="avoidLanguage">
+              <span>🤬 Strong language</span>
+            </label>
+          </div>
+        </div>
+
+    <!-- Co-view toggle -->
+    <div class="coview-row" style="margin-top:16px;">
+      <div>
+        <div class="label">⭐ Parent Enjoyment Mode</div>
+        <div class="sub">Only show picks you'll genuinely enjoy too</div>
+      </div>
+      <label class="toggle" aria-label="Parent enjoyment mode">
+        <input type="checkbox" id="coview-toggle"/>
+        <span class="track"></span>
+        <span class="thumb"></span>
+      </label>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-wrap">
+      <button class="cta-btn" id="search-btn">🍿 Find what to watch</button>
+      <button class="surprise-btn" id="surprise-btn">🎲 Surprise me</button>
+    </div>
+
+    </div><!-- end panel-body -->
+  </div>
+</div>
+
+<!-- ── RESULTS ────────────────────────────────────────────────────────────────── -->
+<div class="results-wrap">
+
+  <!-- Empty / initial state -->
+  <div class="state-center" id="empty-state">
+    <div id="empty-intro" class="hidden">
+      <div class="state-icon">🎬</div>
+      <h3 class="state-title" id="empty-title">Set your filters above or pick one below</h3>
+      <p class="state-sub" id="empty-sub">We'll search thousands of titles and surface the best family picks for you.</p>
+    </div>
+    <p class="state-sub" id="quick-picks-intro" style="margin-bottom:20px;">We'll search thousands of titles and surface the best family picks for you.</p>
+    <div id="quick-picks-wrap" style="max-width:560px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+      <button class="quickpick-btn" data-quick="bedtime">🌙 Calm film for winding down</button>
+      <button class="quickpick-btn" data-quick="silly">😂 Quick silly episode</button>
+      <button class="quickpick-btn" data-quick="parents">⭐ Things adults love too</button>
+      <button class="quickpick-btn" data-quick="educational">🧠 Educational & fun</button>
+      <button class="quickpick-btn" data-quick="adventure">⚡ Adventure on Netflix</button>
+      <button class="quickpick-btn" data-quick="disney">🏰 Disney+ family film</button>
+      <button class="quickpick-btn" data-quick="musical">🎵 Something to sing along to</button>
+      <button class="quickpick-btn" data-quick="rainy">🌧️ Rainy day movie</button>
+      <button class="quickpick-btn" data-quick="shortbed">🛌 Short ep before bed</button>
+      <button class="quickpick-btn" data-quick="ghibli">🌿 Studio Ghibli-style calm</button>
+    </div>
+    <!-- No-results suggestions (shown when search returns 0) -->
+    <div id="no-results-wrap" class="hidden" style="max-width:360px;margin:0 auto;">
+      <p style="font-size:13px;color:#a8a8c0;margin-bottom:16px;">Try one of these instead:</p>
+      <div id="no-results-suggestions" style="display:flex;flex-direction:column;gap:10px;"></div>
+    </div>
+  </div>
+
+  <!-- Loading state -->
+  <div class="state-center hidden" id="loading-state">
+    <div class="spinner"></div>
+    <p class="spinner-label">Finding your picks…</p>
+  </div>
+
+  <!-- Error -->
+  <div class="error-box hidden" id="error-box"></div>
+
+  <!-- Results -->
+  <div class="hidden" id="results-container">
+    <div class="results-header">
+      <h2>Your picks</h2>
+      <span class="results-meta" id="results-meta"></span>
+      <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap;">
+        <button class="share-btn" id="share-main">🔗 Share picks</button>
+      </div>
+    </div>
+    <div class="card-grid" id="card-grid"></div>
+    <!-- Read More button (replaces infinite scroll) -->
+    <div class="read-more-wrap hidden" id="read-more-wrap">
+      <button class="read-more-btn" id="read-more-btn">
+        <span id="read-more-label">Show more picks</span>
+        <span class="read-more-icon">↓</span>
+      </button>
+    </div>
+    <div class="scroll-end hidden" id="scroll-end">✦ You've seen everything ✦</div>
+  </div>
+
+</div>
+
+<!-- ── SAVED TITLES ───────────────────────────────────────────────────────────── -->
+<div id="saved-section" class="saved-section hidden">
+  <div style="max-width:940px;margin:0 auto;padding:0 16px;">
+    <div class="results-header" style="margin-bottom:20px;">
+      <h2>🔖 Saved picks</h2>
+      <span class="results-meta" id="saved-meta"></span>
+      <button class="share-btn" id="clear-saved">✕ Clear all</button>
+    </div>
+    <div class="card-grid" id="saved-grid"></div>
+  </div>
+</div>
+
+<!-- ── EMAIL CAPTURE ──────────────────────────────────────────────────────────── -->
+<div class="email-section">
+  <div class="email-card">
+    <div class="email-icon">🎬</div>
+    <h2>One great pick,<br/><em>every Friday</em></h2>
+    <p>A hand-picked family movie or show delivered to your inbox each week — chosen for your kids' ages, no scrolling required.</p>
+    <!-- ── FORMSPREE: sign up free at formspree.io, replace YOUR_FORM_ID below ── -->
+    <form class="email-form" id="email-form"
+          action="https://formspree.io/f/xgordpww"
+          method="POST">
+      <input class="email-input" type="email" name="email"
+             placeholder="your@email.com" required autocomplete="email"/>
+      <button class="email-submit" type="submit" id="email-submit">
+        Subscribe
+      </button>
+    </form>
+    <div class="email-success" id="email-success">
+      ✓ You're in! First pick lands this Friday.
+    </div>
+    <p class="email-note">No spam · Unsubscribe anytime · Free forever</p>
+  </div>
+</div>
+
+<!-- ── POPULAR GUIDES ─────────────────────────────────────────────────────────── -->
+<section class="guides-section" aria-label="Popular guides">
+  <div class="guides-head">
+    <h2>Popular guides</h2>
+    <a href="/blog">All guides →</a>
+  </div>
+  <div class="guides-grid">
+    <a class="guide-card" href="/blog/best-movies-for-8-year-olds" data-guide="best-movies-for-8-year-olds"><div class="guide-tag">By age</div><div class="guide-title">Best Movies for 8-Year-Olds</div></a>
+    <a class="guide-card" href="/blog/best-movies-for-7-year-olds" data-guide="best-movies-for-7-year-olds"><div class="guide-tag">By age</div><div class="guide-title">Best Movies for 7-Year-Olds</div></a>
+    <a class="guide-card" href="/blog/calm-bedtime-movies-kids" data-guide="calm-bedtime-movies-kids"><div class="guide-tag">Bedtime</div><div class="guide-title">Calm Bedtime Movies for Toddlers &amp; Kids</div></a>
+    <a class="guide-card" href="/blog/movies-for-siblings-different-ages" data-guide="movies-for-siblings-different-ages"><div class="guide-tag">Mixed ages</div><div class="guide-title">What to Watch When Your Kids Are Different Ages</div></a>
+    <a class="guide-card" href="/blog/screen-time-guidelines-by-age-2026" data-guide="screen-time-guidelines-by-age-2026"><div class="guide-tag">Screen time</div><div class="guide-title">Screen Time Guidelines by Age (2026)</div></a>
+    <a class="guide-card" href="/blog/family-movies-parents-enjoy-too" data-guide="family-movies-parents-enjoy-too"><div class="guide-tag">For parents</div><div class="guide-title">Family Movies Parents Actually Enjoy Too</div></a>
+  </div>
+</section>
+
+<!-- ── SEO CONTENT ────────────────────────────────────────────────────────────── -->
+<section class="seo-section">
+  <h2>Find what to watch with your kids — in seconds</h2>
+  <p>WatchWithKids is a free family movie and TV show finder for parents of children ages 3 to 12. Instead of scrolling endlessly through Netflix or Disney+, just set your kids' ages, pick a mood, and get a curated list of age-appropriate picks — filtered to your streaming platforms. Use the <strong>Avoid</strong> filter to skip scary scenes, violence, crude humor, or strong language.</p>
+  <p>Every result includes a <strong>Parent Enjoyment score</strong> so you can find movies and shows the whole family genuinely enjoys — not just content that keeps the kids quiet.</p>
+
+  <h3>Frequently asked questions</h3>
+  <div class="seo-faq">
+    <div class="faq-item">
+      <p class="faq-q">What age range does WatchWithKids cover?</p>
+      <p class="faq-a">Ages 3 through 12. You can add up to 4 kids at different ages and the tool finds titles that work for all of them at once — great for families with a wide age gap.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">Which streaming platforms are supported?</p>
+      <p class="faq-a">Netflix, Disney+, Amazon Prime Video, Apple TV+, HBO Max, Hulu, Peacock, and Paramount+. Select "All" to see every available title regardless of platform.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">What is Parent Enjoyment Mode?</p>
+      <p class="faq-a">Toggle it on to filter results to highly-rated titles that parents genuinely enjoy too — not just kids' content you'll have to sit through. Think Pixar, Studio Ghibli, and the best animated films ever made.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">Is WatchWithKids free?</p>
+      <p class="faq-a">Completely free. No account, no sign-up. Just set your filters and find something to watch.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">How do I find a short show for bedtime?</p>
+      <p class="faq-a">Select 😌 Calm under mood and Shows under type. You'll get calm episodes perfect for winding down before bed.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ─────────────────────────────────────────────────────────────────── -->
+<footer>
+  <p class="footer-name">🍿 <strong>WatchWithKids</strong> <span style="color:#9696b0;">— find what to watch with your kids tonight.</span></p>
+  <div class="footer-links">
+    <a href="/blog">Movie Blog</a>
+    <span>·</span>
+    <a href="/about">About</a>
+    <span>·</span>
+    <a href="/contact">Contact</a>
+    <span>·</span>
+    <a href="/privacy">Privacy</a>
+  </div>
+  <p class="footer-sub">POWERED BY TMDB · FREE TO USE · NO ACCOUNT NEEDED</p>
+  <div class="tmdb-attr">
+    <span>THIS PRODUCT USES THE TMDB API BUT IS NOT ENDORSED OR CERTIFIED BY TMDB.</span>
+  </div>
+</footer>
+
+<!-- ── TRAILER MODAL ──────────────────────────────────────────────────────────── -->
+<div class="modal-backdrop hidden" id="trailer-modal">
+  <div class="modal" role="dialog" aria-modal="true" aria-label="Title details">
+    <button class="modal-close" id="modal-close" aria-label="Close">✕</button>
+    <div id="modal-media"></div>
+    <div class="modal-body">
+      <h2 class="modal-title" id="modal-title"></h2>
+      <div class="modal-meta" id="modal-meta"></div>
+      <p class="modal-overview" id="modal-overview"></p>
+      <div id="modal-watch"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ── STICKY CTA (mobile-friendly shortcut once the main CTA scrolls out of view) ── -->
+<div class="sticky-cta" id="sticky-cta">
+  <button class="cta-btn sticky-cta-btn" id="sticky-search-btn">🍿 Find what to watch</button>
+</div>
+
+<script>
+// ─── CONFIG ──────────────────────────────────────────────────────────────────
+const API   = "/api/tmdb";
+const IMG   = "https://image.tmdb.org/t/p/w500";
+
+// ── AFFILIATE TAGS ───────────────────────────────────────────────────────────
+// Sign up at affiliate-program.amazon.com, get your tag, paste it below:
+const AMAZON_TAG = "watchwithkids-20"; // replace with your real Associates tag
+
+// ─── GA4 TRACKING HELPER ──────────────────────────────────────────────────────
+// Defensive wrapper — safe even if gtag is blocked by an ad blocker
+function track(name, params) {
+  try { if (typeof gtag === 'function') gtag('event', name, params || {}); } catch {}
+}
+
+const PROVIDER = { "Netflix":8, "Disney+":337, "Amazon":9, "Apple TV+":350, "HBO Max":1899, "Hulu":15, "Peacock":"386|387", "Paramount+":"2303|2616" };
+
+const MOOD_MOVIE = { calm:null, silly:35, adventurous:12, educational:99, musical:10402 };
+const MOOD_TV    = { calm:null, silly:35, adventurous:10759, educational:99, musical:10402 };
+
+// Genres excluded when "Calm" mood is picked (high-energy / intense)
+const CALM_EXCLUDE_MOVIE = [28, 12, 27, 53];   // Action, Adventure, Horror, Thriller
+const CALM_EXCLUDE_TV    = [10759, 10765];     // Action & Adventure, Sci-Fi & Fantasy
+
+// US certification caps keyed to the youngest child's age
+const CERT_RANK = { "G":1, "PG":2, "PG-13":3 };
+function ageCertCap(youngest) {
+  if (youngest <= 6)  return "G";
+  if (youngest <= 11) return "PG";
+  return "PG-13";
+}
+function tighterCert(a, b) {
+  if (!a) return b; if (!b) return a;
+  return (CERT_RANK[a] <= CERT_RANK[b]) ? a : b;
+}
+
+const GENRE_LABEL = {
+  28:"Action",12:"Adventure",16:"Animated",35:"Comedy",
+  99:"Educational",18:"Drama",10751:"Family",14:"Fantasy",
+  10402:"Musical",878:"Sci-Fi",10762:"Kids",10759:"Adventure",
+  10765:"Sci-Fi & Fantasy"
+};
+
+// ─── STATE ───────────────────────────────────────────────────────────────────
+let state = {
+  kids: [6],
+  moods: [],
+  platform: "All",
+  type: "all",
+  coview: false,
+  page: 1,
+  shown: 0,
+  results: [],
+  hasMore: false,
+  loading: false,
+};
+
+// When true, the next render shows a single random "spotlight" pick (Surprise me)
+let surpriseMode = false;
+
+// ─── INIT SLIDERS ─────────────────────────────────────────────────────────────
+function renderSliders() {
+  const wrap = document.getElementById("age-sliders");
+  wrap.innerHTML = "";
+  state.kids.forEach((age, i) => {
+    const row = document.createElement("div");
+    row.className = "age-row";
+    row.innerHTML = `
+      <div class="age-badge">${i+1}</div>
+      <div class="age-slider-wrap">
+        <div class="age-label">
+          <span>Age</span>
+          <span class="age-val" id="age-val-${i}">${age}</span>
+        </div>
+        <input type="range" min="3" max="12" value="${age}" id="slider-${i}"/>
+        <div class="age-ends"><span>3</span><span>12</span></div>
+      </div>
+      ${state.kids.length > 1 ? `<button class="remove-btn" data-remove="${i}">✕</button>` : ""}
+    `;
+    wrap.appendChild(row);
+    row.querySelector(`#slider-${i}`).addEventListener("input", e => {
+      state.kids[i] = +e.target.value;
+      document.getElementById(`age-val-${i}`).textContent = e.target.value;
+    });
+    const rb = row.querySelector("[data-remove]");
+    if (rb) rb.addEventListener("click", () => { state.kids.splice(i,1); renderSliders(); updateHint(); });
+  });
+  updateHint();
+}
+
+function updateHint() {
+  document.getElementById("age-hint").classList.toggle("hidden", state.kids.length < 2);
+  document.getElementById("add-kid-hint").classList.toggle("hidden", state.kids.length !== 1);
+  document.getElementById("add-kid-btn").classList.toggle("hidden", state.kids.length >= 4);
+}
+
+document.getElementById("add-kid-btn").addEventListener("click", () => {
+  if (state.kids.length < 4) { state.kids.push(6); renderSliders(); }
+});
+
+// ─── PILL TOGGLE HELPERS ──────────────────────────────────────────────────────
+function setPressed(btn, on) { btn.setAttribute("aria-pressed", on ? "true" : "false"); }
+
+function initTogglePills(selector, stateKey, single) {
+  document.querySelectorAll(selector).forEach(btn => {
+    btn.addEventListener("click", () => {
+      const val = btn.dataset[stateKey];
+      if (single) {
+        document.querySelectorAll(selector).forEach(b => { b.classList.remove("active"); setPressed(b, false); });
+        btn.classList.add("active"); setPressed(btn, true);
+        state[stateKey] = val;
+      } else {
+        btn.classList.toggle("active");
+        setPressed(btn, btn.classList.contains("active"));
+        if (state[stateKey].includes(val)) state[stateKey] = state[stateKey].filter(x=>x!==val);
+        else state[stateKey].push(val);
+      }
+    });
+  });
+}
+
+// Mood is single-select (clicking the active mood clears it). Stored as a 0–1
+// length array so the singleMood logic downstream keeps working.
+function initMoodPills() {
+  document.querySelectorAll("[data-mood]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const val = btn.dataset.mood;
+      const already = state.moods.length === 1 && state.moods[0] === val;
+      document.querySelectorAll("[data-mood]").forEach(b => { b.classList.remove("active"); setPressed(b, false); });
+      if (already) {
+        state.moods = [];
+      } else {
+        state.moods = [val];
+        btn.classList.add("active"); setPressed(btn, true);
+      }
+    });
+  });
+}
+
+initMoodPills();
+initTogglePills("[data-type]",     "type",     true);
+initTogglePills("[data-platform]", "platform", true);
+
+document.getElementById("coview-toggle").addEventListener("change", e => {
+  state.coview = e.target.checked;
+});
+
+// ─── QUICK PICKS ──────────────────────────────────────────────────────────────
+const quickMap = {
+  bedtime:     () => { setMood("calm"); setType("movie"); },
+  silly:       () => { setMood("silly"); setType("show"); },
+  parents:     () => { document.getElementById("coview-toggle").checked = true; state.coview = true; },
+  educational: () => { setMood("educational"); },
+  adventure:   () => { setMood("adventurous"); setType("movie"); setPlatform("Netflix"); },
+  disney:      () => { setType("movie"); setPlatform("Disney+"); },
+  musical:     () => { setMood("musical"); },
+  rainy:       () => { setType("movie"); },
+  shortbed:    () => { setMood("calm"); setType("show"); },
+  ghibli:      () => { setMood("calm"); setType("movie"); },
+};
+
+function setMood(m) {
+  state.moods = [m];
+  document.querySelectorAll("[data-mood]").forEach(b => { const on = b.dataset.mood===m; b.classList.toggle("active", on); setPressed(b, on); });
+}
+function setType(t) {
+  state.type = t;
+  document.querySelectorAll("[data-type]").forEach(b => { const on = b.dataset.type===t; b.classList.toggle("active", on); setPressed(b, on); });
+}
+function setPlatform(p) {
+  state.platform = p;
+  document.querySelectorAll("[data-platform]").forEach(b => { const on = b.dataset.platform===p; b.classList.toggle("active", on); setPressed(b, on); });
+}
+
+document.querySelectorAll("[data-quick]").forEach(btn => {
+  btn.addEventListener("click", () => {
+    surpriseMode = false;
+    track('quick_pick_used', { quick: btn.dataset.quick });
+    quickMap[btn.dataset.quick]?.();
+    doSearch(true);
+  });
+});
+
+// ─── API CALLS ────────────────────────────────────────────────────────────────
+async function fetchTmdb(endpoint, params) {
+  const q = new URLSearchParams(params);
+  const res = await fetch(`${API}/${endpoint}?${q}`);
+  if (!res.ok) throw new Error(`Error ${res.status} — is your TMDb key set on the server?`);
+  return res.json();
+}
+
+async function discoverPage(endpoint, extra, page) {
+  const p = {
+    language: "en-US",
+    sort_by: "vote_average.desc",
+    include_adult: "false",
+    page,
+    "vote_count.gte": endpoint === "movie" ? 80 : 30,
+    ...extra,
+  };
+  if (state.platform !== "All" && PROVIDER[state.platform]) {
+    p["with_watch_providers"] = PROVIDER[state.platform];
+    p["watch_region"] = "US";
+  }
+  if (state.coview) p["vote_average.gte"] = "7.5";
+
+  // Genre exclusions: avoid filters + calm mood
+  const excludeGenres = getAvoidGenres();
+  const calm = state.moods.length === 1 && state.moods[0] === "calm";
+  if (calm) excludeGenres.push(...(endpoint === "movie" ? CALM_EXCLUDE_MOVIE : CALM_EXCLUDE_TV));
+
+  // Non-genre avoid params (crude keyword) + a possible language cert cap
+  const avoid = getAvoidParams();
+  Object.assign(p, avoid.params);
+
+  // Age-based certification cap — movies only.
+  // TMDb /discover/tv ignores certification, so shows lean on the Kids genre (10762).
+  if (endpoint === "movie") {
+    const youngest = state.kids.length ? Math.min(...state.kids) : 12;
+    const cert = tighterCert(ageCertCap(youngest), avoid.certCap);
+    if (cert) {
+      p["certification_country"] = "US";
+      p["certification.lte"]     = cert;
+    }
+  }
+
+  if (excludeGenres.length) {
+    p["without_genres"] = [...new Set(excludeGenres)].join(",");
+  }
+
+  return fetchTmdb(`discover/${endpoint}`, p);
+}
+
+// ─── AVOID FILTER PARAMS ──────────────────────────────────────────────────────
+function getAvoidGenres() {
+  const g = [];
+  if (document.getElementById('avoidScary').checked)    g.push(27, 53);         // Horror, Thriller
+  if (document.getElementById('avoidViolence').checked) g.push(28, 10752, 80);  // Action, War, Crime
+  return g;
+}
+
+function getAvoidParams() {
+  const params = {};
+  let certCap = null;
+  if (document.getElementById('avoidCrude').checked) {
+    params['without_keywords'] = '9663';
+  }
+  if (document.getElementById('avoidLanguage').checked) {
+    certCap = 'PG';
+  }
+  return { params, certCap };
+}
+
+// ─── SECURITY: HTML ESCAPE ────────────────────────────────────────────────────
+// Prevents XSS from any untrusted string inserted into innerHTML
+function esc(str) {
+  if (!str) return "";
+  return String(str)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#x27;");
+}
+
+// ─── SAVED TITLES (localStorage) ─────────────────────────────────────────────
+const SAVED_KEY = "wwk_saved";
+let savedItems = [];
+try {
+  const raw = JSON.parse(localStorage.getItem(SAVED_KEY) || "[]");
+  // Validate shape — only keep items with expected fields, strip unexpected keys
+  savedItems = Array.isArray(raw) ? raw.filter(x =>
+    x && typeof x.id === "string" && typeof x.title === "string" &&
+    ["movie","show"].includes(x.type)
+  ).map(x => ({
+    id:     String(x.id).slice(0, 40),
+    title:  String(x.title).slice(0, 200),
+    poster: x.poster ? String(x.poster).slice(0, 100) : null,
+    type:   x.type,
+    vote:   typeof x.vote === "number" ? x.vote : 0,
+  })) : [];
+} catch { savedItems = []; }
+
+function persistSaved() {
+  localStorage.setItem(SAVED_KEY, JSON.stringify(savedItems));
+}
+
+function isSaved(id) { return savedItems.some(x => x.id === id); }
+
+function toggleSave(item) {
+  const id = `${item._t}-${item.id}`;
+  if (isSaved(id)) {
+    savedItems = savedItems.filter(x => x.id !== id);
+  } else {
+    const title = item._t === "movie" ? item.title : item.name;
+    savedItems.push({ id, title, poster: item.poster_path, type: item._t, vote: item.vote_average });
+    track('title_saved', { title: (title || "").slice(0, 100), media_type: item._t, tmdb_id: String(item.id) });
+  }
+  persistSaved();
+  updateSavedBadge();
+  renderSavedSection();
+}
+
+function updateSavedBadge() {
+  const btn   = document.getElementById("saved-nav-btn");
+  const badge = document.getElementById("saved-count-badge");
+  badge.textContent = savedItems.length ? `(${savedItems.length})` : "";
+  btn.classList.toggle("hidden", savedItems.length === 0);
+}
+
+function renderSavedSection() {
+  const section = document.getElementById("saved-section");
+  const grid    = document.getElementById("saved-grid");
+  const meta    = document.getElementById("saved-meta");
+
+  if (savedItems.length === 0) { section.classList.add("hidden"); return; }
+
+  section.classList.remove("hidden");
+  meta.textContent = `${savedItems.length} title${savedItems.length > 1 ? "s" : ""} saved`;
+
+  grid.innerHTML = savedItems.map(item => `
+    <div class="card">
+      <div class="poster">
+        ${item.poster
+          ? `<img src="${IMG}${esc(item.poster)}" alt="${esc(item.title)}" loading="lazy"/>`
+          : `<div class="poster-placeholder">${item.type === "movie" ? "🎬" : "📺"}</div>`}
+        <div class="poster-badges">
+          <span class="badge badge-type">${item.type === "movie" ? "FILM" : "SHOW"}</span>
+        </div>
+        <button class="save-btn saved" data-saved-id="${esc(item.id)}" title="Remove">🔖</button>
+        <div class="poster-bottom">
+          <span class="vote-num">${item.vote?.toFixed(1)||"?"}/10</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <h3 class="card-title">${esc(item.title)}</h3>
+      </div>
+    </div>`).join("");
+
+  grid.querySelectorAll("[data-saved-id]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const id = btn.dataset.savedId;
+      savedItems = savedItems.filter(x => x.id !== id);
+      persistSaved(); updateSavedBadge(); renderSavedSection();
+    });
+  });
+}
+
+document.getElementById("saved-nav-btn").addEventListener("click", () => {
+  document.getElementById("saved-section").scrollIntoView({ behavior: "smooth" });
+});
+
+document.getElementById("clear-saved").addEventListener("click", () => {
+  savedItems = []; persistSaved(); updateSavedBadge(); renderSavedSection();
+});
+
+// ─── CARD ENRICHMENT: where-to-watch + real age rating ───────────────────────
+// One lazy fetch per title (cached) fills in the age-rating chip and the
+// "where to watch" link. Driven by IntersectionObserver so we only hit the API
+// for cards the user actually scrolls to.
+const enrichCache = new Map(); // "movie-123" -> { provider, cert }
+
+async function fetchEnrichment(type, tmdbId) {
+  const key = `${type}-${tmdbId}`;
+  if (enrichCache.has(key)) return enrichCache.get(key);
+  const ep  = type === "movie" ? "movie" : "tv";
+  const out = { provider: null, cert: null };
+
+  try {
+    const prov = await fetchTmdb(`${ep}/${tmdbId}/watch/providers`, {});
+    const us = prov?.results?.US;
+    if (us) {
+      const IMG45   = "https://image.tmdb.org/t/p/w45";
+      const flatrate = (us.flatrate || []).slice(0, 4);
+      // All streaming platforms — shown as logo chips on cards
+      out.providers = flatrate.map(p => ({
+        name:     p.provider_name || "Watch",
+        logo:     p.logo_path ? `${IMG45}${p.logo_path}` : null,
+        link:     us.link || "#",
+        isAmazon: /amazon|prime/i.test(p.provider_name || ""),
+      }));
+      // Singular fallback for the modal watch link (keeps existing modal code working)
+      out.provider = out.providers[0] || (() => {
+        const fb = (us.rent && us.rent[0]) || (us.buy && us.buy[0]);
+        return fb ? { name: fb.provider_name, logo: null, link: us.link || "#", isAmazon: /amazon|prime/i.test(fb.provider_name || "") } : null;
+      })();
+    }
+  } catch {}
+
+  try {
+    if (type === "movie") {
+      const rd = await fetchTmdb(`movie/${tmdbId}/release_dates`, {});
+      const usRel = (rd?.results || []).find(r => r.iso_3166_1 === "US");
+      const cert  = usRel?.release_dates?.map(d => d.certification).find(c => c);
+      if (cert) out.cert = cert;
+    } else {
+      const cr  = await fetchTmdb(`tv/${tmdbId}/content_ratings`, {});
+      const usR = (cr?.results || []).find(r => r.iso_3166_1 === "US");
+      if (usR?.rating) out.cert = usR.rating;
+    }
+  } catch {}
+
+  enrichCache.set(key, out);
+  return out;
+}
+
+function certClass(cert) {
+  const c = (cert || "").toUpperCase();
+  if (c === "G"  || c === "TV-Y" || c === "TV-G")  return "g";
+  if (c === "PG" || c === "TV-PG" || c === "TV-Y7") return "pg";
+  if (c === "PG-13" || c === "TV-14") return "pg13";
+  return "";
+}
+
+async function enrichCardEl(card) {
+  if (card.dataset.enriched) return;
+  card.dataset.enriched = "1";
+  const data = await fetchEnrichment(card.dataset.type, card.dataset.tmdb);
+  const id   = card.dataset.itemId;
+
+  const chip = card.querySelector(`[data-cert="${id}"]`);
+  if (chip) {
+    chip.classList.remove("loading");
+    if (data.cert) {
+      chip.textContent = data.cert;
+      const cc = certClass(data.cert);
+      if (cc) chip.classList.add(cc);
+    } else {
+      chip.textContent = "NR";
+    }
+  }
+
+  const chipsWrap = card.querySelector(`[data-platforms="${id}"]`);
+  if (chipsWrap) {
+    if (data.providers && data.providers.length) {
+      const cardTitle = card.querySelector(".card-title, .spotlight-title")?.textContent || "";
+      chipsWrap.innerHTML = data.providers.map(p => {
+        const url = p.isAmazon
+          ? `https://www.amazon.com/s?k=${encodeURIComponent(cardTitle)}&tag=${AMAZON_TAG}`
+          : (p.link || "#");
+        return p.logo
+          ? `<a class="platform-chip watch-link" href="${esc(url)}" data-provider="${esc(p.name)}" data-media-type="${esc(card.dataset.type||'')}" target="_blank" rel="noopener nofollow sponsored" title="${esc(p.name)}"><img src="${esc(p.logo)}" alt="${esc(p.name)}" width="24" height="24"/></a>`
+          : `<a class="platform-chip watch-link" href="${esc(url)}" data-provider="${esc(p.name)}" data-media-type="${esc(card.dataset.type||'')}" target="_blank" rel="noopener nofollow sponsored"><span class="platform-chip-text">${esc(p.name)}</span></a>`;
+      }).join("");
+    } else {
+      chipsWrap.innerHTML = ""; // not on any streaming platform — silently hide
+    }
+  }
+}
+
+const enrichObserver = ("IntersectionObserver" in window)
+  ? new IntersectionObserver((entries, obs) => {
+      entries.forEach(e => { if (e.isIntersecting) { enrichCardEl(e.target); obs.unobserve(e.target); } });
+    }, { rootMargin: "200px" })
+  : null;
+
+function observeCards(container) {
+  container.querySelectorAll('.card[data-enrich="1"]:not([data-observed])').forEach(card => {
+    card.dataset.observed = "1";
+    if (enrichObserver) enrichObserver.observe(card);
+    else enrichCardEl(card); // fallback: enrich immediately
+  });
+}
+
+// ─── SEARCH ───────────────────────────────────────────────────────────────────
+const PAGE_SIZE = 40; // max cards shown before Read More
+
+async function doSearch(reset) {
+  if (state.loading) return;
+  state.loading = true;
+
+  const pageNum = reset ? 1 : state.page + 1;
+  if (reset) {
+    state.results = []; state.page = 1; state.shown = 0;
+    // Reset empty state to default
+    document.getElementById("empty-title").textContent = "Set your filters above or pick one below";
+    document.getElementById("empty-sub").textContent   = "We'll search thousands of titles and surface the best family picks for you.";
+    document.getElementById("empty-intro").classList.add("hidden");
+    document.getElementById("quick-picks-intro").classList.remove("hidden");
+    document.getElementById("quick-picks-wrap").classList.remove("hidden");
+    document.getElementById("no-results-wrap").classList.add("hidden");
+  }
+
+  showState("loading");
+
+  try {
+    const singleMood = state.moods.length === 1 ? state.moods[0] : null;
+    const movieExtra = { with_genres: singleMood && MOOD_MOVIE[singleMood] ? `10751,${MOOD_MOVIE[singleMood]}` : "10751" };
+    const tvExtra    = { with_genres: singleMood && MOOD_TV[singleMood]    ? `10762,${MOOD_TV[singleMood]}`    : "10762"  };
+
+    let all = []; let maxPages = 1;
+
+    if (state.type !== "show") {
+      const d = await discoverPage("movie", movieExtra, pageNum);
+      all.push(...(d.results||[]).map(r=>({...r,_t:"movie"})));
+      maxPages = Math.max(maxPages, d.total_pages||1);
+    }
+    if (state.type !== "movie") {
+      const d = await discoverPage("tv", tvExtra, pageNum);
+      all.push(...(d.results||[]).map(r=>({...r,_t:"show"})));
+      maxPages = Math.max(maxPages, d.total_pages||1);
+    }
+
+    all.sort((a,b) => b.vote_average - a.vote_average);
+    const seen = new Set();
+    all = all.filter(x => { const k=`${x._t}-${x.id}`; if(seen.has(k))return false; seen.add(k); return true; });
+
+    if (reset) state.results = all;
+    else state.results.push(...all);
+
+    state.page    = pageNum;
+    state.hasMore = pageNum < maxPages;
+    renderResults();
+  } catch(e) {
+    showError(e.message);
+  } finally {
+    state.loading = false;
+  }
+}
+
+document.getElementById("search-btn").addEventListener("click", () => {
+  surpriseMode = false;
+  track('search_filters_applied', {
+    mood:           state.moods[0] || 'none',
+    platform:       state.platform,
+    media_type:     state.type,
+    youngest_age:   state.kids.length ? Math.min(...state.kids) : 0,
+    kid_count:      state.kids.length,
+    coview:         state.coview ? 1 : 0,
+    avoid_scary:    document.getElementById('avoidScary').checked    ? 1 : 0,
+    avoid_violence: document.getElementById('avoidViolence').checked ? 1 : 0,
+    avoid_crude:    document.getElementById('avoidCrude').checked    ? 1 : 0,
+    avoid_language: document.getElementById('avoidLanguage').checked ? 1 : 0,
+  });
+  doSearch(true);
+});
+
+// Surprise me — run the search, then show a single random pick
+document.getElementById("surprise-btn").addEventListener("click", () => {
+  surpriseMode = true;
+  track('surprise_used', {
+    mood:       state.moods[0] || 'none',
+    platform:   state.platform,
+    media_type: state.type,
+  });
+  doSearch(true);
+});
+
+// Read More button
+document.getElementById("read-more-btn").addEventListener("click", async () => {
+  const btn = document.getElementById("read-more-btn");
+  btn.disabled = true;
+  document.getElementById("read-more-label").textContent = "Loading…";
+  // If we've shown all fetched results, fetch more from TMDb
+  if (state.shown >= state.results.length && state.hasMore) {
+    await doSearch(false);
+  } else {
+    renderResults();
+  }
+  btn.disabled = false;
+  document.getElementById("read-more-label").textContent = "Show more picks";
+});
+
+// ─── RENDER ───────────────────────────────────────────────────────────────────
+function showState(which) {
+  document.getElementById("empty-state").classList.add("hidden");
+  document.getElementById("loading-state").classList.add("hidden");
+  document.getElementById("error-box").classList.add("hidden");
+  document.getElementById("results-container").classList.add("hidden");
+  if (which === "loading") document.getElementById("loading-state").classList.remove("hidden");
+  else if (which === "empty")   document.getElementById("empty-state").classList.remove("hidden");
+  else if (which === "results") document.getElementById("results-container").classList.remove("hidden");
+  updateStickyCta();
+}
+
+function showError(msg) {
+  const box = document.getElementById("error-box");
+  box.textContent = "⚠️ " + msg;
+  box.classList.remove("hidden");
+  showState("empty");
+}
+
+function makeStars(avg) {
+  const filled = Math.round(avg / 2);
+  return [1,2,3,4,5].map(i =>
+    `<span class="star ${i<=filled?"on":"off"}">★</span>`
+  ).join("");
+}
+
+function makeCard(item, idx, animate) {
+  const isMovie = item._t === "movie";
+  const title   = esc(isMovie ? item.title : item.name);
+  const year    = esc((isMovie ? item.release_date : item.first_air_date)?.slice(0,4) || "");
+  const overview = esc(item.overview || "No description available.");
+  const poster  = item.poster_path
+    ? `<img src="${IMG}${esc(item.poster_path)}" alt="${title}" loading="lazy"/>`
+    : `<div class="poster-placeholder">${isMovie?"🎬":"📺"}</div>`;
+  const topG  = (item.genre_ids||[]).filter(id=>GENRE_LABEL[id]).slice(0,2);
+  const genres = topG.map(id=>`<span class="genre-tag">${esc(GENRE_LABEL[id])}</span>`).join("");
+  const id    = esc(`${item._t}-${item.id}`);
+  const saved = isSaved(`${item._t}-${item.id}`);
+
+  return `
+  <div class="card" data-item-id="${id}" data-type="${esc(item._t)}" data-tmdb="${esc(String(item.id))}" data-enrich="1"
+       tabindex="0" role="button" aria-label="${title} — view details"
+       style="cursor:pointer;${animate?`animation-delay:${Math.min(idx,16)*45}ms;`:"animation:none;opacity:1;"}">
+    <div class="poster">
+      ${poster}
+      <div class="poster-badges">
+        <span class="badge badge-type">${isMovie?"FILM":"SHOW"}</span>
+        ${year?`<span class="badge badge-year">${year}</span>`:""}
+      </div>
+      <button class="save-btn ${saved?"saved":""}" data-card-id="${id}" title="${saved?"Saved — click to remove":"Save for later"}">
+        ${saved?"🔖":"🏷️"}
+      </button>
+      <div class="poster-bottom">
+        <div class="stars">${makeStars(item.vote_average)}</div>
+        <span class="vote-num">${item.vote_average?.toFixed(1)||"?"}/10</span>
+      </div>
+    </div>
+    <div class="card-body">
+      <h3 class="card-title">${title}</h3>
+      ${genres?`<div class="card-genres">${genres}</div>`:""}
+      <p class="card-overview">${overview}</p>
+      <div class="platform-chips" data-platforms="${id}"><span class="platform-chips-loading">···</span></div>
+      <div class="card-footer">
+        <span class="parent-label">Age rating</span>
+        <span class="cert-chip loading" data-cert="${id}">···</span>
+      </div>
+    </div>
+  </div>`;
+}
+
+// ─── SMART NO-RESULTS SUGGESTIONS ────────────────────────────────────────────
+function showNoResults() {
+  track('no_results', {
+    mood:         state.moods[0] || 'none',
+    platform:     state.platform,
+    media_type:   state.type,
+    coview:       state.coview ? 1 : 0,
+    youngest_age: state.kids.length ? Math.min(...state.kids) : 0,
+  });
+  showState("empty");
+
+  // Switch empty state to no-results mode
+  document.getElementById("empty-title").textContent = "No picks found";
+  document.getElementById("empty-sub").textContent   = "Your filters are a bit too specific. Here's what might work:";
+  document.getElementById("empty-intro").classList.remove("hidden");
+  document.getElementById("quick-picks-intro").classList.add("hidden");
+  document.getElementById("quick-picks-wrap").classList.add("hidden");
+  document.getElementById("no-results-wrap").classList.remove("hidden");
+
+  // Build smart suggestions based on what filters were set
+  const suggestions = [];
+
+  // If platform is set — try All platforms
+  if (state.platform !== "All") {
+    suggestions.push({
+      label: `🎬 Same search on all platforms`,
+      action: () => { setPlatform("All"); doSearch(true); }
+    });
+  }
+
+  // If coview is on — turn it off
+  if (state.coview) {
+    suggestions.push({
+      label: `⭐ Remove parent enjoyment filter`,
+      action: () => {
+        state.coview = false;
+        document.getElementById("coview-toggle").checked = false;
+        doSearch(true);
+      }
+    });
+  }
+
+  // If mood is set — try no mood filter
+  if (state.moods.length > 0) {
+    suggestions.push({
+      label: `😌 Any mood`,
+      action: () => {
+        state.moods = [];
+        document.querySelectorAll("[data-mood]").forEach(b => b.classList.remove("active"));
+        doSearch(true);
+      }
+    });
+  }
+
+  // If type is not all — open it up
+  if (state.type !== "all") {
+    suggestions.push({
+      label: `📺 Both films and shows`,
+      action: () => { setType("all"); doSearch(true); }
+    });
+  }
+
+  // Always offer a full reset
+  suggestions.push({
+    label: `🔄 Start fresh with no filters`,
+    action: () => {
+      state.moods = []; state.platform = "All";
+      state.type = "all"; state.coview = false;
+      document.querySelectorAll("[data-mood]").forEach(b => b.classList.remove("active"));
+      document.querySelectorAll("[data-type]").forEach(b => b.classList.toggle("active", b.dataset.type === "all"));
+      document.querySelectorAll("[data-platform]").forEach(b => b.classList.toggle("active", b.dataset.platform === "All"));
+      document.getElementById("coview-toggle").checked = false;
+      resetAvoidFilters();
+      doSearch(true);
+    }
+  });
+
+  // Render suggestion buttons
+  const wrap = document.getElementById("no-results-suggestions");
+  wrap.innerHTML = "";
+  suggestions.slice(0, 5).forEach(s => {
+    const btn = document.createElement("button");
+    btn.className = "quickpick-btn";
+    btn.textContent = s.label;
+    btn.addEventListener("click", () => {
+      // Reset empty state back to default for next search
+      document.getElementById("empty-title").textContent = "Set your filters above or pick one below";
+      document.getElementById("empty-sub").textContent   = "We'll search thousands of titles and surface the best family picks for you.";
+      document.getElementById("empty-intro").classList.add("hidden");
+      document.getElementById("quick-picks-intro").classList.remove("hidden");
+      document.getElementById("quick-picks-wrap").classList.remove("hidden");
+      document.getElementById("no-results-wrap").classList.add("hidden");
+      s.action();
+    });
+    wrap.appendChild(btn);
+  });
+}
+
+function renderResults() {
+  if (state.results.length === 0) {
+    surpriseMode = false;
+    showNoResults();
+    return;
+  }
+  if (surpriseMode) { renderSpotlight(); return; }
+  showState("results");
+
+  const prevShown = state.shown;
+  const nextShown = Math.min(state.shown + PAGE_SIZE, state.results.length);
+
+  document.getElementById("results-meta").textContent =
+    `Showing ${nextShown} of ${state.results.length}+ results · Sorted by rating`;
+
+  const grid = document.getElementById("card-grid");
+  grid.style.display = ""; // restore grid layout (spotlight switches it to block)
+  if (prevShown === 0) grid.innerHTML = "";
+
+  // Append newly visible cards
+  const frag = document.createDocumentFragment();
+  state.results.slice(prevShown, nextShown).forEach((item, i) => {
+    const div = document.createElement("div");
+    div.innerHTML = makeCard(item, i, true);
+    frag.appendChild(div.firstElementChild);
+  });
+  grid.appendChild(frag);
+  state.shown = nextShown;
+
+  // Bind save buttons on new cards
+  grid.querySelectorAll(".save-btn:not([data-bound])").forEach(btn => {
+    btn.dataset.bound = "1";
+    btn.addEventListener("click", () => {
+      const id   = btn.dataset.cardId;
+      const item = state.results.find(x => `${x._t}-${x.id}` === id);
+      if (item) toggleSave(item);
+      const nowSaved = isSaved(id);
+      btn.classList.toggle("saved", nowSaved);
+      btn.textContent = nowSaved ? "🔖" : "🏷️";
+      btn.title = nowSaved ? "Saved — click to remove" : "Save for later";
+    });
+  });
+
+  // Show / hide Read More
+  const canShowMore = state.shown < state.results.length || state.hasMore;
+  document.getElementById("read-more-wrap").classList.toggle("hidden", !canShowMore);
+  document.getElementById("scroll-end").classList.toggle("hidden", canShowMore);
+
+  // Lazily enrich newly-added cards (age rating + where to watch)
+  observeCards(grid);
+}
+
+// ─── SURPRISE / SPOTLIGHT ─────────────────────────────────────────────────────
+function renderSpotlight() {
+  if (state.results.length === 0) { surpriseMode = false; showNoResults(); return; }
+  showState("results");
+  document.getElementById("read-more-wrap").classList.add("hidden");
+  document.getElementById("scroll-end").classList.add("hidden");
+  document.getElementById("results-meta").textContent = "One random pick";
+
+  const pick     = state.results[Math.floor(Math.random() * state.results.length)];
+  const isMovie  = pick._t === "movie";
+  const title    = esc(isMovie ? pick.title : pick.name);
+  const overview = esc(pick.overview || "No description available.");
+  const id       = esc(`${pick._t}-${pick.id}`);
+  const savedNow = isSaved(`${pick._t}-${pick.id}`);
+  const poster   = pick.poster_path
+    ? `<img src="${IMG}${esc(pick.poster_path)}" alt="${title}" loading="lazy"/>`
+    : `<div class="poster-placeholder">${isMovie?"🎬":"📺"}</div>`;
+
+  const grid = document.getElementById("card-grid");
+  grid.style.display = "block";
+  grid.innerHTML = `
+    <div class="spotlight card" data-item-id="${id}" data-type="${esc(pick._t)}" data-tmdb="${esc(String(pick.id))}" data-enrich="1"
+         tabindex="0" role="button" aria-label="${title} — view details">
+      <div class="poster">
+        ${poster}
+        <button class="save-btn ${savedNow?"saved":""}" data-card-id="${id}" title="${savedNow?"Saved — click to remove":"Save for later"}">${savedNow?"🔖":"🏷️"}</button>
+      </div>
+      <div class="spotlight-body">
+        <h3 class="spotlight-title">${title}</h3>
+        <span class="cert-chip loading" data-cert="${id}">···</span>
+        <p class="spotlight-overview">${overview}</p>
+        <div class="platform-chips" data-platforms="${id}"><span class="platform-chips-loading">···</span></div>
+        <button class="roll-again-btn" id="roll-again">🎲 Roll again</button>
+      </div>
+    </div>`;
+
+  document.getElementById("roll-again").addEventListener("click", e => { e.stopPropagation(); renderSpotlight(); });
+
+  grid.querySelector(".save-btn").addEventListener("click", e => {
+    e.stopPropagation();
+    const item = state.results.find(x => `${x._t}-${x.id}` === id);
+    if (item) toggleSave(item);
+    const nowSaved = isSaved(id);
+    e.currentTarget.classList.toggle("saved", nowSaved);
+    e.currentTarget.textContent = nowSaved ? "🔖" : "🏷️";
+  });
+
+  observeCards(grid);
+}
+
+// ─── TRAILER MODAL ────────────────────────────────────────────────────────────
+async function openTrailer(type, tmdbId, cardEl) {
+  const modal = document.getElementById("trailer-modal");
+  const ep = type === "movie" ? "movie" : "tv";
+  // Pre-fill from card immediately so something shows even if the API call fails
+  const cardTitle   = cardEl?.querySelector(".card-title, .spotlight-title")?.textContent || "";
+  const cardPoster  = cardEl?.querySelector(".poster img")?.src || "";
+  document.getElementById("modal-media").innerHTML = cardPoster
+    ? `<div class="modal-no-trailer"><img src="${esc(cardPoster)}" alt="${esc(cardTitle)}" style="height:100%;width:100%;object-fit:cover;border-radius:18px 18px 0 0;"/></div>`
+    : `<div class="modal-no-trailer">${type === "movie" ? "🎬" : "📺"}</div>`;
+  document.getElementById("modal-title").textContent = cardTitle || "Loading…";
+  document.getElementById("modal-meta").innerHTML = "";
+  document.getElementById("modal-overview").textContent = "";
+  document.getElementById("modal-watch").innerHTML = "";
+  modal.classList.remove("hidden");
+  document.body.style.overflow = "hidden";
+
+  try {
+    const [details, videos, enrich] = await Promise.all([
+      fetchTmdb(`${ep}/${tmdbId}`, { language: "en-US" }),
+      fetchTmdb(`${ep}/${tmdbId}/videos`, { language: "en-US" }),
+      fetchEnrichment(type, tmdbId),
+    ]);
+    const title = type === "movie" ? details.title : details.name;
+    const year  = ((type === "movie" ? details.release_date : details.first_air_date) || "").slice(0,4);
+    document.getElementById("modal-title").textContent = title || "Untitled";
+    track('title_opened', {
+      title:      (title || "").slice(0, 100),
+      media_type: type,
+      tmdb_id:    String(tmdbId),
+      cert:       enrich.cert || 'NR',
+      year,
+    });
+
+    // Trailer (prefer official YouTube trailer)
+    const vids = (videos.results || []).filter(v => v.site === "YouTube");
+    const trailer = vids.find(v => v.type === "Trailer" && v.official)
+                 || vids.find(v => v.type === "Trailer")
+                 || vids.find(v => v.type === "Teaser")
+                 || vids[0];
+    const media = document.getElementById("modal-media");
+    if (trailer) {
+      media.innerHTML = `<div class="modal-trailer"><iframe src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(trailer.key)}?rel=0" title="${esc(title)} trailer" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>`;
+    } else {
+      media.innerHTML = `<div class="modal-no-trailer">${type === "movie" ? "🎬" : "📺"}</div>`;
+    }
+
+    // Meta badges
+    const bits = [`<span class="badge badge-type">${type === "movie" ? "FILM" : "SHOW"}</span>`];
+    if (year) bits.push(`<span class="badge badge-year">${esc(year)}</span>`);
+    if (details.vote_average) bits.push(`<span class="vote-num">${details.vote_average.toFixed(1)}/10</span>`);
+    if (enrich.cert) { const cc = certClass(enrich.cert); bits.push(`<span class="cert-chip ${cc}">${esc(enrich.cert)}</span>`); }
+    document.getElementById("modal-meta").innerHTML = bits.join("");
+    document.getElementById("modal-overview").textContent = details.overview || "No description available.";
+
+    // Where to watch
+    if (enrich.provider) {
+      const url = enrich.provider.isAmazon
+        ? `https://www.amazon.com/s?k=${encodeURIComponent(title)}&tag=${AMAZON_TAG}`
+        : enrich.provider.link;
+      document.getElementById("modal-watch").innerHTML =
+        `<a class="watch-link modal-watch" href="${esc(url || "#")}" data-provider="${esc(enrich.provider.name)}" data-media-type="${esc(type)}" target="_blank" rel="noopener nofollow sponsored">▶ Watch on ${esc(enrich.provider.name)}</a>`;
+    }
+  } catch (err) {
+    // Keep the poster + title already shown; just add a soft error note below
+    const isProxy = /403|401/.test(err.message || "");
+    document.getElementById("modal-overview").textContent = isProxy
+      ? "Trailer and details aren't loading right now — the site owner needs to check the server configuration."
+      : "Couldn't load extra details. Try again in a moment.";
+  }
+}
+
+function closeTrailer() {
+  const modal = document.getElementById("trailer-modal");
+  modal.classList.add("hidden");
+  document.getElementById("modal-media").innerHTML = ""; // stop the video
+  document.body.style.overflow = "";
+}
+
+document.getElementById("modal-close").addEventListener("click", closeTrailer);
+document.getElementById("trailer-modal").addEventListener("click", e => { if (e.target.id === "trailer-modal") closeTrailer(); });
+
+// Open the modal when a card is clicked (ignoring save / watch / roll-again controls)
+document.addEventListener("click", e => {
+  if (e.target.closest(".save-btn") || e.target.closest(".watch-link") || e.target.closest(".roll-again-btn")) return;
+  const card = e.target.closest(".card[data-tmdb]");
+  if (card) openTrailer(card.dataset.type, card.dataset.tmdb, card);
+});
+
+// watch_link_clicked — delegated, handles both card links and the modal link
+document.addEventListener("click", e => {
+  const wl = e.target.closest(".watch-link[data-provider]");
+  if (!wl) return;
+  const card  = wl.closest(".card");
+  const title = card
+    ? (card.querySelector(".card-title, .spotlight-title")?.textContent || "")
+    : (document.getElementById("modal-title")?.textContent || "");
+  track('watch_link_clicked', {
+    provider:   wl.dataset.provider,
+    media_type: card?.dataset.type || wl.dataset.mediaType || "unknown",
+    title:      title.slice(0, 100),
+  });
+});
+
+// Keyboard: Enter/Space opens a focused card; Escape closes the modal
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape") { closeTrailer(); return; }
+  if ((e.key === "Enter" || e.key === " ")) {
+    const a = document.activeElement;
+    if (a && a.classList.contains("card") && a.dataset.tmdb) {
+      e.preventDefault();
+      openTrailer(a.dataset.type, a.dataset.tmdb, a);
+    }
+  }
+});
+
+// ─── SOCIAL SHARE ─────────────────────────────────────────────────────────────
+function getShareUrl() {
+  const url = stateToUrl();
+  history.replaceState(null, "", url);
+  return url;
+}
+
+const shareText = "Found some great family movie picks on WatchWithKids! 🍿";
+
+document.getElementById("share-main").addEventListener("click", () => {
+  const url = getShareUrl();
+  const btn = document.getElementById("share-main");
+  track('share_used', { method: navigator.share ? 'native' : 'clipboard' });
+  // Use native share sheet on mobile if available
+  if (navigator.share) {
+    navigator.share({ title: "WatchWithKids picks", text: shareText, url })
+      .catch(() => {}); // user cancelled — no action needed
+  } else {
+    // Fallback: copy to clipboard on desktop
+    navigator.clipboard.writeText(url).then(() => {
+      btn.textContent = "✓ Copied!";
+      btn.classList.add("copied");
+      setTimeout(() => { btn.textContent = "🔗 Share picks"; btn.classList.remove("copied"); }, 2500);
+    });
+  }
+});
+
+// ─── EMAIL FORM ───────────────────────────────────────────────────────────────
+const emailForm = document.getElementById("email-form");
+if (emailForm) {
+  emailForm.addEventListener("submit", async e => {
+    e.preventDefault();
+    const btn = document.getElementById("email-submit");
+    btn.disabled = true; btn.textContent = "Sending…";
+    try {
+      const res = await fetch(emailForm.action, {
+        method: "POST", body: new FormData(emailForm),
+        headers: { "Accept": "application/json" }
+      });
+      if (res.ok) {
+        track('email_subscribed', {});
+        emailForm.style.display = "none";
+        document.getElementById("email-success").style.display = "block";
+      } else { btn.disabled = false; btn.textContent = "Try again"; }
+    } catch { btn.disabled = false; btn.textContent = "Try again"; }
+  });
+}
+
+// ─── URL STATE ────────────────────────────────────────────────────────────────
+function stateToUrl() {
+  const p = new URLSearchParams();
+  if (state.kids.length)        p.set("ages",     state.kids.join(","));
+  if (state.moods.length)       p.set("moods",    state.moods.join(","));
+  if (state.platform !== "All") p.set("platform", state.platform);
+  if (state.coview)             p.set("coview",   "1");
+  if (state.type !== "all")     p.set("type",     state.type);
+  const avoid = [];
+  if (document.getElementById("avoidScary").checked)    avoid.push("scary");
+  if (document.getElementById("avoidViolence").checked) avoid.push("violence");
+  if (document.getElementById("avoidCrude").checked)    avoid.push("crude");
+  if (document.getElementById("avoidLanguage").checked) avoid.push("language");
+  if (avoid.length) p.set("avoid", avoid.join(","));
+  return `${location.origin}${location.pathname}?${p}`;
+}
+
+function urlToState() {
+  const p = new URLSearchParams(location.search);
+  if (p.get("ages"))     state.kids     = p.get("ages").split(",").map(Number).map(a => Math.max(3, Math.min(12, a)));
+  if (p.get("moods"))    state.moods    = p.get("moods").split(",");
+  if (p.get("platform")) state.platform = p.get("platform") === "Max" ? "HBO Max" : p.get("platform"); // "Max" = legacy shared links
+  if (p.get("coview"))   state.coview   = true;
+  if (p.get("type"))     state.type     = p.get("type");
+  if (p.get("avoid")) {
+    const a = p.get("avoid").split(",");
+    document.getElementById("avoidScary").checked    = a.includes("scary");
+    document.getElementById("avoidViolence").checked = a.includes("violence");
+    document.getElementById("avoidCrude").checked    = a.includes("crude");
+    document.getElementById("avoidLanguage").checked = a.includes("language");
+  }
+}
+
+function syncUiToState() {
+  renderSliders();
+  document.querySelectorAll("[data-mood]").forEach(b =>
+    b.classList.toggle("active", state.moods.includes(b.dataset.mood)));
+  document.querySelectorAll("[data-type]").forEach(b =>
+    b.classList.toggle("active", b.dataset.type === state.type));
+  document.querySelectorAll("[data-platform]").forEach(b =>
+    b.classList.toggle("active", b.dataset.platform === state.platform));
+  document.getElementById("coview-toggle").checked = state.coview;
+  document.querySelectorAll(".pill[data-mood], .pill[data-type], .pill[data-platform]").forEach(b =>
+    setPressed(b, b.classList.contains("active")));
+}
+
+function resetAvoidFilters() {
+  document.getElementById("avoidScary").checked    = false;
+  document.getElementById("avoidViolence").checked = false;
+  document.getElementById("avoidCrude").checked    = false;
+  document.getElementById("avoidLanguage").checked = false;
+}
+
+// ─── COLLAPSIBLE FILTER PANEL ─────────────────────────────────────────────────
+const panelToggle = document.getElementById("panel-toggle");
+const panelBody   = document.getElementById("panel-body");
+const toggleIcon  = document.getElementById("panel-toggle-icon");
+
+panelToggle.addEventListener("click", () => {
+  const isOpen = panelBody.classList.contains("open");
+  panelBody.classList.toggle("open", !isOpen);
+  panelToggle.classList.toggle("open", !isOpen);
+  toggleIcon.classList.toggle("open", !isOpen);
+});
+
+function updateFilterSummary() {
+  const parts = [];
+  if (state.kids.length === 1) parts.push(`Age ${state.kids[0]}`);
+  else if (state.kids.length > 1) parts.push(`Ages ${state.kids.join(", ")}`);
+  if (state.moods.length)   parts.push(state.moods.map(m => m.charAt(0).toUpperCase()+m.slice(1)).join(", "));
+  if (state.platform !== "All") parts.push(state.platform);
+  if (state.type !== "all") parts.push(state.type === "movie" ? "Films" : "Shows");
+  if (state.coview) parts.push("Parent mode on");
+  const summary = document.getElementById("filter-summary");
+  summary.textContent = parts.length ? parts.join(" · ") : "Touch here to set your filters or pick one below.";
+}
+
+// Collapse panel after search fires
+const origSearch = document.getElementById("search-btn");
+origSearch.addEventListener("click", () => {
+  updateFilterSummary();
+  panelBody.classList.remove("open");
+  panelToggle.classList.remove("open");
+  toggleIcon.classList.remove("open");
+});
+
+// ─── STICKY CTA ────────────────────────────────────────────────────────────
+// Shows a floating "Find what to watch" shortcut once the person has scrolled
+// past the hero (so the real CTA is out of view), and hides it again once
+// results are actually showing so it doesn't compete with them.
+function updateStickyCta() {
+  const bar = document.getElementById("sticky-cta");
+  if (!bar) return; // guard: showState() can fire before this element exists on very old cached HTML
+  const heroEl = document.querySelector(".hero");
+  const scrolledPastHero = heroEl ? window.scrollY > heroEl.offsetHeight - 80 : window.scrollY > 300;
+  const resultsShowing = !document.getElementById("results-container").classList.contains("hidden");
+  bar.classList.toggle("visible", scrolledPastHero && !resultsShowing);
+}
+window.addEventListener("scroll", updateStickyCta, { passive: true });
+window.addEventListener("resize", updateStickyCta);
+
+// Delegate to the real search button so behavior (tracking, panel collapse,
+// filter state) never has to be duplicated or kept in sync by hand.
+document.getElementById("sticky-search-btn").addEventListener("click", () => {
+  document.getElementById("search-btn").click();
+  document.querySelector(".results-wrap").scrollIntoView({ behavior: "smooth", block: "start" });
+});
+
+// ─── SERVICE WORKER REGISTRATION ─────────────────────────────────────────────
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("/sw.js").catch(() => {
+      // SW registration failed — site still works fine without it
+    });
+  });
+}
+
+// ─── BOOT ─────────────────────────────────────────────────────────────────────
+urlToState();
+syncUiToState();
+updateSavedBadge();
+renderSavedSection();
+showState("empty");
+if (location.search.length > 1) doSearch(true);
+</script>
+
+<script>
+document.querySelectorAll('.guide-card').forEach(a => a.addEventListener('click', () => { try { track('guide_clicked', { guide: a.dataset.guide, from: 'home' }); } catch(e){} }));
+</script>
+</body>
+</html>
