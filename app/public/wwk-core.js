@@ -137,17 +137,90 @@
     return out;
   }
 
+  function provList(arr) {
+    return (arr || []).slice(0, 12).map(function (p) {
+      return { name: p.provider_name || "Watch", logo: p.logo_path ? "https://image.tmdb.org/t/p/w45" + p.logo_path : null,
+        isAmazon: /amazon|prime/i.test(p.provider_name || "") };
+    });
+  }
+  // All US availability groups for the title page.
+  function parseProviders(d) {
+    var wp = ((d && d["watch/providers"] || {}).results || {}).US;
+    if (!wp) return { link: null, stream: [], free: [], ads: [], rent: [], buy: [] };
+    return { link: wp.link || null, stream: provList(wp.flatrate), free: provList(wp.free), ads: provList(wp.ads),
+      rent: provList(wp.rent), buy: provList(wp.buy) };
+  }
+  function parseVideo(d) {
+    var v = ((d && d.videos || {}).results || []).filter(function (x) { return x.site === "YouTube" && /^[\w-]{6,20}$/.test(x.key || ""); });
+    var t = v.filter(function (x) { return x.type === "Trailer" && x.official; })[0] || v.filter(function (x) { return x.type === "Trailer"; })[0] || v[0];
+    return t ? t.key : null;
+  }
+  function parseRecs(type, d) {
+    return ((d && d.recommendations || {}).results || []).slice(0, 20).map(function (r) {
+      return { type: type, id: r.id, title: r.title || r.name || "", poster: r.poster_path || null, genres: r.genre_ids || [],
+        year: Number(String(r.release_date || r.first_air_date || "").slice(0, 4)) || null, vote: r.vote_average || 0,
+        lang: r.original_language, adult: !!r.adult };
+    });
+  }
+
+  /* ---------- age advice ----------
+     Rough guide only. Base age from the scare level, bumped by heavy sadness.
+     Used for the "Best from age N+" verdict; always shown with the meter's source (ours vs estimate). */
+  var BASE_AGE = [3, 7, 12]; // scare Low / Medium / High
+  function ageAdvice(meter, cert) {
+    var a = BASE_AGE[meter.scare.lvl] + (meter.sad.lvl === 2 ? 2 : meter.sad.lvl === 1 && meter.scare.lvl > 0 ? 1 : 0);
+    if (/^(R|NC-17|TV-MA)$/i.test(cert || "")) a = 16; // adult ratings are never presented as kid picks
+    a = Math.min(a, 16);
+    var perAge = [];
+    for (var age = 3; age <= 12; age++) perAge.push({ age: age, status: age >= a ? "ok" : age >= a - 1 ? "maybe" : "wait" });
+    return { minAge: a, notForKids: a >= 14, perAge: perAge };
+  }
+
+  var THEME_SKIP = /^(based on|woman director|aftercreditsstinger|duringcreditsstinger|sequel|remake|3d|imax)/i;
+  function themeChips(keywords) {
+    var out = [];
+    (keywords || []).forEach(function (k) { if (!THEME_SKIP.test(k) && out.length < 8 && out.indexOf(k) === -1) out.push(k); });
+    return out;
+  }
+  function spoilerish(k) { return SAD_WORDS.test(k) || SCARY_WORDS.test(k); }
+
+  /* ---------- search ---------- */
+  function parseSearch(data) {
+    return ((data && data.results) || []).filter(function (r) {
+      return (r.media_type === "movie" || r.media_type === "tv") && !r.adult;
+    }).slice(0, 8).map(function (r) {
+      var date = r.release_date || r.first_air_date || "";
+      return { type: r.media_type === "movie" ? "movie" : "show", id: r.id, title: r.title || r.name || "",
+        year: date ? Number(date.slice(0, 4)) : null, poster: r.poster_path || null, pop: r.popularity || 0 };
+    }).filter(function (r) { return r.title; });
+  }
+  function searchTitles(q) {
+    q = String(q || "").trim();
+    if (q.length < 2) return Promise.resolve([]);
+    return getJson(API + "/search/multi?query=" + encodeURIComponent(q.slice(0, 80))).then(parseSearch).catch(function () { return []; });
+  }
+  function tokenFor(t) { return (t.type === "movie" ? "m" : "t") + t.id; }
+  function parseToken(tok) {
+    var m = /^([mt])(\d{1,8})$/.exec(String(tok || ""));
+    return m ? { type: m[1] === "m" ? "movie" : "show", id: m[2] } : null;
+  }
+
   function getJson(url) {
     return fetch(url).then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); });
   }
 
-  function fetchDetails(type, id) {
-    var key = type + "-" + id;
+  function fetchDetails(type, id, full) {
+    var key = type + "-" + id + (full ? "-full" : "");
     if (cache.has(key)) return cache.get(key);
     var ep = tmdbType(type);
     var extra = ep === "movie" ? "keywords,release_dates,watch/providers" : "keywords,content_ratings,watch/providers";
+    if (full) extra += ",videos,recommendations";
     var p = getJson(API + "/" + ep + "/" + id + "?append_to_response=" + encodeURIComponent(extra))
-      .then(function (d) { return parseDetails(type, d); })
+      .then(function (d) {
+        var o = parseDetails(type, d);
+        if (full) { o.all = parseProviders(d); o.trailer = parseVideo(d); o.recs = parseRecs(type, d); o.tagline = d.tagline || ""; o.backdrop = d.backdrop_path || null; o.seasons = d.number_of_seasons || null; }
+        return o;
+      })
       .catch(function () { return null; });
     cache.set(key, p);
     return p;
@@ -201,7 +274,8 @@
 
   var api = { norm: norm, esc: esc, fmtRuntime: fmtRuntime, loadMeters: loadMeters, editorial: editorial, estimate: estimate,
     meterFor: meterFor, meterHtml: meterHtml, parseDetails: parseDetails, fetchDetails: fetchDetails,
-    parseList: parseList, buildListUrl: buildListUrl, tally: tally, cleanName: cleanName, MAX_ITEMS: MAX_ITEMS };
+    parseProviders: parseProviders, parseVideo: parseVideo, parseRecs: parseRecs, ageAdvice: ageAdvice, themeChips: themeChips,
+    spoilerish: spoilerish, parseSearch: parseSearch, searchTitles: searchTitles, tokenFor: tokenFor, parseToken: parseToken, parseList: parseList, buildListUrl: buildListUrl, tally: tally, cleanName: cleanName, MAX_ITEMS: MAX_ITEMS };
   if (typeof module !== "undefined" && module.exports) module.exports = api;
   else root.WWK = api;
 })(typeof window !== "undefined" ? window : this);

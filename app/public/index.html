@@ -958,6 +958,7 @@
     <button id="saved-nav-btn" class="share-btn hidden" style="border-color:var(--gold-border);color:var(--gold);">
       🔖 Saved <span id="saved-count-badge"></span>
     </button>
+    <a href="/title" class="nav-blog-link" id="nav-check">Check a title</a>
     <a href="/blog" class="nav-blog-link">Movie Blog</a>
   </div>
 </nav>
@@ -969,6 +970,9 @@
     <h1 class="hero-h1">Find family movies &amp; shows<br/><em>to watch with your kids</em></h1>
     <p class="hero-sub">WatchWithKids is a free movie finder for families. Set the ages, pick a mood, and get picks everyone enjoys in about 10 seconds. No sign-up.</p>
     <a href="#panel-toggle" class="hero-cta" id="hero-cta">Find something to watch</a>
+    <div class="wwk-searchbox" id="hero-search">
+      <input id="hero-q" type="search" placeholder="Or check one title: “Coco”, “Frozen”…" aria-label="Check if a specific movie or show is OK for kids" maxlength="80">
+    </div>
   </div>
 </section>
 
@@ -1284,6 +1288,7 @@
 </div>
 
 <script src="/wwk-core.js"></script>
+<script src="/wwk-search.js"></script>
 <script>
 // ─── CONFIG ──────────────────────────────────────────────────────────────────
 const API   = "/api/tmdb";
@@ -2476,6 +2481,10 @@ if (location.search.length > 1) doSearch(true);
 document.querySelectorAll('.guide-card').forEach(a => a.addEventListener('click', () => { try { track('guide_clicked', { guide: a.dataset.guide, from: 'home' }); } catch(e){} }));
 
 // Hero CTA: open the filter panel (if closed) and scroll to it
+if (window.WWKSearch) WWKSearch.attach(document.getElementById('hero-q'), {
+  onSelect: r => { track('title_search', { source: 'home_suggest' }); location.href = '/title?id=' + WWK.tokenFor(r); },
+  onSubmit: q => { track('title_search', { source: 'home_submit' }); location.href = '/title?q=' + encodeURIComponent(q); }
+});
 document.getElementById('hero-cta')?.addEventListener('click', e => {
   e.preventDefault();
   const body = document.getElementById('panel-body');

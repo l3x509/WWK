@@ -14,3 +14,17 @@
 .wwk-meter .m-lv small{font-size:9px;color:#7e7e98}
 .runtime-chip{font-family:var(--font-mono,monospace);font-size:10px;color:#b9b9d0;border:1px solid #2a2a3a;border-radius:6px;padding:2px 7px;letter-spacing:.04em}
 .card-footer .footer-right{display:flex;gap:6px;align-items:center}
+
+/* ---- title search (homepage box + /title page) ---- */
+.wwk-searchbox{position:relative;max-width:520px;margin:18px auto 0;text-align:left}
+.wwk-searchbox input{width:100%;background:#10101e;border:1px solid #2a2a3a;color:#fafafa;border-radius:100px;padding:13px 20px;font:inherit;font-size:16px}
+.wwk-searchbox input:focus{outline:2px solid #f59e0b;outline-offset:1px}
+.wwk-sugg{position:absolute;left:0;right:0;top:calc(100% + 6px);z-index:50;list-style:none;margin:0;padding:6px;background:#13131f;border:1px solid #2a2a3a;border-radius:14px;box-shadow:0 14px 40px rgba(0,0,0,.5);max-height:min(60vh,420px);overflow:auto}
+.wwk-sugg[hidden]{display:none}
+.wwk-sugg li{display:grid;grid-template-columns:32px 1fr;grid-template-rows:auto auto;column-gap:10px;align-items:center;padding:6px 8px;border-radius:10px;cursor:pointer;color:#fafafa}
+.wwk-sugg li img,.wwk-sugg .sugg-ph{grid-row:1/3;width:32px;height:48px;border-radius:4px;object-fit:cover;background:#0c0c18;display:grid;place-items:center}
+.wwk-sugg .sugg-t{font-size:14px;font-weight:600;line-height:1.2}
+.wwk-sugg .sugg-m{font-family:var(--font-mono,monospace);font-size:11px;color:#9696b0}
+.wwk-sugg li[aria-selected="true"],.wwk-sugg li:hover{background:#1d1d30}
+.wwk-sugg .sugg-empty{display:block;color:#b9b9d0;font-size:13px;cursor:default}
+.nav-check{color:#f59e0b;text-decoration:none;font-size:14px;font-weight:600}

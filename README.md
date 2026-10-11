@@ -35,3 +35,9 @@ Node/Express app: static pages in `app/public/`, plus a locked-down TMDb proxy a
   Everything (titles, name, votes) lives in the URL, so there is no database and no account. `m` = movie, `t` = show;
   votes: `u` yes, `d` no, `-` none. `/list` is `noindex` and not in the sitemap.
 - GA4 events to mark as key events once they appear: `list_shared`, `list_opened`.
+
+## Single-title lookup (`/title`)
+
+Search any movie or show (autocomplete via `/api/tmdb/search/multi?query=`, cached server-side) and get: suggested starting age (derived from the scare/sad meters and US rating), per-age strip, runtime, where to stream (subscription / free / rent / buy, US), spoiler-hidden theme chips, trailer, save / vote-with-co-parent actions, a feedback button (`meter_feedback` GA event) and gentler recommendations.
+`/title?id=m862` (movie) or `t1399` (show) is noindex; the bare `/title` page is indexable. Files: `public/title.html`, `public/wwk-search.js`, helpers in `public/wwk-core.js`.
+Attribution: TMDB notice and JustWatch credit are shown on the page. Note TMDB's API terms limit free use to non-commercial projects, so check licensing while the site runs ads/affiliate links.

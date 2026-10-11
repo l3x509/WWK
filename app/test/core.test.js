@@ -54,3 +54,34 @@ const t = W.tally(parsed.items, parsed.voters);
 assert.deepStrictEqual(t.map(x => x.match), [true, false, false]);   // m550 both yes; show: u/d; m12: d/u
 assert.deepStrictEqual(t[1].no, 1);
 console.log("core tests ok");
+
+// ---- single-title lookup ----
+assert.deepStrictEqual(W.parseToken("m862"), { type: "movie", id: "862" });
+assert.deepStrictEqual(W.parseToken("t1399"), { type: "show", id: "1399" });
+assert.strictEqual(W.parseToken("x1"), null); assert.strictEqual(W.parseToken("m1;drop"), null);
+assert.strictEqual(W.tokenFor({ type: "show", id: 5 }), "t5");
+const S = W.parseSearch({ results: [
+  { media_type: "movie", id: 1, title: "A", release_date: "2001-02-03", poster_path: "/a.jpg" },
+  { media_type: "person", id: 2, name: "B" },
+  { media_type: "tv", id: 3, name: "C", first_air_date: "2010-01-01" },
+  { media_type: "movie", id: 4, title: "X", adult: true }] });
+assert.deepStrictEqual(S.map(x => x.type + x.id), ["movie1", "show3"]);
+assert.strictEqual(S[0].year, 2001);
+const mk = (s, d) => ({ scare: { lvl: s }, sad: { lvl: d } });
+assert.strictEqual(W.ageAdvice(mk(0, 0)).minAge, 3);
+assert.strictEqual(W.ageAdvice(mk(1, 0)).minAge, 7);
+assert.strictEqual(W.ageAdvice(mk(0, 2)).minAge, 5);
+assert.strictEqual(W.ageAdvice(mk(1, 1)).minAge, 8);
+assert.strictEqual(W.ageAdvice(mk(2, 2)).notForKids, true);
+assert.strictEqual(W.ageAdvice(mk(0, 0), "R").notForKids, true);
+assert.strictEqual(W.ageAdvice(mk(2, 0), "PG-13").notForKids, false);
+const ps = W.ageAdvice(mk(1, 0)).perAge;
+assert.deepStrictEqual([ps[0].status, ps[3].status, ps[4].status], ["wait", "maybe", "ok"]); // ages 3, 6, 7
+const pr = W.parseProviders({ "watch/providers": { results: { US: { link: "https://x", flatrate: [{ provider_name: "Netflix", logo_path: "/n.png" }], rent: [{ provider_name: "Amazon Video" }] } } } });
+assert.strictEqual(pr.stream[0].name, "Netflix"); assert.strictEqual(pr.rent[0].isAmazon, true); assert.strictEqual(pr.buy.length, 0);
+assert.strictEqual(W.parseProviders({}).stream.length, 0);
+assert.strictEqual(W.parseVideo({ videos: { results: [{ site: "Vimeo", key: "zzzzzzzz" }, { site: "YouTube", type: "Teaser", key: "teaser123" }, { site: "YouTube", type: "Trailer", official: true, key: "trail1234" }] } }), "trail1234");
+assert.strictEqual(W.parseVideo({ videos: { results: [{ site: "YouTube", type: "Trailer", key: "bad key!" }] } }), null);
+assert(W.spoilerish("death of mother") && !W.spoilerish("toy"));
+assert.deepStrictEqual(W.themeChips(["based on novel", "toy", "toy", "friendship"]), ["toy", "friendship"]);
+console.log("title lookup tests ok");

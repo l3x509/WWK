@@ -40,6 +40,9 @@ const ALLOWED_PATTERNS = [
   /^(movie|tv)\/\d+\/watch\/providers$/,
   /^movie\/\d+\/release_dates$/,
   /^tv\/\d+\/content_ratings$/,
+
+  // Single-title lookup (search box on the homepage and /title)
+  /^search\/multi$/,
 ];
 
 function isAllowedEndpoint(tmdbPath) {
@@ -65,14 +68,17 @@ const ALLOWED_PARAMS = new Set([
   // One detail call can carry the extras a card needs (runtime, age rating,
   // themes, where-to-watch). Values are whitelisted below.
   "append_to_response",
+
+  // Title search text (length-limited and stripped of control characters below)
+  "query",
 ]);
-const APPEND_OK = new Set(["keywords", "release_dates", "content_ratings", "watch/providers", "videos"]);
+const APPEND_OK = new Set(["keywords", "release_dates", "content_ratings", "watch/providers", "videos", "recommendations"]);
 
 // ── Tiny in-memory cache for title-detail lookups (6h, max 3000 entries) ────
 // Cuts TMDb calls and speeds up repeat views; discover results are NOT cached.
 const detailCache = new Map();
-const DETAIL_TTL = 6 * 60 * 60 * 1000;
-const DETAIL_PATH = /^(movie|tv)\/\d+$/;
+const DETAIL_TTL = 6 * 60 * 60 * 1000;   // search results use the same cache (stale titles are harmless)
+const DETAIL_PATH = /^((movie|tv)\/\d+|search\/multi)$/;
 function cacheGet(key) {
   const hit = detailCache.get(key);
   if (!hit) return null;
@@ -164,7 +170,17 @@ app.get("/api/tmdb/*", rateLimit, async (req, res) => {
         if (ok.length) query.set(k, ok.join(","));
         continue;
       }
+      if (k === "query") {
+        const q = String(v).replace(/[\u0000-\u001f]/g, " ").trim().slice(0, 80);
+        if (q.length >= 2) query.set("query", q);
+        continue;
+      }
       query.set(k, String(v).slice(0, 200));
+    }
+    if (tmdbPath === "search/multi") {
+      if (!query.get("query")) return res.status(400).json({ error: "Query too short." });
+      query.set("include_adult", "false");
+      query.set("language", "en-US");
     }
     const cacheKey = DETAIL_PATH.test(tmdbPath) ? `${tmdbPath}?${[...query].sort().map(([a, b]) => a + "=" + b).join("&")}` : null;
     if (cacheKey) {
