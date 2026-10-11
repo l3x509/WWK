@@ -83,6 +83,11 @@ app.use((req, res, next) => {
   next();
 });
 
+// ── Homepage (explicit, so "/" never depends on static index handling) ───────
+app.get("/", (_req, res) => {
+  res.sendFile(path.join(__dirname, "public", "index.html"));
+});
+
 // ── Clean blog URLs (sanitized slug) ─────────────────────────────────────────
 app.get("/blog/:slug", (req, res) => {
   const slug = req.params.slug.replace(/[^a-z0-9-]/gi, "").slice(0, 80);
