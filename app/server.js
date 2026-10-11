@@ -5,7 +5,11 @@ const path    = require("path");
 
 const app  = express();
 const PORT = process.env.PORT || 3000;
-const KEY  = process.env.TMDB_API_KEY;
+// Tolerate stray whitespace/quotes pasted into the host's env-var field.
+const KEY  = (process.env.TMDB_API_KEY || "").trim().replace(/^["']|["']$/g, "");
+// TMDb has two credentials: a 32-char v3 "API Key" and a long JWT "Read Access Token" (starts with eyJ).
+// Accept either one.
+const IS_V4_TOKEN = KEY.startsWith("eyJ");
 
 if (!KEY) {
   console.error("❌  TMDB_API_KEY is not set. Add it to .env or your host's environment variables.");
@@ -125,12 +129,17 @@ app.get("/api/tmdb/*", rateLimit, async (req, res) => {
     for (const [k, v] of Object.entries(req.query)) {
       if (ALLOWED_PARAMS.has(k)) query.set(k, String(v).slice(0, 200));
     }
-    query.set("api_key", KEY);
+    const headers = { Accept: "application/json" };
+    if (IS_V4_TOKEN) headers.Authorization = `Bearer ${KEY}`;
+    else query.set("api_key", KEY);
 
     const upstream = await fetch(
       `https://api.themoviedb.org/3/${tmdbPath}?${query}`,
-      { timeout: 8000 }
+      { timeout: 8000, headers }
     );
+    if (upstream.status === 401) {
+      console.error("TMDb rejected the credential (401). Check TMDB_API_KEY in the host's environment variables.");
+    }
     const data = await upstream.json();
     res.status(upstream.status).json(data);
   } catch (err) {
