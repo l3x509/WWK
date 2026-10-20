@@ -73,7 +73,7 @@
   },
   "encanto": {
    "sad": 1,
-   "scare": 0,
+   "scare": 1,
    "src": [
     "best-movies-for-8-year-olds",
     "thanksgiving-movies-for-kids"
@@ -171,7 +171,7 @@
   },
   "paddington2": {
    "sad": 0,
-   "scare": 0,
+   "scare": 1,
    "src": [
     "best-movies-for-8-year-olds",
     "thanksgiving-movies-for-kids"
