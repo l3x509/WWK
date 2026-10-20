@@ -7,7 +7,7 @@ from playwright.sync_api import sync_playwright
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent / "public"
 SITE = "https://watchwithkids.com"
-ICONS = [("halloween", "🎃"), ("thanksgiving", "🦃"), ("bedtime", "🌙"), ("rainy", "🌧️"), ("netflix", "🎬"), ("amazon", "📦"), ("disney", "🏰"),
+ICONS = [("halloween", "🎃"), ("thanksgiving", "🦃"), ("christmas", "🎄"), ("bedtime", "🌙"), ("rainy", "🌧️"), ("netflix", "🎬"), ("amazon", "📦"), ("disney", "🏰"),
          ("screen-time", "⏱️"), ("ratings", "🔎"), ("siblings", "👫"), ("spider", "🕷️"), ("toy-story", "🤠"), ("moana", "🌊"),
          ("shows", "📺"), ("year-old", "🍿"), ("parents", "🛋️"), ("new-family", "✨")]
 

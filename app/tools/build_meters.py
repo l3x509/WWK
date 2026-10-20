@@ -44,7 +44,7 @@ def put(title, year, scare, sad, src):
     T[k] = rec
 
 # 1) guides with a <table class="meter"> (Film / Scary / Sad, then any extra columns)
-for slug in ("best-movies-for-8-year-olds", "thanksgiving-movies-for-kids"):
+for slug in ("best-movies-for-8-year-olds", "thanksgiving-movies-for-kids", "christmas-movies-for-kids"):
     s = read(f"blog/{slug}.html")
     for tr in re.findall(r'<tr><td>(.*?)</td><td class="lv-(\w+)">.*?</td><td class="lv-(\w+)">.*?</td></tr>', s):
         put(tr[0], None, LV[tr[1]], LV[tr[2]], slug)

@@ -12,6 +12,7 @@ GUIDES = {
  "disney-plus-family-movies-by-age": ("Disney+ Family Movies by Age", "By service"),
  "best-family-movies-amazon-prime": ("Best Family Movies on Amazon Prime", "By service"),
  "best-halloween-movies-for-kids": ("Best Halloween Movies for Kids, by Scare Level", "Seasonal"),
+ "christmas-movies-for-kids": ("Christmas Movies for Kids, by Scare Level and Streaming Service", "Seasonal"),
  "thanksgiving-movies-for-kids": ("Thanksgiving Movies for Kids, by Scare Level and Streaming Service", "Seasonal"),
  "new-family-movies-this-month": ("New Family Movies & Shows This Month", "New releases"),
  "toy-story-5-appropriate-for-kids": ("Is Toy Story 5 Appropriate for Kids?", "Parent guide"),
@@ -25,7 +26,8 @@ GUIDES = {
  "screen-time-guidelines-by-age-2026": ("Screen Time Guidelines by Age (2026)", "Screen time"),
 }
 RELATED = {
- "thanksgiving-movies-for-kids": ["best-halloween-movies-for-kids","movies-for-siblings-different-ages","best-family-movies-netflix","disney-plus-family-movies-by-age"],
+ "christmas-movies-for-kids": ["thanksgiving-movies-for-kids","best-family-movies-netflix","disney-plus-family-movies-by-age","movies-for-siblings-different-ages"],
+ "thanksgiving-movies-for-kids": ["christmas-movies-for-kids","best-halloween-movies-for-kids","movies-for-siblings-different-ages","best-family-movies-netflix","disney-plus-family-movies-by-age"],
  "best-movies-for-3-year-olds": ["age-appropriate-movies-4-year-olds","calm-bedtime-movies-kids","best-shows-for-5-year-olds","screen-time-guidelines-by-age-2026"],
  "age-appropriate-movies-4-year-olds": ["best-movies-for-3-year-olds","best-shows-for-5-year-olds","calm-bedtime-movies-kids","movie-ratings-guide-parents"],
  "best-shows-for-5-year-olds": ["age-appropriate-movies-4-year-olds","best-movies-for-6-year-olds","calm-bedtime-movies-kids","screen-time-guidelines-by-age-2026"],
