@@ -5,6 +5,14 @@
   "High"
  ],
  "titles": {
+  "acharliebrownthanksgiving": {
+   "sad": 0,
+   "scare": 0,
+   "src": [
+    "thanksgiving-movies-for-kids"
+   ],
+   "title": "A Charlie Brown Thanksgiving"
+  },
   "casper": {
    "scare": 0,
    "src": [
@@ -43,7 +51,8 @@
    "sad": 1,
    "scare": 0,
    "src": [
-    "best-movies-for-8-year-olds"
+    "best-movies-for-8-year-olds",
+    "thanksgiving-movies-for-kids"
    ],
    "title": "Encanto"
   },
@@ -55,6 +64,14 @@
    ],
    "title": "Ernest & Célestine"
   },
+  "fantasticmrfox": {
+   "sad": 0,
+   "scare": 1,
+   "src": [
+    "thanksgiving-movies-for-kids"
+   ],
+   "title": "Fantastic Mr. Fox"
+  },
   "frankenweenie": {
    "scare": 1,
    "src": [
@@ -62,6 +79,14 @@
    ],
    "title": "Frankenweenie",
    "year": 2012
+  },
+  "freebirds": {
+   "sad": 1,
+   "scare": 1,
+   "src": [
+    "thanksgiving-movies-for-kids"
+   ],
+   "title": "Free Birds"
   },
   "goosebumps": {
    "scare": 1,
@@ -123,7 +148,8 @@
    "sad": 0,
    "scare": 0,
    "src": [
-    "best-movies-for-8-year-olds"
+    "best-movies-for-8-year-olds",
+    "thanksgiving-movies-for-kids"
    ],
    "title": "Paddington 2"
   },
@@ -195,7 +221,8 @@
    "sad": 0,
    "scare": 0,
    "src": [
-    "best-movies-for-8-year-olds"
+    "best-movies-for-8-year-olds",
+    "thanksgiving-movies-for-kids"
    ],
    "title": "The Mitchells vs. the Machines"
   },

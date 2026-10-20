@@ -12,6 +12,7 @@ GUIDES = {
  "disney-plus-family-movies-by-age": ("Disney+ Family Movies by Age", "By service"),
  "best-family-movies-amazon-prime": ("Best Family Movies on Amazon Prime", "By service"),
  "best-halloween-movies-for-kids": ("Best Halloween Movies for Kids, by Scare Level", "Seasonal"),
+ "thanksgiving-movies-for-kids": ("Thanksgiving Movies for Kids, by Scare Level and Streaming Service", "Seasonal"),
  "new-family-movies-this-month": ("New Family Movies & Shows This Month", "New releases"),
  "toy-story-5-appropriate-for-kids": ("Is Toy Story 5 Appropriate for Kids?", "Parent guide"),
  "spider-man-brand-new-day-appropriate-for-kids": ("Is Spider-Man: Brand New Day Appropriate for Kids?", "Parent guide"),
@@ -24,6 +25,7 @@ GUIDES = {
  "screen-time-guidelines-by-age-2026": ("Screen Time Guidelines by Age (2026)", "Screen time"),
 }
 RELATED = {
+ "thanksgiving-movies-for-kids": ["best-halloween-movies-for-kids","movies-for-siblings-different-ages","best-family-movies-netflix","disney-plus-family-movies-by-age"],
  "best-movies-for-3-year-olds": ["age-appropriate-movies-4-year-olds","calm-bedtime-movies-kids","best-shows-for-5-year-olds","screen-time-guidelines-by-age-2026"],
  "age-appropriate-movies-4-year-olds": ["best-movies-for-3-year-olds","best-shows-for-5-year-olds","calm-bedtime-movies-kids","movie-ratings-guide-parents"],
  "best-shows-for-5-year-olds": ["age-appropriate-movies-4-year-olds","best-movies-for-6-year-olds","calm-bedtime-movies-kids","screen-time-guidelines-by-age-2026"],
@@ -35,7 +37,7 @@ RELATED = {
  "best-family-movies-netflix": ["disney-plus-family-movies-by-age","best-family-movies-amazon-prime","new-family-movies-this-month","best-movies-for-8-year-olds"],
  "disney-plus-family-movies-by-age": ["best-family-movies-netflix","best-family-movies-amazon-prime","moana-2026-appropriate-for-kids","movies-for-siblings-different-ages"],
  "best-family-movies-amazon-prime": ["best-family-movies-netflix","disney-plus-family-movies-by-age","new-family-movies-this-month","rainy-day-movies-for-kids"],
- "best-halloween-movies-for-kids": ["best-movies-for-8-year-olds","best-movies-for-7-year-olds","movie-ratings-guide-parents","new-family-movies-this-month"],
+ "best-halloween-movies-for-kids": ["thanksgiving-movies-for-kids","best-movies-for-8-year-olds","best-movies-for-7-year-olds","new-family-movies-this-month"],
  "new-family-movies-this-month": ["best-halloween-movies-for-kids","toy-story-5-appropriate-for-kids","best-family-movies-netflix","moana-2026-appropriate-for-kids"],
  "toy-story-5-appropriate-for-kids": ["new-family-movies-this-month","best-movies-for-6-year-olds","moana-2026-appropriate-for-kids","movie-ratings-guide-parents"],
  "spider-man-brand-new-day-appropriate-for-kids": ["best-movies-for-10-year-olds","best-movies-for-9-year-olds","movie-ratings-guide-parents","new-family-movies-this-month"],

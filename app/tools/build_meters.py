@@ -43,10 +43,11 @@ def put(title, year, scare, sad, src):
     rec["src"] = sorted(set(cur.get("src", []) + [src]))
     T[k] = rec
 
-# 1) 8-year-olds meter table
-s = read("blog/best-movies-for-8-year-olds.html")
-for tr in re.findall(r'<tr><td>(.*?)</td><td class="lv-(\w+)">.*?</td><td class="lv-(\w+)">.*?</td></tr>', s):
-    put(tr[0], None, LV[tr[1]], LV[tr[2]], "best-movies-for-8-year-olds")
+# 1) guides with a <table class="meter"> (Film / Scary / Sad, then any extra columns)
+for slug in ("best-movies-for-8-year-olds", "thanksgiving-movies-for-kids"):
+    s = read(f"blog/{slug}.html")
+    for tr in re.findall(r'<tr><td>(.*?)</td><td class="lv-(\w+)">.*?</td><td class="lv-(\w+)">.*?</td></tr>', s):
+        put(tr[0], None, LV[tr[1]], LV[tr[2]], slug)
 
 # 2) Halloween levels (scare only)
 s = read("blog/best-halloween-movies-for-kids.html")
