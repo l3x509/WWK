@@ -262,7 +262,7 @@ table.meter th{font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;t
     <tr><td>Encanto</td><td class="lv-medium">Medium</td><td class="lv-medium">Medium</td><td>PG</td><td>102 min</td></tr>
     <tr><td>Free Birds</td><td class="lv-medium">Medium</td><td class="lv-medium">Medium</td><td>PG</td><td>91 min</td></tr>
     <tr><td>Fantastic Mr. Fox</td><td class="lv-medium">Medium</td><td class="lv-low">Low</td><td>PG</td><td>87 min</td></tr>
-    <tr><td>The Mitchells vs. the Machines</td><td class="lv-low">Low</td><td class="lv-low">Low</td><td>PG</td><td>110 min</td></tr>
+    <tr><td>The Mitchells vs. the Machines</td><td class="lv-low">Low</td><td class="lv-low">Low</td><td>PG</td><td>113 min</td></tr>
   </tbody>
 </table></div>
 
@@ -299,7 +299,7 @@ table.meter th{font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;t
 </div>
 <div class="film-entry">
   <div class="film-title"><a class="inline" href="/title?id=m501929">The Mitchells vs. the Machines</a> (2021)</div>
-  <div class="film-meta">PG · 110 min · Family road trip</div>
+  <div class="film-meta">PG · 113 min · Family road trip</div>
   <p>A family road trip while robots take over. The danger is constant but played for laughs, and the heart of it is a very recognizable family. Fine for most kids from about 7, though a few robot scenes can feel intense for the very sensitive.</p>
 </div>
 
@@ -373,6 +373,19 @@ table.meter th{font-family:var(--font-mono);font-size:11px;letter-spacing:.1em;t
         f.style.display='none'; document.getElementById('wwk-signup-ok').style.display='block';
       })
       .catch(function(){ b.disabled=false; alert('Sorry, that did not go through. Please try again.'); });
+  });
+})();
+</script>
+<!--wwk-events-->
+<script>
+(function(){
+  function send(n,p){ try{ if(window.gtag) gtag('event',n,p); }catch(e){} }
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('a[href]'); if(!a) return;
+    var h=a.getAttribute('href')||'', page=location.pathname.replace(/^\/blog\//,'').slice(0,80);
+    if(/^\/title(\?|$)/.test(h)) send('blog_title_click',{page:page,target:h.slice(0,80)});
+    else if(/^\/(\?|$)/.test(h)) send('blog_finder_click',{page:page});
+    else if(/^\/blog\/[a-z0-9-]+/.test(h)) send('blog_guide_click',{page:page,target:h.slice(6,86)});
   });
 })();
 </script>

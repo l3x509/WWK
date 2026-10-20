@@ -260,6 +260,19 @@ footer{border-top:1px solid #101020;padding:34px 24px;text-align:center;margin-t
   });
 })();
 </script>
+<!--wwk-events-->
+<script>
+(function(){
+  function send(n,p){ try{ if(window.gtag) gtag('event',n,p); }catch(e){} }
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('a[href]'); if(!a) return;
+    var h=a.getAttribute('href')||'', page=location.pathname.replace(/^\/blog\//,'').slice(0,80);
+    if(/^\/title(\?|$)/.test(h)) send('blog_title_click',{page:page,target:h.slice(0,80)});
+    else if(/^\/(\?|$)/.test(h)) send('blog_finder_click',{page:page});
+    else if(/^\/blog\/[a-z0-9-]+/.test(h)) send('blog_guide_click',{page:page,target:h.slice(6,86)});
+  });
+})();
+</script>
 </article>
 <footer>
   <div class="footer-links">

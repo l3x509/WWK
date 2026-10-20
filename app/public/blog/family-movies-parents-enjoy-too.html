@@ -28,10 +28,34 @@
   "headline":"Family Movies Parents Actually Enjoy Too: What to Look For",
   "description":"Why some family films work for adults and others don't — the qualities to look for, the studios that consistently deliver, and the warning signs of an endurance film.",
   "datePublished":"2026-06-26",
-  "dateModified":"2026-06-26",
+  "dateModified":"2026-10-19",
   "author":{"@type":"Organization","name":"WatchWithKids"},
   "publisher":{"@type":"Organization","name":"WatchWithKids","url":"https://watchwithkids.com"},
   "url":"https://watchwithkids.com/blog/family-movies-parents-enjoy-too"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What family movies do parents actually enjoy?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Films with characters who have an inner life, humor that works on more than one level, real stakes and visual ambition. Paddington 2, Coco, Klaus, My Neighbor Totoro, The Mitchells vs. the Machines and Spider-Man: Into the Spider-Verse all fit."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is Parent Enjoyment Mode?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A WatchWithKids filter that only shows titles with a vote average of 7.5 or higher, with a minimum number of votes so the rating is meaningful."
+      }
+    }
+  ]
 }
 </script>
 <!-- Google tag (gtag.js) -->
@@ -143,7 +167,7 @@ footer{border-top:1px solid #101020;padding:34px 24px;text-align:center;margin-t
 <h1 class="article-h1">Family Movies Parents Actually Enjoy Too</h1>
 <div class="article-meta">
   <span>🍿 WatchWithKids</span>
-  <span>June 26, 2026</span>
+  <span>Updated October 19, 2026</span>
   <span>9 min read</span>
 </div>
 
@@ -185,6 +209,19 @@ footer{border-top:1px solid #101020;padding:34px 24px;text-align:center;margin-t
 
 <p><strong>Cartoon Saloon</strong> (the Irish studio behind <em>Song of the Sea</em>, <em>The Secret of Kells</em>, <em>Wolfwalkers</em>) makes smaller, quieter films grounded in Celtic mythology and hand-drawn animation. Deeply adult-friendly, especially for viewers interested in art and visual culture.</p>
 
+<h2 id="picks">Six films that pass the test</h2>
+
+<p>Each of these meets at least two of the qualities above. Ages are Common Sense Media's recommendations, and streaming was checked on JustWatch on October 19, 2026 (US). Libraries change, so confirm before you plan the night.</p>
+
+<ul>
+  <li><strong><a class="inline" href="/title?id=m346648">Paddington 2</a> (PG, 104 min, HBO Max).</strong> Warm and funny, with a plot that works for adults. Common Sense Media says 6+ for a train chase, a villain with a sword and a sad scene where Paddington cries alone.</li>
+  <li><strong>Coco (PG, 105 min, Disney+).</strong> Stakes that do not flinch, and a story about memory and family. Common Sense Media says 7+ and notes the film is sad and some viewers cry.</li>
+  <li><strong><a class="inline" href="/title?id=m508965">Klaus</a> (PG, 96 min, Netflix).</strong> Hand-drawn animation with real visual ambition. Common Sense Media says 6+ and notes the death of a loved one.</li>
+  <li><strong>My Neighbor Totoro (G, about 86 min, HBO Max).</strong> The Ghibli example from above, and the gentlest film here. Common Sense Media says 5+.</li>
+  <li><strong><a class="inline" href="/title?id=m501929">The Mitchells vs. the Machines</a> (PG, 113 min, Netflix).</strong> Jokes on more than one level and a visual style full of invention. Common Sense Media says 8+ for frequent robot peril played for laughs.</li>
+  <li><strong>Spider-Man: Into the Spider-Verse (PG, 117 min, Netflix).</strong> The most visually ambitious film on the list. Common Sense Media says 9+ for large-scale action, guns and two character deaths, so it is one for older kids.</li>
+</ul>
+
 <h2>Warning signs of a parent-endurance film</h2>
 
 <p>These are patterns that usually indicate a film made primarily for children without much thought for the adults in the room:</p>
@@ -211,6 +248,12 @@ footer{border-top:1px solid #101020;padding:34px 24px;text-align:center;margin-t
   <p>Turn on Parent Enjoyment Mode in WatchWithKids to filter to highly-rated picks parents and kids both genuinely enjoy.</p>
   <a href="/" class="cta-btn">🍿 Find something to watch</a>
 </div>
+<h2 id="faq">FAQ</h2>
+<h3>What family movies do parents actually enjoy?</h3>
+<p>Films with characters who have an inner life, humor that works on more than one level, real stakes and visual ambition. Paddington 2, Coco, Klaus, My Neighbor Totoro, The Mitchells vs. the Machines and Spider-Man: Into the Spider-Verse all fit.</p>
+<h3>What is Parent Enjoyment Mode?</h3>
+<p>A WatchWithKids filter that only shows titles with a vote average of 7.5 or higher, with a minimum number of votes so the rating is meaningful.</p>
+
 <!--wwk-related-start-->
 <aside class="related-guides" aria-label="Related guides">
 <h2>Keep reading</h2>
@@ -242,6 +285,19 @@ footer{border-top:1px solid #101020;padding:34px 24px;text-align:center;margin-t
         f.style.display='none'; document.getElementById('wwk-signup-ok').style.display='block';
       })
       .catch(function(){ b.disabled=false; alert('Sorry, that did not go through. Please try again.'); });
+  });
+})();
+</script>
+<!--wwk-events-->
+<script>
+(function(){
+  function send(n,p){ try{ if(window.gtag) gtag('event',n,p); }catch(e){} }
+  document.addEventListener('click',function(e){
+    var a=e.target.closest&&e.target.closest('a[href]'); if(!a) return;
+    var h=a.getAttribute('href')||'', page=location.pathname.replace(/^\/blog\//,'').slice(0,80);
+    if(/^\/title(\?|$)/.test(h)) send('blog_title_click',{page:page,target:h.slice(0,80)});
+    else if(/^\/(\?|$)/.test(h)) send('blog_finder_click',{page:page});
+    else if(/^\/blog\/[a-z0-9-]+/.test(h)) send('blog_guide_click',{page:page,target:h.slice(6,86)});
   });
 })();
 </script>
